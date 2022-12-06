@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import AppProvider from "./AppProvider";
-
-// import "./App.scss"
+import { Routes, Route } from "react-router";
+import { ApplicationProvider } from "./context.js";
+import HomePage from "./pages/HomePage/HomePage.jsx";
+import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 
 const App = () => {
   const [token, setToken] = useState("");
-
-  console.log(token);
 
   function getToken() {
     fetch("http://localhost:3333/login", {
@@ -25,9 +24,48 @@ const App = () => {
 
   return (
     <>
-      <AppProvider token={token} />
+      <ApplicationProvider value={token}>
+        <Routes>
+          <Route exact path="/" element={<LoginPage />} />
+          <Route path="/home" element={<HomePage />} />
+        </Routes>
+      </ApplicationProvider>
     </>
   );
 };
 
 export default App;
+
+// function fetchCandidates() {
+//   fetch("http://localhost:3333/api/candidates", {
+//     method: "GET",
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//       "Content-type": "application/json",
+//     },
+//   })
+//     .then((res) => res.json())
+//     .then((res) => setCandidates(res));
+// }
+
+// function fetchReports() {
+//   fetch("http://localhost:3333/api/reports", {
+//     method: "GET",
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//       "Content-type": "application/json",
+//     },
+//   })
+//     .then((res) => res.json())
+//     .then((res) => setReports(res));
+// }
+
+// useEffect(() => {
+//   fetchReports();
+//   console.log(reports);
+// }, []);
+
+// // useEffect(() => {
+// //   fetchCandidates();
+// //   console.log(candidates);
+// // }, []);

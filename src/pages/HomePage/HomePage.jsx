@@ -1,10 +1,15 @@
-import React from 'react'
-import "./HomePage.scss"
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "./HomePage.scss";
 
-const HomePage = () => {
+const HomePage = ({ token, candidates }) => {
+  console.log(candidates);
+
   return (
-    <div>HomePage</div>
-  )
-}
+    <>
+      <Link to="/home">lala</Link>
+    </>
+  );
+};
 
-export default HomePage
+export default HomePage;
