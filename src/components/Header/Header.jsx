@@ -6,6 +6,7 @@ const Header = () => {
   return (
     <div>
         <h1>bla bla</h1>
+        <h2>Test </h2>
       <header>header</header>
     </div>
   );
