@@ -4,7 +4,6 @@ import AppProvider from "./AppProvider";
 // import "./App.scss"
 
 const App = () => {
-
   const [token, setToken] = useState("");
 
   console.log(token);
@@ -19,19 +18,16 @@ const App = () => {
       }),
     })
       .then((res) => res.json())
-      .then((res) => setToken(res.accessToken));
+      .then((res) => setToken(res?.accessToken));
   }
 
   useEffect(() => getToken(), []);
 
-
-
-
-
-
-  return <>
-  <AppProvider token={token}/>
-  </>;
+  return (
+    <>
+      <AppProvider token={token} />
+    </>
+  );
 };
 
 export default App;
