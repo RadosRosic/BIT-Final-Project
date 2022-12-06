@@ -7,6 +7,7 @@ const Header = () => {
     <div>
         <h1>Bla Bla</h1>
       <header>header</header>
+      <p>dobar dan</p>
     </div>
   );
 };
