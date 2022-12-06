@@ -1,31 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { ApplicationProvider } from './context.js';
+import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import { ApplicationProvider } from "./context.js";
+import HomePage from "./pages/HomePage/HomePage";
+import ReportPage from "./pages/ReportPage/ReportPage";
 
 const App = () => {
-  const [token, setToken] = useState('');
+  const [token, setToken] = useState("");
+  const [candidates, setCandidates] = useState([]);
 
-  console.log(token);
-
-  function getToken() {
-    fetch('http://localhost:3333/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email: 'dev@dev.com',
-        password: 'developer',
-      }),
-    })
+  const fetchUsers = () => {
+    fetch("http://localhost:3333/api/candidates")
       .then((res) => res.json())
-      .then((res) => setToken(res.accessToken));
-  }
-
-  useEffect(() => getToken(), []);
+      .then((data) => setCandidates(data));
+  };
 
   return (
     <>
-      <ApplicationProvider>
-        <div>App</div>
-      </ApplicationProvider>
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            <LoginPage
+              setToken={setToken}
+              setCandidates={setCandidates}
+              fetchUsers={fetchUsers}
+            />
+          }
+        />
+        <Route path="/home" element={<HomePage candidates={candidates} />} />
+        <Route path="/reports" element={<ReportPage />} />
+      </Routes>
     </>
   );
 };

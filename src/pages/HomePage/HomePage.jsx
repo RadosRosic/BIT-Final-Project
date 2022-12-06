@@ -1,10 +1,15 @@
-import React from 'react'
-import "./HomePage.scss"
+import React from "react";
+import "./HomePage.scss";
 
-const HomePage = () => {
+const HomePage = ({ candidates }) => {
   return (
-    <div>HomePage</div>
-  )
-}
+    <div>
+      HomePage
+      {candidates.map((e) => (
+        <div>{e.name}</div>
+      ))}
+    </div>
+  );
+};
 
-export default HomePage
+export default HomePage;
