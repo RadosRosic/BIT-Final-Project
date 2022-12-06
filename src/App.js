@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import AppProvider from "./AppProvider";
 
 // import "./App.scss"
 
 const App = () => {
-
+  const [candidates, setCandidates] = useState([]);
+  const [reports, setReports] = useState([]);
   const [token, setToken] = useState("");
 
   console.log(token);
@@ -24,14 +24,34 @@ const App = () => {
 
   useEffect(() => getToken(), []);
 
+  function fetchCandidates() {
+    fetch("http://localhost:3333/api/candidates", {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((res) => setCandidates(res));
+  }
+  // setTimeout(() => {
+  //   fetchCandidates();
+  //   fetchReports();
+  // }, 3000);
 
+  function fetchReports() {
+    fetch("http://localhost:3333/api/reports", {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((res) => setReports(res));
+  }
 
-
-
-
-  return <>
-  <AppProvider token={token}/>
-  </>;
+  return <div>
+    
+  </div>;
 };
 
 export default App;
