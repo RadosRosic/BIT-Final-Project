@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./LoginPage.scss";
 
-const LoginPage = ({ setToken, fetchUsers }) => {
+const LoginPage = ({ token, setToken, fetchCandidates }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,7 +16,9 @@ const LoginPage = ({ setToken, fetchUsers }) => {
       }),
     })
       .then((res) => res.json())
-      .then((res) => setToken(res.accessToken));
+      .then((res) => {
+        setToken(res.accessToken);
+      });
   };
 
   return (
@@ -27,10 +29,19 @@ const LoginPage = ({ setToken, fetchUsers }) => {
           type="password"
           onChange={(event) => setPassword(event.target.value)}
         />
-        <button onClick={() => attemptLogIn()}>Sign in</button>
+
+        <button
+          onClick={() => {
+            attemptLogIn();
+            console.log(token);
+          }}
+        >
+          Sign in
+        </button>
+
         <Link to="/home">
-          <button onClick={() => fetchUsers()}>
-            Continiue without logging in
+          <button onClick={() => fetchCandidates()}>
+            Continue without logging in
           </button>
         </Link>
       </div>
