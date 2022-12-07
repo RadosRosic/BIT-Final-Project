@@ -1,42 +1,50 @@
-import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router";
-import { Link } from "react-router-dom";
-import HomePage from "../HomePage/HomePage";
+import React, { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import "./LoginPage.scss";
 
-const LoginPage = ({ token }) => {
-  const [candidates, setCandidates] = useState([]);
+const LoginPage = ({ token, setToken, fetchCandidates }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  function fetchCandidates() {
-    fetch("http://localhost:3333/api/candidates", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-type": "application/json",
-      },
+  const attemptLogIn = () => {
+    fetch("http://localhost:3333/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
     })
       .then((res) => res.json())
       .then((res) => {
-        setCandidates(res);
+        setToken(res.accessToken);
       });
-  }
+  };
 
   return (
     <>
-      Proceed without login
-      <Link to="/home">
+      <div>
+        <input type="text" onChange={(event) => setEmail(event.target.value)} />
+        <input
+          type="password"
+          onChange={(event) => setPassword(event.target.value)}
+        />
+
         <button
           onClick={() => {
-            fetchCandidates();
-            console.log(candidates);
+            attemptLogIn();
+            console.log(token);
           }}
         >
-          Click
+          Sign in
         </button>
-        <Routes>
-          <Route path="/home" element={<HomePage candidates={candidates}/>} />
-        </Routes>
-      </Link>
+
+        <Link to="/home">
+          <button onClick={() => fetchCandidates()}>
+            Continue without logging in
+          </button>
+        </Link>
+      </div>
     </>
   );
 };
