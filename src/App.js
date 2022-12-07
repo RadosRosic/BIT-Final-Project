@@ -14,6 +14,7 @@ const App = () => {
   const [candidates, setCandidates] = useState([]);
   const [reports, setReports] = useState([]);
   const [companies, setCompanies] = useState([]);
+  const [filterCandidates, setFilterCandidates] = useState(candidates);
 
   const fetchCandidates = () => {
     fetch("http://localhost:3333/api/candidates")
@@ -38,6 +39,16 @@ const App = () => {
     fetchCompanies();
     fetchCandidates();
   }, []);
+
+  const filterThrughCandidates = (searchValue) => {
+    if (!searchValue) {
+      setFilterCandidates(candidates);
+    } else {
+      setFilterCandidates(
+        candidates.filter((e) => e.name.toLowerCase().startsWith(searchValue))
+      );
+    }
+  };
 
   return (
     <>

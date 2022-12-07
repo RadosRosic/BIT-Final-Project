@@ -1,5 +1,4 @@
-import React, { useEffect, useContext } from "react";
-
+import React from "react";
 import "./ReportPage.scss";
 
 const ReportPage = () => {
@@ -9,6 +8,7 @@ const ReportPage = () => {
     <div>
       ReportPage
       <p>Logged in!</p>
+      <button onClick={() => localStorage.removeItem("token")}>Log Out</button>
     </div>
   );
 };

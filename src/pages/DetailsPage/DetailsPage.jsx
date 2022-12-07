@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import "./DetailsPage.scss";
 import { useParams } from "react-router-dom";
 import Moment from "react-moment";
-import {applicationContext} from "../../context"
+import { applicationContext } from "../../context";
 
 const DetailsPage = () => {
   const [candidate, setCandidate] = useState({});
