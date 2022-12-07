@@ -4,7 +4,12 @@ import { ApplicationProvider } from "./context.js";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
 import ReportPage from "./pages/ReportPage/ReportPage";
+import DetailsPage from "./pages/DetailsPage/DetailsPage"
 import ErrorPage from "./ErrorPage";
+
+
+
+
 
 const App = () => {
   const [token, setToken] = useState("");
@@ -62,7 +67,8 @@ const App = () => {
         <Route path="/home" element={<HomePage />} />
         <Route path="/reports" element={<ReportPage  />} />
         <Route path="/" element={<Navigate to="/login" replace/>}/>
-        
+        //useParams
+        <Route path="/details/:id" element={<DetailsPage />} />
       </Routes>
       </ApplicationProvider>
     </>

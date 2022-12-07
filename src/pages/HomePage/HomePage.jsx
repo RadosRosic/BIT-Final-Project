@@ -7,7 +7,7 @@ import Modal from "../../components/Modal/Modal";
 
 const HomePage = () => {
   const {candidates}= useContext(applicationContext)
-  console.log(candidates);
+  
   
 
   return (
@@ -19,7 +19,7 @@ const HomePage = () => {
       </div>
       <div className="cards">
         {candidates.map((e, i) => {
-          return <Card candidates={candidates} el={e} key={i} />;
+          return <Card el={e} key={i} />;
         })}
       </div>
       <Modal/>
