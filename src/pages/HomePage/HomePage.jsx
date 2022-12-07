@@ -1,10 +1,14 @@
-import React from "react";
+import React,{useContext} from "react";
+import { applicationContext } from "../../context";
 import "./HomePage.scss";
 import Card from "../../components/Card/Card";
 import Search from "../../components/Search/Search"
+import Modal from "../../components/Modal/Modal";
 
-const HomePage = ({ candidates }) => {
+const HomePage = () => {
+  const {candidates}= useContext(applicationContext)
   console.log(candidates);
+  
 
   return (
     <div>
@@ -18,6 +22,7 @@ const HomePage = ({ candidates }) => {
           return <Card candidates={candidates} el={e} key={i} />;
         })}
       </div>
+      <Modal/>
     </div>
   );
 };

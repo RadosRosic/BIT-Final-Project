@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import LoginPage from "./pages/LoginPage/LoginPage";
 import { ApplicationProvider } from "./context.js";
+import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
 import ReportPage from "./pages/ReportPage/ReportPage";
 import ErrorPage from "./ErrorPage";
@@ -9,6 +9,8 @@ import ErrorPage from "./ErrorPage";
 const App = () => {
   const [token, setToken] = useState("");
   const [candidates, setCandidates] = useState([]);
+  const [reports, setReports] = useState([]);
+  const [companies, setCompanies] = useState([])
 
   const fetchCandidates = () => {
     fetch("http://localhost:3333/api/candidates")
@@ -16,10 +18,30 @@ const App = () => {
       .then((data) => setCandidates(data));
   };
 
-  useEffect(() => fetchCandidates(), []);
+  const fetchReports = () => {
+    fetch("http://localhost:3333/api/reports")
+      .then((res) => res.json())
+      .then((data) => setReports(data));
+  };
+
+  const fetchCompanies = () => {
+    fetch("http://localhost:3333/api/companies")
+      .then((res) => res.json())
+      .then((data) => setCompanies(data));
+  }; 
+
+  
+
+  useEffect(() => {
+    fetchReports();
+    fetchCompanies(); 
+    fetchCandidates()
+  }, []);
+
 
   return (
     <>
+    <ApplicationProvider value={{candidates, reports}}>
       <Routes>
       {/* <Route exact path="/">
         <Redirect to="/login" >
@@ -36,10 +58,13 @@ const App = () => {
             />
           }
         />
-        <Route path="/home" element={<HomePage candidates={candidates} />} />
-        <Route path="/reports" element={<ReportPage />} />
+        
+        <Route path="/home" element={<HomePage />} />
+        <Route path="/reports" element={<ReportPage  />} />
         <Route path="/" element={<Navigate to="/login" replace/>}/>
+        
       </Routes>
+      </ApplicationProvider>
     </>
   );
 };
