@@ -1,9 +1,12 @@
-import React from 'react'
+import React,{ useContext} from 'react'
 import "./Modal.scss"
+import { applicationContext } from '../../context'
 
 const Modal = () => {
+  const {reports} = useContext(applicationContext)
+  console.log(reports);
   return (
-    <div>Modal</div>
+    <div></div>
   )
 }
 
