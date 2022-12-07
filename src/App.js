@@ -15,6 +15,10 @@ const App = () => {
       .then((data) => setCandidates(data));
   };
 
+useEffect (() =>
+fetchUsers()
+, [])
+
   return (
     <>
       <Routes>
