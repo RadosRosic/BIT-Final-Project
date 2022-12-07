@@ -42,6 +42,7 @@ const App = () => {
   return (
     <>
     <ApplicationProvider value={{candidates, reports}}>
+      
       <Routes>
       {/* <Route exact path="/">
         <Redirect to="/login" >

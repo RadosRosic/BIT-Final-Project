@@ -1,10 +1,16 @@
 import React from 'react'
 import "./Search.scss"
 
-const Search = () => {
+const Search = ({onChange}) => {
+
+
+const handleChange = e => {
+  onChange(e.target.value);
+}
+
   return (
     <div>
-      <input type="text" placeholder="Search"></input>
+      <input onChange={handleChange} type="text" placeholder="Search"></input>
     </div>
   )
 }
