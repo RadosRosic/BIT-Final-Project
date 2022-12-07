@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useParams } from "react";
 import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import { ApplicationProvider } from "./context.js";
@@ -14,6 +14,10 @@ const App = () => {
       .then((res) => res.json())
       .then((data) => setCandidates(data));
   };
+
+useEffect (() =>
+fetchUsers()
+, [])
 
   return (
     <>
