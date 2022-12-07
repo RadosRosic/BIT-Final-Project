@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import { ApplicationProvider } from "./context.js";
 import HomePage from "./pages/HomePage/HomePage";
@@ -18,7 +18,11 @@ const App = () => {
   return (
     <>
       <Routes>
+      {/* <Route exact path="/">
+        <Redirect to="/login" >
+      </Route> */}
         <Route
+        exact
           path="/login"
           element={
             <LoginPage
@@ -30,6 +34,7 @@ const App = () => {
         />
         <Route path="/home" element={<HomePage candidates={candidates} />} />
         <Route path="/reports" element={<ReportPage />} />
+        <Route path="/" element={<Navigate to="/login" replace/>}/>
       </Routes>
     </>
   );
