@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Routes, Route, useParams } from "react-router-dom";
+import React, { useState, useEffect, useParams } from "react";
+import { Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import { ApplicationProvider } from "./context.js";
 import HomePage from "./pages/HomePage/HomePage";
@@ -16,9 +16,7 @@ const App = () => {
       .then((data) => setCandidates(data));
   };
 
-  useEffect(() => {
-    setToken(sessionStorage.getItem("token"));
-  }, []);
+  useEffect(() => fetchCandidates(), []);
 
   return (
     <>
