@@ -18,7 +18,7 @@
   border: 5px solid rgba(255, 255, 255, 0.06);
   padding: 70px;
   h1 {
-    color: black;
+    color:rgb(157 137 63);
     text-align: center;
     letter-spacing: 2px;
   }
@@ -29,9 +29,10 @@
   > input {
     border: none;
     color: black;
-    background: rgba(163, 163, 163, 0.35);
+    background: rgba(192, 174, 108, 0.35);
     padding: 10px;
     margin: 10px auto;
+    border-radius: 8px;
   }
 }
 
@@ -40,7 +41,7 @@
   justify-content: space-around;
   button {
     border: none;
-    color: black;
+    color: rgb(157 137 63);
     font-weight: bold;
     padding: 5px;
     background: rgba(255, 255, 255, 0.35);
@@ -53,7 +54,7 @@
     &:hover {
       cursor: pointer;
       color: white;
-      background-color: orange;
+      background-color: rgba(192, 174, 108, 0.35);
     }
   }
 }
