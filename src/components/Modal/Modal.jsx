@@ -19,8 +19,18 @@ const Modal = ({ data, setDataModal }) => {
   const { reports } = useContext(applicationContext);
   return (
     <>
-      <div className="modal-bg" onClick={() => {setDataModal(null)}}>
-        <div className="modal" onClick={(event) => {event.stopPropagation()}}>
+      <div
+        className="modal-bg"
+        onClick={() => {
+          setDataModal(null);
+        }}
+      >
+        <div
+          className="modal"
+          onClick={(event) => {
+            event.stopPropagation();
+          }}
+        >
           <Button
             name="X"
             classes="modal-close"

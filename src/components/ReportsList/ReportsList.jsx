@@ -38,7 +38,7 @@ const ReportsList = ({ token }) => {
           <li key={e.id} id={e.id}>
             <ListDetail title="Company" value={e.companyName} />
             <ListDetail title="Candidate" value={e.candidateName} />
-            <ListDetail title="Candidate" value={formatDate(e.interviewDate)} />
+            <ListDetail title="Date" value={formatDate(e.interviewDate)} />
             <ListDetail title="Status" value={e.status} />
             <div className="reports-list_button-group">
               <Button name="open modal" />
