@@ -81,7 +81,7 @@ const App = () => {
             }
           />
           <Route path="/" element={<Navigate to="/login" replace />} />
-          <Route path="/details/:id" element={<DetailsPage />} />
+          <Route path="/details/:personId" element={<DetailsPage />} />
         </Routes>
       </ApplicationProvider>
     </>
