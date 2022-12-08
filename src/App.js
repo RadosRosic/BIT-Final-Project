@@ -14,7 +14,6 @@ const App = () => {
   const [candidates, setCandidates] = useState([]);
   const [reports, setReports] = useState([]);
   const [companies, setCompanies] = useState([]);
-  const [filterCandidates, setFilterCandidates] = useState(candidates);
 
   const fetchCandidates = () => {
     fetch("http://localhost:3333/api/candidates")
@@ -40,16 +39,6 @@ const App = () => {
     fetchCandidates();
   }, []);
 
-  const filterThrughCandidates = (searchValue) => {
-    if (!searchValue) {
-      setFilterCandidates(candidates);
-    } else {
-      setFilterCandidates(
-        candidates.filter((e) => e.name.toLowerCase().startsWith(searchValue))
-      );
-    }
-  };
-
   return (
     <>
       <ApplicationProvider value={{ candidates, reports }}>
@@ -74,7 +63,7 @@ const App = () => {
             path="/reports"
             element={
               <ProtectedRoute token={token} route="/login">
-                <ReportPage />
+                <ReportPage setReports={setReports} />
               </ProtectedRoute>
             }
           />
@@ -86,37 +75,3 @@ const App = () => {
 };
 
 export default App;
-
-// function fetchCandidates() {
-//   fetch("http://localhost:3333/api/candidates", {
-//     method: "GET",
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//       "Content-type": "application/json",
-//     },
-//   })
-//     .then((res) => res.json())
-//     .then((res) => setCandidates(res));
-// }
-
-// function fetchReports() {
-//   fetch("http://localhost:3333/api/reports", {
-//     method: "GET",
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//       "Content-type": "application/json",
-//     },
-//   })
-//     .then((res) => res.json())
-//     .then((res) => setReports(res));
-// }
-
-// useEffect(() => {
-//   fetchReports();
-//   console.log(reports);
-// }, []);
-
-// // useEffect(() => {
-// //   fetchCandidates();
-// //   console.log(candidates);
-// // }, []);

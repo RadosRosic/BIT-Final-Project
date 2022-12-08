@@ -1,0 +1,15 @@
+#reports-list {
+  padding: 5px 20px;
+  li {
+    display: flex;
+    margin: 5px;
+    justify-content: space-between;
+    border: 1px solid black;
+    div {
+      width: 200px;
+      margin: 5px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
