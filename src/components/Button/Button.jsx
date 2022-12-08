@@ -1,12 +1,12 @@
-import React from 'react'
-import "./Button.scss"
-
-const Button = () => {
-    return (
-        <div>
-            Button
-        </div>
-    )
-}
-
-export default Button
+import React from "react";
+import "./Button.scss";
+const Button = ({ name, method, methodArgument, classes }) => {
+  return (
+    <>
+      <button onClick={() => method(methodArgument)} className={classes}>
+        {name}
+      </button>
+    </>
+  );
+};
+export default Button;

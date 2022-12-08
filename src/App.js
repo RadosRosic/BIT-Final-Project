@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { ApplicationProvider } from "./context.js";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -23,7 +23,9 @@ const App = () => {
   const fetchCandidates = () => {
     fetch("http://localhost:3333/api/candidates")
       .then((res) => res.json())
-      .then((data) => setCandidates(data));
+      .then((data) => {
+        setCandidates(data);
+      });
   };
 
   const fetchReports = () => {
@@ -46,8 +48,14 @@ const App = () => {
 
   return (
     <>
-      <ApplicationProvider value={{ candidates, reports }}>
+      <ApplicationProvider
+        value={{
+          candidates,
+          reports
+        }}
+      >
         <Routes>
+     
           <Route
             exact
             path="/login"
@@ -68,7 +76,7 @@ const App = () => {
             path="/reports"
             element={
               <ProtectedRoute token={token} route="/login">
-                <ReportPage />
+                <ReportPage setReports={setReports} />
               </ProtectedRoute>
             }
           />
@@ -81,37 +89,3 @@ const App = () => {
 };
 
 export default App;
-
-// function fetchCandidates() {
-//   fetch("http://localhost:3333/api/candidates", {
-//     method: "GET",
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//       "Content-type": "application/json",
-//     },
-//   })
-//     .then((res) => res.json())
-//     .then((res) => setCandidates(res));
-// }
-
-// function fetchReports() {
-//   fetch("http://localhost:3333/api/reports", {
-//     method: "GET",
-//     headers: {
-//       Authorization: `Bearer ${token}`,
-//       "Content-type": "application/json",
-//     },
-//   })
-//     .then((res) => res.json())
-//     .then((res) => setReports(res));
-// }
-
-// useEffect(() => {
-//   fetchReports();
-//   console.log(reports);
-// }, []);
-
-// // useEffect(() => {
-// //   fetchCandidates();
-// //   console.log(candidates);
-// // }, []);

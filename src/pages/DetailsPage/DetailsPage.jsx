@@ -2,17 +2,15 @@ import React, { useState, useEffect, useContext } from "react";
 import "./DetailsPage.scss";
 import { useParams } from "react-router-dom";
 import Moment from "react-moment";
-import { applicationContext } from "../../context";
 import Table from "../../components/Table/Table";
+import { applicationContext } from "../../context";
 
-const DetailsPage = ({ el }) => {
+const DetailsPage = () => {
   const [candidate, setCandidate] = useState({});
   const { reports } = useContext(applicationContext);
   let { id } = useParams();
 
   const candidateReports = reports.filter((e) => id == e.candidateId);
-
-  
 
   // Fechovali smo ponovo zato sto nam je Marina objasnila da se u Api-u za konkretnog usera mogu nalaziti opsirnije informacije u odnosu na onaj pocetni fetch koji ima sve usere.
 
@@ -47,7 +45,6 @@ const DetailsPage = ({ el }) => {
           </p>
           <p>Education: {candidate.education}</p>
         </div>
-      
       </div>
       <div>
         <Table candidateReports={candidateReports} />
