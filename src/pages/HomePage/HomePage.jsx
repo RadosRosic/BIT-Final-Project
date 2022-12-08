@@ -6,22 +6,17 @@ import Search from "../../components/Search/Search";
 import Modal from "../../components/Modal/Modal";
 
 const HomePage = () => {
-  const {candidates}= useContext(applicationContext)
-
-  const [filterCandidates, setFilterCandidates] = useState(candidates)
-
-  console.log(candidates);
-
-const filterThrughCandidates = (searchValue) => {
-    if(!searchValue) {
-      setFilterCandidates(candidates); 
-} else {
-  setFilterCandidates(candidates.filter(e => e.name.toLowerCase().startsWith(searchValue)))
-}
+  
+  const {filterThrughCandidates} = useContext(applicationContext)
+  const {candidates} = useContext(applicationContext)
+  const [search, setSearch] = useState("")
 
 
+ 
 
-}
+const filterCandidates = candidates.filter((e) => e.name.toLowerCase().startsWith(search))
+
+
 
 
   return (
@@ -29,7 +24,7 @@ const filterThrughCandidates = (searchValue) => {
     
       <div className="subHeader">
         <h2>Candidates</h2>
-        <Search onChange={filterThrughCandidates} />
+        <Search onChange={setSearch}  />
       </div>
       <div className="cards">
         {filterCandidates.map((candidate, i) => {
