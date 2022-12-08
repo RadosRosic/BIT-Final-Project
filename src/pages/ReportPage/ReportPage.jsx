@@ -4,6 +4,7 @@ import Button from "../../components/Button/Button";
 import Search from "../../components/Search/Search";
 import ReportsList from "../../components/ReportsList/ReportsList";
 
+
 const ReportPage = () => {
   const signOut = () => {
     localStorage.removeItem("token");
@@ -19,7 +20,7 @@ const ReportPage = () => {
       </header>
       <Search />
       <main>
-        <ReportsList />
+        <ReportsList/>
       </main>
     </>
   );
