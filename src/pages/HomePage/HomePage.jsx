@@ -3,6 +3,7 @@ import { applicationContext } from "../../context";
 import "./HomePage.scss";
 import Card from "../../components/Card/Card";
 import Search from "../../components/Search/Search";
+import Header from "../../components/Header/Header";
 import Modal from "../../components/Modal/Modal";
 
 const HomePage = () => {
@@ -16,6 +17,7 @@ const HomePage = () => {
 
   return (
     <div>
+      <Header/>
       <div className="subHeader">
         <h2>Candidates</h2>
         <Search onChange={setSearch} />
