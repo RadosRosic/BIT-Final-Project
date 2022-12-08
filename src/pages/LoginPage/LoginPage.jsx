@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
+import Button from "../../components/Button/Button";
 import "./LoginPage.scss";
 
 const LoginPage = ({ setToken }) => {
@@ -36,15 +37,9 @@ const LoginPage = ({ setToken }) => {
             onChange={(event) => setPassword(event.target.value)}
           />
           <div id="log-in-buttons">
-            <button
-              onClick={() => {
-                attemptLogIn();
-              }}
-            >
-              Sign in
-            </button>
+            <Button name="Sign In" method={attemptLogIn} />
             <Link to="/home">
-              <button>Continue</button>
+              <Button name="Continue" />
             </Link>
           </div>
         </div>
