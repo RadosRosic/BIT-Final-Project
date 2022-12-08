@@ -6,8 +6,7 @@ import ReportsList from "../../components/ReportsList/ReportsList";
 import Header from "../../components/Header/Header";
 
 
-
-const ReportPage = () => {
+const ReportPage = (token) => {
   const signOut = () => {
     localStorage.removeItem("token");
   };
@@ -17,7 +16,7 @@ const ReportPage = () => {
      <Header signOut = {signOut}/>
       <Search />
       <main>
-        <ReportsList/>
+        <ReportsList token={token}/>
       </main>
     </>
   );

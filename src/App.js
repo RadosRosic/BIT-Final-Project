@@ -4,27 +4,25 @@ import { ApplicationProvider } from "./context.js";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
 import ReportPage from "./pages/ReportPage/ReportPage";
-import DetailsPage from "./pages/DetailsPage/DetailsPage"
+import DetailsPage from "./pages/DetailsPage/DetailsPage";
 import ErrorPage from "./ErrorPage";
 import ProtectedRoute from "./ProtectedRoute.jsx";
 
 import "./App.scss";
-
-
-
-
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [candidates, setCandidates] = useState([]);
   const [reports, setReports] = useState([]);
   const [companies, setCompanies] = useState([]);
+  const [validData, setValidData] = useState(false);
 
   const fetchCandidates = () => {
     fetch("http://localhost:3333/api/candidates")
       .then((res) => res.json())
       .then((data) => {
         setCandidates(data);
+        setValidData(true);
       });
   };
 
@@ -41,22 +39,23 @@ const App = () => {
   };
 
   useEffect(() => {
-    fetchReports();
-    fetchCompanies();
-    fetchCandidates();
-  }, []);
+    if (!validData) {
+      fetchReports();
+      fetchCompanies();
+      fetchCandidates();
+    }
+  }, [validData]);
 
   return (
     <>
       <ApplicationProvider
         value={{
           candidates,
-          reports, 
-          token
+          reports,
+          setValidData,
         }}
       >
         <Routes>
-     
           <Route
             exact
             path="/login"
@@ -77,13 +76,12 @@ const App = () => {
             path="/reports"
             element={
               <ProtectedRoute token={token} route="/login">
-                
-                <ReportPage setReports={setReports} />
+                <ReportPage setReports={setReports} token={token} />
               </ProtectedRoute>
             }
           />
           <Route path="/" element={<Navigate to="/login" replace />} />
-          <Route path="/details/:id" element={< DetailsPage />} />
+          <Route path="/details/:id" element={<DetailsPage />} />
         </Routes>
       </ApplicationProvider>
     </>
