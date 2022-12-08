@@ -1,15 +1,24 @@
-import React, { useEffect, useContext } from "react";
-
+import React from "react";
 import "./ReportPage.scss";
+import Button from "../../components/Button/Button";
+import Search from "../../components/Search/Search";
+import ReportsList from "../../components/ReportsList/ReportsList";
+import Header from "../../components/Header/Header";
 
-const ReportPage = () => {
-  
+
+const ReportPage = (token) => {
+  const signOut = () => {
+    localStorage.removeItem("token");
+  };
 
   return (
-    <div>
-      ReportPage
-      <p>Logged in!</p>
-    </div>
+    <>
+     <Header signOut = {signOut}/>
+      <Search />
+      <main>
+        <ReportsList token={token}/>
+      </main>
+    </>
   );
 };
 

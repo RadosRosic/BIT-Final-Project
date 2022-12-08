@@ -6,7 +6,9 @@ const Modal = () => {
   const {reports} = useContext(applicationContext)
   
   return (
-    <div></div>
+    <>
+      Modal
+    </>
   )
 }
 

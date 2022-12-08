@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
+import Button from "../../components/Button/Button";
 import "./LoginPage.scss";
 
-const LoginPage = ({ token, setToken, fetchCandidates }) => {
+const LoginPage = ({ setToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,32 +19,30 @@ const LoginPage = ({ token, setToken, fetchCandidates }) => {
       .then((res) => res.json())
       .then((res) => {
         setToken(res.accessToken);
+        localStorage.setItem("token", res.accessToken);
       });
   };
 
   return (
     <>
-      <div>
-        <input type="text" onChange={(event) => setEmail(event.target.value)} />
-        <input
-          type="password"
-          onChange={(event) => setPassword(event.target.value)}
-        />
-
-        <button
-          onClick={() => {
-            attemptLogIn();
-            console.log(token);
-          }}
-        >
-          Sign in
-        </button>
-
-        <Link to="/home">
-          <button onClick={() => fetchCandidates()}>
-            Continue without logging in
-          </button>
-        </Link>
+      <div id="log-in-wrapper">
+        <div id="log-in-form">
+          <h1>Welcome</h1>
+          <input
+            type="text"
+            onChange={(event) => setEmail(event.target.value)}
+          />
+          <input
+            type="password"
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <div id="log-in-buttons">
+            <Button name="Sign In" method={attemptLogIn} />
+            <Link to="/home">
+              <Button name="Continue" />
+            </Link>
+          </div>
+        </div>
       </div>
     </>
   );
