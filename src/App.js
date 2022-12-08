@@ -6,16 +6,19 @@ import HomePage from "./pages/HomePage/HomePage";
 import ReportPage from "./pages/ReportPage/ReportPage";
 import DetailsPage from "./pages/DetailsPage/DetailsPage"
 import ErrorPage from "./ErrorPage";
+import ProtectedRoute from "./ProtectedRoute.jsx";
+
+import "./App.scss";
 
 
 
 
 
 const App = () => {
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("token"));
   const [candidates, setCandidates] = useState([]);
   const [reports, setReports] = useState([]);
-  const [companies, setCompanies] = useState([])
+  const [companies, setCompanies] = useState([]);
 
   const fetchCandidates = () => {
     fetch("http://localhost:3333/api/candidates")
@@ -33,46 +36,82 @@ const App = () => {
     fetch("http://localhost:3333/api/companies")
       .then((res) => res.json())
       .then((data) => setCompanies(data));
-  }; 
-
-  
+  };
 
   useEffect(() => {
     fetchReports();
-    fetchCompanies(); 
-    fetchCandidates()
+    fetchCompanies();
+    fetchCandidates();
   }, []);
-
 
   return (
     <>
-    <ApplicationProvider value={{candidates, reports}}>
-      <Routes>
-      {/* <Route exact path="/">
-        <Redirect to="/login" >
-      </Route> */}
-        <Route
-        exact
-          path="/login"
-          element={
-            <LoginPage
-              token={token}
-              setToken={setToken}
-              setCandidates={setCandidates}
-              fetchCandidates={fetchCandidates}
-            />
-          }
-        />
-        
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/reports" element={<ReportPage  />} />
-        <Route path="/" element={<Navigate to="/login" replace/>}/>
-        //useParams
-        <Route path="/details/:id" element={<DetailsPage />} />
-      </Routes>
+      <ApplicationProvider value={{ candidates, reports }}>
+        <Routes>
+          <Route
+            exact
+            path="/login"
+            element={
+              <ProtectedRoute token={!token} route="/reports">
+                <LoginPage
+                  token={token}
+                  setToken={setToken}
+                  setCandidates={setCandidates}
+                  fetchCandidates={fetchCandidates}
+                />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route path="/home" element={<HomePage />} />
+          <Route
+            path="/reports"
+            element={
+              <ProtectedRoute token={token} route="/login">
+                <ReportPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/details/:id" element={< DetailsPage />} />
+        </Routes>
       </ApplicationProvider>
     </>
   );
 };
 
 export default App;
+
+// function fetchCandidates() {
+//   fetch("http://localhost:3333/api/candidates", {
+//     method: "GET",
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//       "Content-type": "application/json",
+//     },
+//   })
+//     .then((res) => res.json())
+//     .then((res) => setCandidates(res));
+// }
+
+// function fetchReports() {
+//   fetch("http://localhost:3333/api/reports", {
+//     method: "GET",
+//     headers: {
+//       Authorization: `Bearer ${token}`,
+//       "Content-type": "application/json",
+//     },
+//   })
+//     .then((res) => res.json())
+//     .then((res) => setReports(res));
+// }
+
+// useEffect(() => {
+//   fetchReports();
+//   console.log(reports);
+// }, []);
+
+// // useEffect(() => {
+// //   fetchCandidates();
+// //   console.log(candidates);
+// // }, []);
