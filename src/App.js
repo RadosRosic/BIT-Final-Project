@@ -4,15 +4,11 @@ import { ApplicationProvider } from "./context.js";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
 import ReportPage from "./pages/ReportPage/ReportPage";
-import DetailsPage from "./pages/DetailsPage/DetailsPage"
+import DetailsPage from "./pages/DetailsPage/DetailsPage";
 import ErrorPage from "./ErrorPage";
 import ProtectedRoute from "./ProtectedRoute.jsx";
 
 import "./App.scss";
-
-
-
-
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -51,11 +47,10 @@ const App = () => {
       <ApplicationProvider
         value={{
           candidates,
-          reports
+          reports,
         }}
       >
         <Routes>
-     
           <Route
             exact
             path="/login"
@@ -81,7 +76,7 @@ const App = () => {
             }
           />
           <Route path="/" element={<Navigate to="/login" replace />} />
-          <Route path="/details/:id" element={< DetailsPage />} />
+          <Route path="/details/:personId" element={<DetailsPage />} />
         </Routes>
       </ApplicationProvider>
     </>

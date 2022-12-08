@@ -8,14 +8,16 @@ import { applicationContext } from "../../context";
 const DetailsPage = () => {
   const [candidate, setCandidate] = useState({});
   const { reports } = useContext(applicationContext);
-  let { id } = useParams();
+  let { personId } = useParams();
+  const [dataModal, setDataModal] = useState(null);
 
-  const candidateReports = reports.filter((e) => id == e.candidateId);
+
+  const candidateReports = reports.filter((e) => personId == e.candidateId);
 
   // Fechovali smo ponovo zato sto nam je Marina objasnila da se u Api-u za konkretnog usera mogu nalaziti opsirnije informacije u odnosu na onaj pocetni fetch koji ima sve usere.
 
   function fetchCandidate() {
-    fetch(`http://localhost:3333/api/candidates/${id}`)
+    fetch(`http://localhost:3333/api/candidates/${personId}`)
       .then((res) => res.json())
       .then((data) => setCandidate(data));
   }
@@ -47,7 +49,10 @@ const DetailsPage = () => {
         </div>
       </div>
       <div>
-        <Table candidateReports={candidateReports} />
+        <Table
+          setDataModal={setDataModal}
+          candidateReports={candidateReports}
+        />
       </div>
     </div>
   );
