@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import Moment from "react-moment";
 import Table from "../../components/Table/Table";
 import { applicationContext } from "../../context";
+import Header from "../../components/Header/Header";
+
 
 const DetailsPage = () => {
   const [candidate, setCandidate] = useState({});
@@ -28,7 +30,7 @@ const DetailsPage = () => {
 
   return (
     <div>
-      DetailsPage
+<Header/>
       <div className="mainInfo">
         <div>
           <img

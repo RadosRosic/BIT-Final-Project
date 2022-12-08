@@ -3,24 +3,20 @@ import "./ReportPage.scss";
 import Button from "../../components/Button/Button";
 import Search from "../../components/Search/Search";
 import ReportsList from "../../components/ReportsList/ReportsList";
+import Header from "../../components/Header/Header";
 
 
-const ReportPage = () => {
+const ReportPage = (token) => {
   const signOut = () => {
     localStorage.removeItem("token");
   };
 
   return (
     <>
-      <header>
-        Put Header Component here not HTML tags
-        <Button name="Sign Out" method={signOut} />
-        <Button name="Reports" classes={"active"} />
-        <Button name="Create Report" classes={""} />
-      </header>
+     <Header signOut = {signOut}/>
       <Search />
       <main>
-        <ReportsList/>
+        <ReportsList token={token}/>
       </main>
     </>
   );
