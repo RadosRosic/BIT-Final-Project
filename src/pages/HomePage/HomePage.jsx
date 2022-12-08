@@ -2,7 +2,7 @@ import React,{useContext, useState} from "react";
 import { applicationContext } from "../../context";
 import "./HomePage.scss";
 import Card from "../../components/Card/Card";
-import Search from "../../components/Search/Search"
+import Search from "../../components/Search/Search";
 import Modal from "../../components/Modal/Modal";
 
 const HomePage = () => {
@@ -36,7 +36,7 @@ const filterThrughCandidates = (searchValue) => {
           return <Card {...candidate} key={i} />;
         })}
       </div>
-      <Modal/>
+      <Modal />
     </div>
   );
 };
