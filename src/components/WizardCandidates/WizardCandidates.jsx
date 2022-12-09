@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import { applicationContext } from "../../context";
 import "./WizardCandidates.scss";
 
-const WizardCandidates = ({ name, email, id, selectCandidate }) => {
+const WizardCandidates = ({ name, email, id, selectCandidate, selected }) => {
+  const { candidates } = useContext(applicationContext);
+
   return (
     <div
-      className="wizard-candidate"
+      className={`wizard-candidate glass-effect ${selected}`}
       id={id}
       onClick={(event) => {
+        event.stopPropagation();
         selectCandidate(event.currentTarget.id);
-        event.currentTarget.classList.add("selected");
       }}
     >
       <div className="wizard-candidate-img-container">

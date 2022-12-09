@@ -1,12 +1,13 @@
+@import "../../styles.scss";
+
 .wizard-candidate {
-  border: 1px solid black;
-  width: 350px;
-  margin: 5px 0;
   display: flex;
   align-items: center;
+  width: 330px;
+  margin: 5px;
   &:hover {
     cursor: pointer;
-    
+    background-color: $select-color;
   }
   img {
     height: 100px;
@@ -14,5 +15,10 @@
     border-radius: 50%;
     padding: 20px;
     object-fit: cover;
+  }
+  .wizard-candidate-info-section {
+    p {
+      font-size: 14px;
+    }
   }
 }

@@ -4,10 +4,10 @@ import CandidateProgress from "../../components/CandidateProgress/CandidateProgr
 import Button from "../../components/Button/Button";
 
 import { applicationContext } from "../../context";
-import WizardCandidates from "../../components/WizardCandidates/WizardCandidates";
+import WizardSelectSection from "../../components/WizardSelectSection/WizardSelectSection";
 import "./Wizard.scss";
 
-const Wizard = () => {
+const Wizard = ({ wizardStep, setWizardStep }) => {
   const { candidates, token, setValidData } = useContext(applicationContext);
   const [selectedCandidate, setSelectedCandidate] = useState("");
   const [selectedCompany, setSelectedCompany] = useState("");
@@ -20,19 +20,23 @@ const Wizard = () => {
     status: "",
     note: "",
   });
+  const highlighted = "highlighted";
 
   const selectCandidate = (id) => {
     setSelectedCandidate(candidates.find((e) => e.id == id));
-    console.log(selectedCandidate);
   };
 
-  const addCandidateInfoToBody = () => {
+  const wizardNextStep = () => {
     setReportBody({
       ...reportBody,
       candidateId: selectedCandidate.id,
       candidateName: selectedCandidate.name,
     });
-    console.log(reportBody);
+    setWizardStep(wizardStep + 1);
+  };
+
+  const wizardPreviousStep = () => {
+    setWizardStep(wizardStep - 1);
   };
 
   const makeReport = () => {
@@ -52,26 +56,44 @@ const Wizard = () => {
       });
   };
 
+  const doNothing = () => {
+    return; // empty function used in next button method, see below
+  };
+
   return (
     <>
-      <div id="wizard">
+      <div id="wizard" onClick={() => setSelectedCandidate(0)}>
         <div id="wizard-info-section">
-          <WizardProgress />
+          <WizardProgress wizardStep={wizardStep} />
           <CandidateProgress />
         </div>
-        <div>
-          <div id="wizard-select-section">
-            {candidates.map((e) => (
-              <WizardCandidates
-                name={e.name}
-                email={e.email}
-                id={e.id}
-                selectCandidate={selectCandidate}
+        <div className="wizard-main-section">
+          <WizardSelectSection
+            wizardStep={wizardStep}
+            selectCandidate={selectCandidate}
+            selectedCandidate={selectedCandidate}
+            highlighted={highlighted}
+          />
+          <div className="wizard-buttons-wrapper">
+            {wizardStep > 1 && (
+              <div className="back-btn-wrapper">
+                <Button
+                  name="Back"
+                  method={wizardPreviousStep}
+                  classes={`back-btn`}
+                />
+              </div>
+            )}
+            <div
+              className="next-btn-wrapper"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <Button
+                name="Next"
+                method={selectedCandidate ? wizardNextStep : doNothing}
+                classes={`next-btn ${selectedCandidate ? "" : "disabled"}`}
               />
-            ))}
-          </div>
-          <div>
-            <Button name="Next" method={addCandidateInfoToBody} />
+            </div>
           </div>
         </div>
       </div>
