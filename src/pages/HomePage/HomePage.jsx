@@ -17,21 +17,21 @@ const HomePage = () => {
 
   return (
     <div>
-      <Header/>
+      <Header />
       <div className="subHeader">
         <h2>Candidates</h2>
         <Search onChange={setSearch} />
       </div>
       <div className="cards">
-        {candidates.map((e, i) => {
-          return <Card el={e} key={i}/>
-        }
-        //   filterCandidates.map((candidate, i) => {
-        //   return <Card {...candidate} key={i} />;
-        // }
+        {filterCandidates.map(
+          (e, i) => {
+            return <Card el={e} key={i} />;
+          }
+          //   filterCandidates.map((candidate, i) => {
+          //   return <Card {...candidate} key={i} />;
+          // }
         )}
       </div>
-      
     </div>
   );
 };

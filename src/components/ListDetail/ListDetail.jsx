@@ -1,11 +1,11 @@
 import React from "react";
 import "./ListDetail.scss";
 
-const ListDetail = ({ value, keys }) => {
+const ListDetail = ({ value, title }) => {
   return (
     <div>
       <p>{value}</p>
-      <p>{keys}</p>
+      <p>{title}</p>
     </div>
   );
 };

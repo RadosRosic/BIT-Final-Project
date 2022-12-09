@@ -1,0 +1,20 @@
+#wizard {
+  display: flex;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  #wizard-select-section {
+    display: flex;
+    flex: 3;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  #wizard-info-section {
+    width: 300px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
