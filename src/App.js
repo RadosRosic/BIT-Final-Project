@@ -53,6 +53,7 @@ const App = () => {
           candidates,
           reports,
           setValidData,
+          token
         }}
       >
         <Routes>
