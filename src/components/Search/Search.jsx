@@ -1,5 +1,5 @@
-import React from "react";
-import "./Search.scss";
+import React from 'react'
+import "./Search.scss"
 
 const Search = ({onChange}) => {
   
@@ -18,7 +18,7 @@ const handleChange = e => {
 
 </button>
     </div>
-  );
-};
+  )
+}
 
-export default Search;
+export default Search

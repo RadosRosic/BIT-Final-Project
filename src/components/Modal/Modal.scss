@@ -1,0 +1,40 @@
+.modal-bg {
+  min-height: 100vh;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.5);
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .modal {
+    height: 40%;
+    width: 60%;
+    background-color: rgb(243, 248, 211);
+    position: fixed;
+    color: black;
+    font-weight: 400;
+    
+  }
+  .modal-close {
+    background-color: white;
+    border-radius: 50%;
+    border: none;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+  .modal-info {
+    display: flex;
+    justify-content: space-between;
+    text-align: justify;
+    div {
+      width: 40%;
+    }
+  }
+  .candidate-name {
+    margin-bottom: 30px;
+  }
+}

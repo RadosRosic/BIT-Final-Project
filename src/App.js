@@ -9,6 +9,7 @@ import ErrorPage from "./ErrorPage";
 import ProtectedRoute from "./ProtectedRoute.jsx";
 
 import "./App.scss";
+import Wizard from "./pages/Wizard/Wizard.jsx";
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -53,6 +54,8 @@ const App = () => {
           candidates,
           reports,
           setValidData,
+          token,
+          companies,
         }}
       >
         <Routes>
@@ -81,7 +84,7 @@ const App = () => {
             }
           />
           <Route path="/" element={<Navigate to="/login" replace />} />
-          <Route path="/details/:id" element={<DetailsPage />} />
+          <Route path="/details/:personId" element={<DetailsPage />} />
         </Routes>
       </ApplicationProvider>
     </>

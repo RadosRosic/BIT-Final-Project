@@ -1,0 +1,12 @@
+@import "../../styles.scss";
+#wizard-companies-list {
+  list-style-type: none;
+  li {
+    border: 1px solid black;
+    padding: 10px;
+    margin: 5px 0;
+    &:hover {
+      background-color: $select-color;
+    }
+  }
+}
