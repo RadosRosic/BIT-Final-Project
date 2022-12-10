@@ -7,7 +7,7 @@ import "./Wizard.scss";
 import WizardButtons from "../../components/WizardButtons/WizardButtons";
 
 const Wizard = ({ wizardStep, setWizardStep }) => {
-  const { candidates } = useContext(applicationContext);
+  const { candidates, companies } = useContext(applicationContext);
   const [selectedCandidate, setSelectedCandidate] = useState("");
   const [selectedCompany, setSelectedCompany] = useState("");
   const [reportBody, setReportBody] = useState({
@@ -22,6 +22,10 @@ const Wizard = ({ wizardStep, setWizardStep }) => {
 
   const selectCandidate = (id) => {
     setSelectedCandidate(candidates.find((e) => e.id == id));
+  };
+
+  const selectCompany = (id) => {
+    setSelectedCompany(companies.find((e) => e.id == id));
   };
 
   const wizardNextStep = () => {
@@ -70,34 +74,18 @@ const Wizard = ({ wizardStep, setWizardStep }) => {
             wizardStep={wizardStep}
             selectCandidate={selectCandidate}
             selectedCandidate={selectedCandidate}
+            selectCompany={selectCompany}
+            selectedCompany={selectedCompany}
+            setSelectedCompany={setSelectedCompany}
           />
-          {/* <div className="wizard-buttons-wrapper">
-            {wizardStep > 1 && (
-              <div className="back-btn-wrapper">
-                <Button
-                  name="Back"
-                  method={wizardPreviousStep}
-                  classes={`back-btn`}
-                />
-              </div>
-            )}
-            <div
-              className="next-btn-wrapper"
-              onClick={(event) => event.stopPropagation()}
-            >
-              <Button
-                name="Next"
-                method={selectedCandidate ? wizardNextStep : doNothing}
-                classes={`next-btn ${selectedCandidate ? "" : "disabled"}`}
-              />
-            </div>
-          </div> */}
+
           <WizardButtons
             wizardStep={wizardStep}
             wizardNextStep={wizardNextStep}
             wizardPreviousStep={wizardPreviousStep}
             selectedCandidate={selectedCandidate}
             doNothing={doNothing}
+            selectedCompany={selectedCompany}
           />
         </div>
       </div>

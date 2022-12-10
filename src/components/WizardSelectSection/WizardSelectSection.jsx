@@ -6,10 +6,12 @@ const WizardSelectSection = ({
   wizardStep,
   selectCandidate,
   selectedCandidate,
+  selectedCompany,
+  selectCompany,
 }) => {
   const highlighted = "highlighted";
   return (
-    <div id="wizard-select-section">
+    <>
       {wizardStep === 1 && (
         <WizardCandidates
           selectCandidate={selectCandidate}
@@ -17,8 +19,14 @@ const WizardSelectSection = ({
           highlighted={highlighted}
         />
       )}
-      {wizardStep === 2 && <WizardCompanies />}
-    </div>
+      {wizardStep === 2 && (
+        <WizardCompanies
+          selectCompany={selectCompany}
+          selectedCompany={selectedCompany}
+          highlighted={highlighted}
+        />
+      )}
+    </>
   );
 };
 

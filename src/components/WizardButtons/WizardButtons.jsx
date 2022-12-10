@@ -8,17 +8,14 @@ const WizardButtons = ({
   wizardStep,
   doNothing,
 }) => {
+  const hidden = "hidden";
+
   return (
     <div className="wizard-buttons-wrapper">
-      {wizardStep > 1 && (
-        <div className="back-btn-wrapper">
-          <Button
-            name="Back"
-            method={wizardPreviousStep}
-            classes={`back-btn`}
-          />
-        </div>
-      )}
+      <div className={`back-btn-wrapper ${wizardStep > 1 ? "" : hidden}`}>
+        <Button name="Back" method={wizardPreviousStep} classes={`back-btn`} />
+      </div>
+
       <div
         className="next-btn-wrapper"
         onClick={(event) => event.stopPropagation()}

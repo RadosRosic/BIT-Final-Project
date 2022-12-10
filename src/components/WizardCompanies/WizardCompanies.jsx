@@ -2,16 +2,26 @@ import React, { useContext } from "react";
 import { applicationContext } from "../../context";
 import "./WizardCompanies.scss";
 
-const WizardCompanies = () => {
+const WizardCompanies = ({ selectCompany, selectedCompany, highlighted }) => {
   const { companies } = useContext(applicationContext);
   return (
-    <div>
-      <ul>
-        {companies.map((e) => (
-          <li>{e.name}</li>
-        ))}
-      </ul>
-    </div>
+    <ul id="wizard-companies-list">
+      {companies.map((e) => (
+        <li
+          className={`glass-effect ${
+            selectedCompany.id == e.id ? highlighted : ""
+          }`}
+          id={e.id}
+          key={e.id}
+          onClick={(event) => {
+            selectCompany(event.currentTarget.id);
+            console.log(event.currentTarget.id);
+          }}
+        >
+          <h2>{e.name}</h2>
+        </li>
+      ))}
+    </ul>
   );
 };
 
