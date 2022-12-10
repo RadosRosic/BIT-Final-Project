@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { applicationContext } from "../../context";
 import Button from "../Button/Button";
 import ListDetail from "../ListDetail/ListDetail";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import "./ReportsList.scss";
 
 const ReportsList = ({ token, search }) => {
@@ -39,22 +41,31 @@ const ReportsList = ({ token, search }) => {
 
   return (
     <>
-      ReportsList
       <ul id="reports-list">
         {filterAll.map((e) => (
-          <li key={e.id} id={e.id}>
+          <li key={e.id} id={e.id} className="glass-effect">
             <ListDetail title="Company" value={e.companyName} />
             <ListDetail title="Candidate" value={e.candidateName} />
             <ListDetail title="Date" value={formatDate(e.interviewDate)} />
             <ListDetail title="Status" value={e.status} />
-            <div className="reports-list_button-group">
-              <Button name="open modal" />
+            <span className="reports-list_button-group">
+              {/* <Button name="open modal" />
               <Button
-                name="delete report"
+                name=""
                 method={deleteReport}
                 methodArgument={e.id}
-              />
-            </div>
+              ></Button> */}
+              <span>
+                <VisibilityIcon />
+              </span>
+              <span
+                onClick={() => {
+                  deleteReport(e.id);
+                }}
+              >
+                <DeleteForeverIcon />
+              </span>
+            </span>
           </li>
         ))}
       </ul>

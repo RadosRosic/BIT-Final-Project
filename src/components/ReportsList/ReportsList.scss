@@ -12,3 +12,16 @@
     }
   }
 }
+
+.reports-list_button-group {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100px;
+  span {
+    display: flex;
+    align-items: center;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
