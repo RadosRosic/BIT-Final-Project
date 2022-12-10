@@ -59,12 +59,18 @@ const Wizard = ({ wizardStep, setWizardStep }) => {
   // };
 
   const doNothing = () => {
-    return; // empty function used in next button method, see below
+    return; // empty function used in next button method, see Wizard Buttons
   };
 
   return (
     <>
-      <div id="wizard" onClick={() => setSelectedCandidate(0)}>
+      <div
+        id="wizard"
+        onClick={() => {
+          setSelectedCandidate(0);
+          setSelectedCompany(0);
+        }}
+      >
         <div id="wizard-info-section">
           <WizardProgress wizardStep={wizardStep} />
           <CandidateProgress />

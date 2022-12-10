@@ -14,8 +14,8 @@ const WizardCompanies = ({ selectCompany, selectedCompany, highlighted }) => {
           id={e.id}
           key={e.id}
           onClick={(event) => {
+            event.stopPropagation();
             selectCompany(event.currentTarget.id);
-            console.log(event.currentTarget.id);
           }}
         >
           <h2>{e.name}</h2>
