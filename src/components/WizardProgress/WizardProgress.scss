@@ -1,0 +1,32 @@
+#wizard-progress {
+  width: 200px;
+  padding: 20px 10px;
+  font-size: 18px;
+  .wizard-progress-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .wizard-step {
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 50%;
+    padding: 5px 10px;
+    margin: 5px 10px 5px 0;
+  }
+  .wizard-current-step {
+    font-weight: bold;
+    span {
+      background-color: #b87658;
+    }
+  }
+
+  @media screen and (max-width: 475px) {
+    .wizard-progress-wrapper {
+      justify-content: center;
+    }
+    .wizard-progress-wrapper:not(.wizard-current-step) {
+      display: none;
+    }
+  }
+}

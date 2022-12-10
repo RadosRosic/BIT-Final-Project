@@ -1,0 +1,71 @@
+@import "../../styles.scss";
+
+#wizard {
+  display: flex;
+  height: 90vh;
+  background: url("https://static.vecteezy.com/system/resources/previews/002/071/822/original/template-for-science-and-technology-concept-background-free-vector.jpg")
+    no-repeat;
+  background-size: cover;
+  color: $base-text-color;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #wizard-select-section {
+    display: flex;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 768px) {
+      justify-content: center;
+    }
+  }
+  #wizard-info-section {
+    margin: 5px 25px 5px 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+.wizard-main-section {
+  height: 50%;
+  width: 80%;
+  margin: auto;
+}
+
+.wizard-buttons-wrapper {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.next-btn-wrapper {
+  .next-btn {
+    border: none;
+    font-size: 24px;
+    padding: 10px 20px;
+    background-color: forestgreen;
+    color: white;
+    border-radius: 8px;
+    &:hover {
+      cursor: pointer;
+      background-color: $select-color;
+    }
+  }
+}
+
+.back-btn-wrapper {
+  .back-btn {
+    border: none;
+    font-size: 24px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    background-color: $select-color;
+    &:hover {
+      cursor: pointer;
+      background-color: $base-text-color;
+    }
+  }
+}

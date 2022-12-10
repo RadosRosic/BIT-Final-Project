@@ -1,0 +1,23 @@
+@import "../../styles.scss";
+.wizard-candidate {
+  display: flex;
+  align-items: center;
+  width: 330px;
+  margin: 5px;
+  &:hover {
+    cursor: pointer;
+    background-color: $select-color;
+  }
+  img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    padding: 20px;
+    object-fit: cover;
+  }
+  .wizard-candidate-info-section {
+    p {
+      font-size: 14px;
+    }
+  }
+}

@@ -9,6 +9,7 @@ import ErrorPage from "./ErrorPage";
 import ProtectedRoute from "./ProtectedRoute.jsx";
 
 import "./App.scss";
+import Wizard from "./pages/Wizard/Wizard.jsx";
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -54,6 +55,7 @@ const App = () => {
           reports,
           setValidData,
           token,
+          companies,
         }}
       >
         <Routes>

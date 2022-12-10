@@ -1,0 +1,11 @@
+#candidate-progress {
+  .wizard-selected-item {
+    font-weight: bold;
+  }
+
+  @media screen and (max-width: 475px) {
+    p {
+      display: inline-block;
+    }
+  }
+}
