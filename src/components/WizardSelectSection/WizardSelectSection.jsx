@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import WizardCandidates from "../WizardCandidates/WizardCandidates";
 import WizardCompanies from "../WizardCompanies/WizardCompanies";
 
