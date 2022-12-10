@@ -18,7 +18,7 @@ const ReportPage = (token) => {
       <Search onChange={setSearch} />
       <main id="admin-page-wrapper">
         <ReportsList token={token} search={search} />
-        {/* Display one or the other */}
+        {/* Display one or the other  */}
         <Wizard wizardStep={wizardStep} setWizardStep={setWizardStep} />
       </main>
     </>
