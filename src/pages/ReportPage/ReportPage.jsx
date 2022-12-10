@@ -18,7 +18,7 @@ const ReportPage = (token) => {
       <Header signOut={signOut} />
       <Search />
       <main id="admin-page-wrapper">
-        {/* <ReportsList token={token} /> */}
+        <ReportsList token={token} />
         <Wizard wizardStep={wizardStep} setWizardStep={setWizardStep} />
       </main>
     </>

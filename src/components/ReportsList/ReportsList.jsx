@@ -4,7 +4,6 @@ import Button from "../Button/Button";
 import ListDetail from "../ListDetail/ListDetail";
 import "./ReportsList.scss";
 
-
 const ReportsList = ({ token, search }) => {
   const { reports, setValidData } = useContext(applicationContext);
   const formatDate = (interviewDate) => {
@@ -17,11 +16,12 @@ const ReportsList = ({ token, search }) => {
     return interviewDateFormatted;
   };
 
-
   const filterAll = reports.filter((e) =>
-  e.candidateName.toLowerCase().concat(" ", e.companyName.toLowerCase()).includes(search)
-);
-
+    e.candidateName
+      .toLowerCase()
+      .concat(" ", e.companyName.toLowerCase())
+      .includes(search)
+  );
 
   const deleteReport = (id) => {
     fetch(`http://localhost:3333/api/reports/${id}`, {
