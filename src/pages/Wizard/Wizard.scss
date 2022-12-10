@@ -21,7 +21,6 @@
     }
   }
   #wizard-info-section {
-    width: 300px;
     margin: 5px 25px 5px 5px;
     display: flex;
     flex-direction: column;
@@ -37,8 +36,9 @@
 
 .wizard-buttons-wrapper {
   display: flex;
-  justify-content: space-around;
-  width: 100vw;
+  justify-content: space-between;
+  width: 800px;
+  margin: 0 auto;
 }
 
 .next-btn-wrapper {

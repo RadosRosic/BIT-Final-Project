@@ -1,14 +1,13 @@
 import React, { useState, useContext } from "react";
 import WizardProgress from "../../components/WizardProgress/WizardProgress";
 import CandidateProgress from "../../components/CandidateProgress/CandidateProgress";
-import Button from "../../components/Button/Button";
-
 import { applicationContext } from "../../context";
 import WizardSelectSection from "../../components/WizardSelectSection/WizardSelectSection";
 import "./Wizard.scss";
+import WizardButtons from "../../components/WizardButtons/WizardButtons";
 
 const Wizard = ({ wizardStep, setWizardStep }) => {
-  const { candidates, token, setValidData } = useContext(applicationContext);
+  const { candidates } = useContext(applicationContext);
   const [selectedCandidate, setSelectedCandidate] = useState("");
   const [selectedCompany, setSelectedCompany] = useState("");
   const [reportBody, setReportBody] = useState({
@@ -20,7 +19,6 @@ const Wizard = ({ wizardStep, setWizardStep }) => {
     status: "",
     note: "",
   });
-  const highlighted = "highlighted";
 
   const selectCandidate = (id) => {
     setSelectedCandidate(candidates.find((e) => e.id == id));
@@ -39,22 +37,22 @@ const Wizard = ({ wizardStep, setWizardStep }) => {
     setWizardStep(wizardStep - 1);
   };
 
-  const makeReport = () => {
-    fetch(`http://localhost:3333/api/reports/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token.token}`,
-      },
-      body: {
-        ...reportBody,
-      },
-    })
-      .then((res) => res.json())
-      .then(() => {
-        setValidData(false);
-      });
-  };
+  // const makeReport = () => {
+  //   fetch(`http://localhost:3333/api/reports/`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${token.token}`,
+  //     },
+  //     body: {
+  //       ...reportBody,
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then(() => {
+  //       setValidData(false);
+  //     });
+  // };
 
   const doNothing = () => {
     return; // empty function used in next button method, see below
@@ -72,9 +70,8 @@ const Wizard = ({ wizardStep, setWizardStep }) => {
             wizardStep={wizardStep}
             selectCandidate={selectCandidate}
             selectedCandidate={selectedCandidate}
-            highlighted={highlighted}
           />
-          <div className="wizard-buttons-wrapper">
+          {/* <div className="wizard-buttons-wrapper">
             {wizardStep > 1 && (
               <div className="back-btn-wrapper">
                 <Button
@@ -94,7 +91,14 @@ const Wizard = ({ wizardStep, setWizardStep }) => {
                 classes={`next-btn ${selectedCandidate ? "" : "disabled"}`}
               />
             </div>
-          </div>
+          </div> */}
+          <WizardButtons
+            wizardStep={wizardStep}
+            wizardNextStep={wizardNextStep}
+            wizardPreviousStep={wizardPreviousStep}
+            selectedCandidate={selectedCandidate}
+            doNothing={doNothing}
+          />
         </div>
       </div>
     </>
