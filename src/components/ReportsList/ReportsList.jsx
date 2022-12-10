@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { applicationContext } from "../../context";
-import Button from "../Button/Button";
 import ListDetail from "../ListDetail/ListDetail";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import "./ReportsList.scss";
+import Modal from "../Modal/Modal";
 
 const ReportsList = ({ token, search }) => {
   const { reports, setValidData } = useContext(applicationContext);
@@ -16,6 +16,12 @@ const ReportsList = ({ token, search }) => {
       dateOptions
     );
     return interviewDateFormatted;
+  };
+
+  const [dataModal, setDataModal] = useState(null);
+
+  const handleDataModal = (id) => {
+    setDataModal(reports.find((e) => e.id == id));
   };
 
   const filterAll = reports.filter((e) =>
@@ -49,13 +55,11 @@ const ReportsList = ({ token, search }) => {
             <ListDetail title="Date" value={formatDate(e.interviewDate)} />
             <ListDetail title="Status" value={e.status} />
             <span className="reports-list_button-group">
-              {/* <Button name="open modal" />
-              <Button
-                name=""
-                method={deleteReport}
-                methodArgument={e.id}
-              ></Button> */}
-              <span>
+              <span
+                onClick={() => {
+                  handleDataModal(e.id);
+                }}
+              >
                 <VisibilityIcon />
               </span>
               <span
@@ -69,6 +73,7 @@ const ReportsList = ({ token, search }) => {
           </li>
         ))}
       </ul>
+      {dataModal && <Modal data={dataModal} setDataModal={setDataModal} />}
     </>
   );
 };
