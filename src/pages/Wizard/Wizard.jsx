@@ -3,22 +3,13 @@ import WizardProgress from "../../components/WizardProgress/WizardProgress";
 import CandidateProgress from "../../components/CandidateProgress/CandidateProgress";
 import { applicationContext } from "../../context";
 import WizardSelectSection from "../../components/WizardSelectSection/WizardSelectSection";
-import "./Wizard.scss";
 import WizardButtons from "../../components/WizardButtons/WizardButtons";
+import "./Wizard.scss";
 
-const Wizard = ({ wizardStep, setWizardStep }) => {
+const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
   const { candidates, companies } = useContext(applicationContext);
   const [selectedCandidate, setSelectedCandidate] = useState("");
   const [selectedCompany, setSelectedCompany] = useState("");
-  const [reportBody, setReportBody] = useState({
-    candidateId: 0,
-    candidateName: "",
-    companyId: 0,
-    companyName: "",
-    phase: "",
-    status: "",
-    note: "",
-  });
 
   const selectCandidate = (id) => {
     setSelectedCandidate(candidates.find((e) => e.id == id));
@@ -31,10 +22,13 @@ const Wizard = ({ wizardStep, setWizardStep }) => {
   const wizardNextStep = () => {
     setReportBody({
       ...reportBody,
-      candidateId: selectedCandidate.id,
-      candidateName: selectedCandidate.name,
+      ["candidateId"]: reportBody["candidateId"] || selectedCandidate.id,
+      ["candidateName"]: reportBody["candidateName"] || selectedCandidate.name,
+      ["companyId"]: reportBody["companyId"] || selectedCompany.id,
+      ["companyName"]: reportBody["companyName"] || selectedCompany.name,
     });
     setWizardStep(wizardStep + 1);
+    setSelectedCandidate(0);
   };
 
   const wizardPreviousStep = () => {

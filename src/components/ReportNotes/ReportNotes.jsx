@@ -8,6 +8,7 @@ const ReportNotes = ({notes, setNotes}) => {
       <textarea rows="10" cols="50" placeholder="Notes..."
       value = {notes}
       onChange = {(event) => {setNotes(event.target.value)}}
+      required
       >
       </textarea>
     </>

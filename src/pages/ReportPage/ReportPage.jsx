@@ -15,6 +15,15 @@ const ReportPage = (token) => {
   const signOut = () => {
     localStorage.removeItem("token");
   };
+  const [reportBody, setReportBody] = useState({
+    candidateId: 0,
+    candidateName: "",
+    companyId: 0,
+    companyName: "",
+    phase: "",
+    status: "",
+    note: "",
+  });
 
   return (
     <>
@@ -23,8 +32,17 @@ const ReportPage = (token) => {
       <main id="admin-page-wrapper">
         <ReportsList token={token} search={search} />
         {/* Display one or the other  */}
-        <Wizard wizardStep={wizardStep} setWizardStep={setWizardStep} />
-        <CreateCandidate candidates = {candidates} token = {token}/>
+        <Wizard
+          wizardStep={wizardStep}
+          setWizardStep={setWizardStep}
+          reportBody={reportBody}
+          setReportBody={setReportBody}
+        />
+        <CreateCandidate
+         candidates = {candidates} 
+         token = {token}
+         />
+
       </main>
     </>
   );

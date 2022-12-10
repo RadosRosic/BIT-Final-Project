@@ -3,6 +3,7 @@ import Button from "../Button/Button";
 
 const WizardButtons = ({
   selectedCandidate,
+  selectedCompany,
   wizardNextStep,
   wizardPreviousStep,
   wizardStep,
@@ -22,8 +23,12 @@ const WizardButtons = ({
       >
         <Button
           name="Next"
-          method={selectedCandidate ? wizardNextStep : doNothing}
-          classes={`next-btn ${selectedCandidate ? "" : "disabled"}`}
+          method={
+            selectedCandidate || selectedCompany ? wizardNextStep : doNothing
+          }
+          classes={`next-btn ${
+            selectedCandidate || selectedCompany ? "" : "disabled"
+          }`}
         />
       </div>
     </div>
