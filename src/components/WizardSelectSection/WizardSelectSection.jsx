@@ -1,6 +1,7 @@
 import React from "react";
 import WizardCandidates from "../WizardCandidates/WizardCandidates";
 import WizardCompanies from "../WizardCompanies/WizardCompanies";
+import WizardFillReport from "../WizardFillReport/WizardFillReport";
 
 const WizardSelectSection = ({
   wizardStep,
@@ -26,6 +27,7 @@ const WizardSelectSection = ({
           highlighted={highlighted}
         />
       )}
+      {wizardStep === 3 && <WizardFillReport />}
     </>
   );
 };

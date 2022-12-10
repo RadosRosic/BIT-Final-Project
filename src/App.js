@@ -74,7 +74,7 @@ const App = () => {
 
           <Route path="/home" element={<HomePage />} />
           <Route
-            path="/reports"
+            path="/reports/*"
             element={
               <ProtectedRoute token={token} route="/login">
                 <ReportPage setReports={setReports} token={token} />

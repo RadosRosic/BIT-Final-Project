@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Search from "../../components/Search/Search";
 import ReportsList from "../../components/ReportsList/ReportsList";
 import Header from "../../components/Header/Header";
@@ -26,14 +27,23 @@ const ReportPage = (token) => {
       <Header signOut={signOut} />
       <Search onChange={setSearch} />
       <main id="admin-page-wrapper">
-        <ReportsList token={token} search={search} />
-        {/* Display one or the other  */}
-        <Wizard
-          wizardStep={wizardStep}
-          setWizardStep={setWizardStep}
-          reportBody={reportBody}
-          setReportBody={setReportBody}
-        />
+        <Routes>
+          <Route
+            path="/"
+            element={<ReportsList token={token} search={search} />}
+          />
+          <Route
+            path="/create-report"
+            element={
+              <Wizard
+                wizardStep={wizardStep}
+                setWizardStep={setWizardStep}
+                reportBody={reportBody}
+                setReportBody={setReportBody}
+              />
+            }
+          ></Route>
+        </Routes>
       </main>
     </>
   );
