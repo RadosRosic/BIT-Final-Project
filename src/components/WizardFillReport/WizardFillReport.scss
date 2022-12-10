@@ -1,0 +1,17 @@
+.wizard-select-outer-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.wizard-report-notes-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+#wizard-report-step-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 500px;
+  margin: 0 auto 10px;
+}

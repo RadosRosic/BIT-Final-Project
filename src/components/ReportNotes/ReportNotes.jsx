@@ -5,8 +5,7 @@ const ReportNotes = () => {
   return (
     <>
       <p>Notes</p>
-      <textarea rows="10" cols="50" placeholder="Notes...">
-      </textarea>
+      <textarea rows="10" cols="50" placeholder="Notes..."></textarea>
     </>
   );
 };
