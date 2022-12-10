@@ -4,10 +4,6 @@ import "./HomePage.scss";
 import Card from "../../components/Card/Card";
 import Search from "../../components/Search/Search";
 import Header from "../../components/Header/Header";
-import DatePicker from "../../components/DatePicker/DatePicker";
-import SelectComponent from "../../components/SelectComponent/SelectComponent";
-import ReportNotes from "../../components/ReportNotes/ReportNotes";
-
 const HomePage = () => {
   // Ovo je deo koda koji ide na reports page kada on bude gotov. Ovde smo samo testirali.
   // const phases = ["CV", "HR", "Technical", "Final"];

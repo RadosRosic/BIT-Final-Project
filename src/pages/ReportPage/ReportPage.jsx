@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./ReportPage.scss";
 import Search from "../../components/Search/Search";
 import ReportsList from "../../components/ReportsList/ReportsList";
 import Header from "../../components/Header/Header";
 import Wizard from "../Wizard/Wizard";
+import "./ReportPage.scss";
 
 const ReportPage = (token) => {
   const [search, setSearch] = useState("");
@@ -11,6 +11,15 @@ const ReportPage = (token) => {
   const signOut = () => {
     localStorage.removeItem("token");
   };
+  const [reportBody, setReportBody] = useState({
+    candidateId: 0,
+    candidateName: "",
+    companyId: 0,
+    companyName: "",
+    phase: "",
+    status: "",
+    note: "",
+  });
 
   return (
     <>
@@ -19,7 +28,12 @@ const ReportPage = (token) => {
       <main id="admin-page-wrapper">
         <ReportsList token={token} search={search} />
         {/* Display one or the other  */}
-        <Wizard wizardStep={wizardStep} setWizardStep={setWizardStep} />
+        <Wizard
+          wizardStep={wizardStep}
+          setWizardStep={setWizardStep}
+          reportBody={reportBody}
+          setReportBody={setReportBody}
+        />
       </main>
     </>
   );
