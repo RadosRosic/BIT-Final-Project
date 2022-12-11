@@ -6,11 +6,17 @@ $bright-color-opa: rgb(255, 213, 87, 0.36);
 $very-bright-color: rgb(238, 244, 249);
 $very-bright-color-opa: rgb(238, 244, 249, 0.5);
 
-.glass-effect {
+.glass-effect-bright {
   background: $bright-color-opa;
   border-bottom: 2px solid $bright-color;
   border-left: 2px solid $bright-color;
-  /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);*/
+  backdrop-filter: blur(4.9px);
+  -webkit-backdrop-filter: blur(4.9px);
+}
+.glass-effect-grey {
+  background: $select-color;
+  border-bottom: 2px solid $base-text-color;
+  
   backdrop-filter: blur(4.9px);
   -webkit-backdrop-filter: blur(4.9px);
 }

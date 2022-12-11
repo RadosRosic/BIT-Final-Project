@@ -23,7 +23,7 @@ const Table = ({ candidateReports }) => {
           <td>{e.status}</td>
           <td>
             <Button
-              name="more..."
+              name='&#128065;'
               method={handleDataModal}
               methodArgument={e}
               classes='little-button-more'

@@ -1,13 +1,28 @@
 @import '../../styles.scss';
 
 table {
-  padding-right: 150px;
+  padding-right: 15%;
+  @media screen and (max-width: 768px) {
+    padding-right: 5%;
+    font-size: 14px;
+    th {
+      padding-left: 30px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    padding-right: 10%;
+    font-size: 12px;
+  }
 }
 th {
   text-align: right;
   padding-left: 40px;
+  padding-bottom: 10px;
+  @media screen and (max-width: 480px) {
+    align-items: flex-start;
+  }
 }
 td {
   text-align: right;
-  padding-left: 10px;
+  padding-left: 20px;
 }

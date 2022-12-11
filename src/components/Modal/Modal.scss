@@ -1,6 +1,6 @@
 @import '../../styles.scss';
 .modal-bg {
-  position: absolute;
+  position: relative;
   min-height: 100vh;
   width: 99vw;
   background-color: $base-color-modal;
@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  z-index: 3;
   .modal {
     min-height: calc(100vh - 300px);
     width: calc(100vw - 600px);
