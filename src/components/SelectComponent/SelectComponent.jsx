@@ -13,7 +13,11 @@ const SelectComponent = ({ text, array, selectedItem, setSelectedItem }) => {
           onChange={(event) => setSelectedItem(event.target.value)}
         >
           {array.map((el, i) => {
-            return <option value={el}>{el}</option>;
+            return (
+              <option value={el} key={i}>
+                {el}
+              </option>
+            );
           })}
         </select>
       </label>

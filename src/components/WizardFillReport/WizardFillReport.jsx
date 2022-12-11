@@ -1,19 +1,22 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { wizardContext } from "../../context";
 import DatePicker from "../DatePicker/DatePicker";
-import SelectComponent from "../SelectComponent/SelectComponent";
 import ReportNotes from "../ReportNotes/ReportNotes";
+import SelectComponent from "../SelectComponent/SelectComponent";
 import "./WizardFillReport.scss";
 
-const WizardFillReport = ({
-  startDate,
-  setStartDate,
-  interviewPhase,
-  setInterviewPhase,
-  interviewStatus,
-  setInterviewStatus,
-  notes,
-  setNotes,
-}) => {
+const WizardFillReport = () => {
+  const {
+    startDate,
+    setStartDate,
+    interviewPhase,
+    setInterviewPhase,
+    interviewStatus,
+    setInterviewStatus,
+    notes,
+    setNotes,
+  } = useContext(wizardContext);
+
   return (
     <div id="wizard-report-step-3" className="glass-effect">
       <div className="wizard-select-outer-wrapper">
