@@ -21,6 +21,11 @@ const Header = ({ signOut }) => {
           <button>Create Report</button>
         </Link>
       )}
+      {token && (
+        <Link to="/reports/create-candidate">
+          <button>Create Candidate</button>
+        </Link>
+      )}
     </div>
   );
 };

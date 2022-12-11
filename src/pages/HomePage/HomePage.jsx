@@ -4,16 +4,23 @@ import "./HomePage.scss";
 import Card from "../../components/Card/Card";
 import Search from "../../components/Search/Search";
 import Header from "../../components/Header/Header";
+// import DatePicker from "../../components/DatePicker/DatePicker";
+// import SelectComponent from "../../components/SelectComponent/SelectComponent";
+// import ReportNotes from "../../components/ReportNotes/ReportNotes";
+
 const HomePage = () => {
   // Ovo je deo koda koji ide na reports page kada on bude gotov. Ovde smo samo testirali.
+
   // const phases = ["CV", "HR", "Technical", "Final"];
+  // const status =  ["passed", "declined"];
   // let text = "Phase";
   // let text2 = "Status";
-  // const status =  ["passed", "declined"];
+  // const [selectedItem, setSelectedItem] = useState("")
+  // const [notes, setNotes] = useState("")
+  // const [startDate, setStartDate] = useState(new Date());
 
   const { candidates } = useContext(applicationContext);
   const [search, setSearch] = useState("");
-  console.log(candidates);
 
   const filterCandidates = candidates.filter((e) =>
     e.name.toLowerCase().startsWith(search)
@@ -24,12 +31,15 @@ const HomePage = () => {
       <Header />
 
       {/* 
+
       Ovo je deo koda koji ide na reports page kada on bude gotov. Ovde smo samo testirali.
       
-      <DatePicker/>
-      <SelectComponent text = {text} array = {phases} />
-      <SelectComponent text = {text2} array = {status} /> 
-      <ReportNotes />*/}
+      <DatePicker startDate = {startDate} setStartDate = {setStartDate}/>
+      <SelectComponent text = {text} array = {phases} selectedItem = {selectedItem}  setSelectedItem= {setSelectedItem}/>
+      <SelectComponent text = {text2} array = {status} selectedItem = {selectedItem} setSelectedItem= {setSelectedItem}/> 
+      <ReportNotes notes = {notes} setNotes = {setNotes}/>
+      
+      */}
 
       <div className="subHeader">
         <h2>Candidates</h2>
@@ -40,6 +50,7 @@ const HomePage = () => {
           (e, i) => {
             return <Card el={e} key={i} />;
           }
+
           //   filterCandidates.map((candidate, i) => {
           //   return <Card {...candidate} key={i} />;
           // }

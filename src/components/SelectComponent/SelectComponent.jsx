@@ -1,14 +1,19 @@
 import React from "react";
 import "./SelectComponent.scss";
 
-const SelectComponent = ({ text, array }) => {
+const SelectComponent = ({ text, array, selectedItem, setSelectedItem }) => {
   return (
     <>
       <label>
-        {text}
-        <select name={text}>
-          {array?.map((e, i) => {
-            return <option value={e}>{e}</option>;
+        {text}:
+        <select
+          name={text}
+          required
+          value={selectedItem}
+          onChange={(event) => setSelectedItem(event.target.value)}
+        >
+          {array.map((el, i) => {
+            return <option value={el}>{el}</option>;
           })}
         </select>
       </label>
