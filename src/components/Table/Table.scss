@@ -1,9 +1,13 @@
+@import '../../styles.scss';
+
 table {
-    
-    td {
-        border: 1px solid gray;
-    }
-    th {
-        border: 1px solid gray;
-    }
+  padding-right: 150px;
+}
+th {
+  text-align: right;
+  padding-left: 40px;
+}
+td {
+  text-align: right;
+  padding-left: 10px;
 }

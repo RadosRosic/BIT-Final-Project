@@ -1,23 +1,30 @@
+@import '../../styles.scss';
 .modal-bg {
+  position: absolute;
   min-height: 100vh;
-  width: 100%;
-  background-color: rgba(128, 128, 128, 0.5);
+  width: 99vw;
+  background-color: $base-color-modal;
   position: fixed;
   top: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+
   .modal {
-    height: 40%;
-    width: 60%;
-    background-color: rgb(243, 248, 211);
+    min-height: calc(100vh - 300px);
+    width: calc(100vw - 600px);
+    background-color: $base-color-modal;
     position: fixed;
-    color: black;
+    border-radius: 5px 100px 5px 100px;
+    border-bottom: 2px solid  $bright-color;
+    border-left: 2px solid  $bright-color;
+    color: $very-bright-color;
     font-weight: 400;
-    
+    padding: 5%;
   }
   .modal-close {
-    background-color: white;
+    background-color: $bright-color;
     border-radius: 50%;
     border: none;
     width: 40px;
@@ -28,11 +35,29 @@
   }
   .modal-info {
     display: flex;
-    justify-content: space-between;
-    text-align: justify;
+    flex-direction: column;
+    padding-bottom: 20px;
+
     div {
-      width: 40%;
+      display: flex;
+      align-items: center;
+      padding-bottom: 5px;
+      h3 {
+        padding-left: 10px;
+      }
     }
+  }
+  .report-notes {
+    display: flex;
+    justify-content: space-between;
+    p{
+      text-align: justify;
+      min-width: 51px;
+    }
+    .report-notes-content {
+      padding-left: 10px;
+    }
+    
   }
   .candidate-name {
     margin-bottom: 30px;

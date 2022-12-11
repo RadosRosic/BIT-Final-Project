@@ -1,13 +1,18 @@
-$base-text-color: #324b4a;
-$select-color: #b87658;
+$base-text-color: rgb(2, 32, 50);
+$base-color-modal: rgb(2, 32, 50, 0.6);
+$select-color: rgb(2, 32, 50, 0.2);
+$bright-color: rgb(255, 213, 87);
+$bright-color-opa: rgb(255, 213, 87, 0.36);
+$very-bright-color: rgb(238, 244, 249);
+$very-bright-color-opa: rgb(238, 244, 249, 0.5);
 
 .glass-effect {
-  background: rgba(50, 75, 74, 0.36);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: $bright-color-opa;
+  border-bottom: 2px solid $bright-color;
+  border-left: 2px solid $bright-color;
+  /*box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);*/
   backdrop-filter: blur(4.9px);
   -webkit-backdrop-filter: blur(4.9px);
-  border: 1px solid rgba(50, 75, 74, 0.53);
 }
 
 .highlighted {

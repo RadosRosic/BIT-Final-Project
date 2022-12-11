@@ -1,18 +1,16 @@
-import React, { useState, useEffect, useContext } from "react";
-import "./DetailsPage.scss";
-import { useParams } from "react-router-dom";
-import Moment from "react-moment";
-import Table from "../../components/Table/Table";
-import { applicationContext } from "../../context";
-import Header from "../../components/Header/Header";
-
+import React, { useState, useEffect, useContext } from 'react';
+import './DetailsPage.scss';
+import { useParams } from 'react-router-dom';
+import Moment from 'react-moment';
+import Table from '../../components/Table/Table';
+import { applicationContext } from '../../context';
+import Header from '../../components/Header/Header';
 
 const DetailsPage = () => {
   const [candidate, setCandidate] = useState({});
   const { reports } = useContext(applicationContext);
   let { personId } = useParams();
   const [dataModal, setDataModal] = useState(null);
-
 
   const candidateReports = reports.filter((e) => personId == e.candidateId);
 
@@ -30,31 +28,42 @@ const DetailsPage = () => {
 
   return (
     <div>
-<Header/>
-      <div className="mainInfo">
-        <div>
-          <img
-            src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
-            alt="can"
+      <Header />
+      <div className="all-about-candidate">
+        <div className="img-info-candidate glass-effect">
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+              alt="candidate"
+            />
+          </div>
+          <div className="text-info-candidate">
+            <div>
+              <p>Name | </p>
+              <h3>{candidate.name}</h3>
+            </div>
+            <div>
+              <p>Email | </p>
+              <h3>{candidate.email}</h3>
+            </div>
+            <div>
+              <p>Date of birth | </p>
+              <h3>
+                <Moment format="DD/MM/YYYY">{candidate.birthday}</Moment>
+              </h3>
+            </div>
+            <div>
+              <p>Education | </p>
+              <h3>{candidate.education}</h3>
+            </div>
+          </div>
+        </div>
+        <div className='table-area'>
+          <Table
+            setDataModal={setDataModal}
+            candidateReports={candidateReports}
           />
         </div>
-        <div>
-          <p>Name: {candidate.name}</p>
-          <p>Email: {candidate.email}</p>
-        </div>
-        <div>
-          <p>
-            Date of birth:
-            <Moment format="DD/MM/YYYY">{candidate.birthday}</Moment>
-          </p>
-          <p>Education: {candidate.education}</p>
-        </div>
-      </div>
-      <div>
-        <Table
-          setDataModal={setDataModal}
-          candidateReports={candidateReports}
-        />
       </div>
     </div>
   );

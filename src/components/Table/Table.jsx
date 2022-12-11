@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import Moment from "react-moment";
-import "./Table.scss";
-import Button from "../Button/Button";
-import Modal from "../Modal/Modal";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import Moment from 'react-moment';
+import './Table.scss';
+import Button from '../Button/Button';
+import Modal from '../Modal/Modal';
+import { Link } from 'react-router-dom';
 
 const Table = ({ candidateReports }) => {
   const [dataModal, setDataModal] = useState(null);
@@ -23,9 +23,10 @@ const Table = ({ candidateReports }) => {
           <td>{e.status}</td>
           <td>
             <Button
-              name="show Modal"
+              name="more..."
               method={handleDataModal}
               methodArgument={e}
+              classes='little-button-more'
             />
           </td>
         </tr>
@@ -35,19 +36,17 @@ const Table = ({ candidateReports }) => {
 
   return (
     <>
-      <div className="table">
-        <table>
-          <thead>
-            <tr>
-              <th>Company</th>
-              <th>Interview Date</th>
-              <th colSpan="2">Status</th>
-            </tr>
-          </thead>
-          <tbody>{renderTableData()}</tbody>
-        </table>
-        {dataModal && <Modal data={dataModal} setDataModal={setDataModal} />}
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Interview Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>{renderTableData()}</tbody>
+      </table>
+      {dataModal && <Modal data={dataModal} setDataModal={setDataModal} />}
     </>
   );
 };

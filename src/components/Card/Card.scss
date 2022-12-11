@@ -1,20 +1,29 @@
-
+@import "../../styles.scss";
 
     .card {
-        border: 1px solid rgb(0, 0, 0);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
+        color: $base-text-color;
+        border-radius: 5px 100px 5px 5px;
+        &:hover {
+            cursor: pointer;
+            background-color: $select-color;
+          }
         img {
             height: 200px;
             width: 200px;
             border-radius: 50%;
             padding: 20px;
             object-fit: cover;
-           
+            margin: 20px;
         }
+        p {
+            padding: 10px;
+            font-size: 14px;
+        }
+        
     }
 
     

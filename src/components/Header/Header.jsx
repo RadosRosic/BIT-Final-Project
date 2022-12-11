@@ -7,8 +7,8 @@ const Header = ({ signOut }) => {
   const { token } = useContext(applicationContext);
 
   return (
-    <div>
-      <h1>Bla Bla</h1>
+    <div className="main-header">
+      <h1>M N N R</h1>
       {token && <Button name="Reports" classes={"active"} />}
       {token && <Button name="Create Report" classes={""} />}
       {token && <Button name="Sign Out" method={signOut} />}
