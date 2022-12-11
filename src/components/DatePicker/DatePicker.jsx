@@ -3,12 +3,12 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const DatePickerl = ({startDate, setStartDate}) => {
+const DatePickerl = ({ setStartDate }) => {
   const now = new Date();
 
   return (
     <DatePicker
-      selected={startDate}
+      selected={Date.now()}
       includeDateIntervals={[
         {
           start: new Date(
