@@ -37,6 +37,7 @@ const App = () => {
       .then((data) => setCompanies(data));
   };
 
+
   useEffect(() => {
     if (!validData) {
       fetchReports();

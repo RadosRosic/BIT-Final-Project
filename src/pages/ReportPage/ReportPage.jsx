@@ -6,10 +6,12 @@ import ReportsList from "../../components/ReportsList/ReportsList";
 import Header from "../../components/Header/Header";
 import Wizard from "../Wizard/Wizard";
 import CreateCandidate from "../CreateCandidate/CreateCandidate";
+import CreateCompanyPage from "../CreateCompanyPage/CreateCompanyPage";
 
 
 const ReportPage = (token) => {
   const {candidates} = useContext(applicationContext);
+  
   const [search, setSearch] = useState("");
   const [wizardStep, setWizardStep] = useState(1);
   const signOut = () => {
@@ -38,10 +40,12 @@ const ReportPage = (token) => {
           reportBody={reportBody}
           setReportBody={setReportBody}
         />
-        <CreateCandidate
-         candidates = {candidates} 
+        <CreateCandidate 
          token = {token}
          />
+         <CreateCompanyPage
+           token = {token}
+          />
 
       </main>
     </>
