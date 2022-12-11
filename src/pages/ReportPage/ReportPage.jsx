@@ -20,6 +20,7 @@ const ReportPage = (token) => {
     candidateName: "",
     companyId: 0,
     companyName: "",
+    interviewDate: "",
     phase: "",
     status: "",
     note: "",

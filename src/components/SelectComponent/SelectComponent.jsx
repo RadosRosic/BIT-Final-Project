@@ -5,7 +5,7 @@ const SelectComponent = ({ text, array, selectedItem, setSelectedItem }) => {
   return (
     <>
       <label>
-        {text}:
+        {text}
         <select
           name={text}
           required

@@ -9,6 +9,14 @@ const WizardSelectSection = ({
   selectedCandidate,
   selectedCompany,
   selectCompany,
+  startDate,
+  setStartDate,
+  interviewPhase,
+  setInterviewPhase,
+  interviewStatus,
+  setInterviewStatus,
+  notes,
+  setNotes,
 }) => {
   const highlighted = "highlighted";
   return (
@@ -27,7 +35,18 @@ const WizardSelectSection = ({
           highlighted={highlighted}
         />
       )}
-      {wizardStep === 3 && <WizardFillReport />}
+      {wizardStep === 3 && (
+        <WizardFillReport
+          startDate={startDate}
+          setStartDate={setStartDate}
+          interviewPhase={interviewPhase}
+          setInterviewPhase={setInterviewPhase}
+          interviewStatus={interviewStatus}
+          setInterviewStatus={setInterviewStatus}
+          notes={notes}
+          setNotes={setNotes}
+        />
+      )}
     </>
   );
 };

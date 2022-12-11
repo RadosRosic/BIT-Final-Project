@@ -7,9 +7,14 @@ import WizardButtons from "../../components/WizardButtons/WizardButtons";
 import "./Wizard.scss";
 
 const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
-  const { candidates, companies } = useContext(applicationContext);
+  const { candidates, companies, token, setValidData } =
+    useContext(applicationContext);
   const [selectedCandidate, setSelectedCandidate] = useState("");
   const [selectedCompany, setSelectedCompany] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [interviewPhase, setInterviewPhase] = useState("");
+  const [interviewStatus, setInterviewStatus] = useState("");
+  const [notes, setNotes] = useState("");
 
   const selectCandidate = (id) => {
     setSelectedCandidate(candidates.find((e) => e.id == id));
@@ -22,35 +27,43 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
   const wizardNextStep = () => {
     setReportBody({
       ...reportBody,
-      ["candidateId"]: reportBody["candidateId"] || selectedCandidate.id,
-      ["candidateName"]: reportBody["candidateName"] || selectedCandidate.name,
-      ["companyId"]: reportBody["companyId"] || selectedCompany.id,
-      ["companyName"]: reportBody["companyName"] || selectedCompany.name,
+      candidateId: selectedCandidate.id || reportBody["candidateId"],
+      candidateName: selectedCandidate.name || reportBody["candidateName"],
+      companyId: selectedCompany.id || reportBody["companyId"],
+      companyName: selectedCompany.name || reportBody["companyName"],
+      interviewDate: startDate || reportBody["interviewDate"],
+      note: notes || reportBody["note"],
+      phase: interviewPhase || reportBody["phase"],
+      status: interviewStatus || reportBody["status"],
     });
-    setWizardStep(wizardStep + 1);
+    setWizardStep(wizardStep < 3 && wizardStep + 1);
     setSelectedCandidate(0);
+    setSelectedCompany(0);
   };
 
   const wizardPreviousStep = () => {
     setWizardStep(wizardStep - 1);
   };
 
-  // const makeReport = () => {
-  //   fetch(`http://localhost:3333/api/reports/`, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${token.token}`,
-  //     },
-  //     body: {
-  //       ...reportBody,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then(() => {
-  //       setValidData(false);
-  //     });
-  // };
+  const submitReport = () => {
+    wizardNextStep();
+    console.log(token, reportBody);
+    fetch(`http://localhost:3333/api/reports`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(reportBody),
+    })
+      .then((res) => {
+        res.json();
+      })
+      .then(() => {
+        setValidData(false);
+        setWizardStep(1);
+      });
+  };
 
   const doNothing = () => {
     return; // empty function used in next button method, see Wizard Buttons
@@ -67,7 +80,7 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
       >
         <div id="wizard-info-section">
           <WizardProgress wizardStep={wizardStep} />
-          <CandidateProgress />
+          <CandidateProgress wizardStep={wizardStep} reportBody={reportBody} />
         </div>
         <div className="wizard-main-section">
           <WizardSelectSection
@@ -77,15 +90,28 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
             selectCompany={selectCompany}
             selectedCompany={selectedCompany}
             setSelectedCompany={setSelectedCompany}
+            startDate={startDate}
+            setStartDate={setStartDate}
+            interviewPhase={interviewPhase}
+            setInterviewPhase={setInterviewPhase}
+            interviewStatus={interviewStatus}
+            setInterviewStatus={setInterviewStatus}
+            notes={notes}
+            setNotes={setNotes}
           />
 
           <WizardButtons
             wizardStep={wizardStep}
             wizardNextStep={wizardNextStep}
-            wizardPreviousStep={wizardPreviousStep}
             selectedCandidate={selectedCandidate}
+            wizardPreviousStep={wizardPreviousStep}
             doNothing={doNothing}
             selectedCompany={selectedCompany}
+            submitReport={submitReport}
+            startDate={startDate}
+            interviewPhase={interviewPhase}
+            interviewStatus={interviewStatus}
+            notes={notes}
           />
         </div>
       </div>

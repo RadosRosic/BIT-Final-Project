@@ -4,10 +4,9 @@ import "./ReportNotes.scss";
 const ReportNotes = ({ notes, setNotes }) => {
   return (
     <>
-      <p>Notes</p>
       <textarea
-        rows="10"
-        cols="50"
+        rows="20"
+        cols="60"
         placeholder="Notes..."
         value={notes}
         onChange={(event) => {

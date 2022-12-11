@@ -1,28 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import DatePicker from "../DatePicker/DatePicker";
 import SelectComponent from "../SelectComponent/SelectComponent";
 import ReportNotes from "../ReportNotes/ReportNotes";
 import "./WizardFillReport.scss";
 
-const WizardFillReport = () => {
+const WizardFillReport = ({
+  startDate,
+  setStartDate,
+  interviewPhase,
+  setInterviewPhase,
+  interviewStatus,
+  setInterviewStatus,
+  notes,
+  setNotes,
+}) => {
   return (
     <div id="wizard-report-step-3" className="glass-effect">
       <div className="wizard-select-outer-wrapper">
         <div className="wizard-select-inner-wrapper">
-          <p>Interview Date:</p>
-          <DatePicker />
+          <DatePicker startDate={startDate} setStartDate={setStartDate} />
         </div>
         <div className="wizard-select-inner-wrapper">
-          <p>Phase</p>
-          <SelectComponent array={["CV", "HR", "Tech", "Final"]} />
+          <SelectComponent
+            selectedItem={interviewPhase}
+            setSelectedItem={setInterviewPhase}
+            array={["CV", "HR", "Tech", "Final"]}
+          />
         </div>
         <div className="wizard-select-inner-wrapper">
-          <p>Phase</p>
-          <SelectComponent array={["passed", "declined"]} />
+          <SelectComponent
+            selectedItem={interviewStatus}
+            setSelectedItem={setInterviewStatus}
+            array={["passed", "declined"]}
+          />
         </div>
       </div>
       <div className="wizard-report-notes-wrapper">
-        <ReportNotes />
+        <ReportNotes notes={notes} setNotes={setNotes} />
       </div>
     </div>
   );

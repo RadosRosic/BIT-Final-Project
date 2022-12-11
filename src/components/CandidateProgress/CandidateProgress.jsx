@@ -1,17 +1,17 @@
 import React from "react";
 import "./CandidateProgress.scss";
 
-const CandidateProgress = () => {
+const CandidateProgress = ({ reportBody, wizardStep }) => {
   return (
     <>
       <div id="candidate-progress">
-        <div>
+        <div className={wizardStep < 2 ? "hidden" : undefined}>
           <p>Candidate:</p>
-          <p className="wizard-selected-item">Variable goes here</p>
+          <p className="wizard-selected-item">{reportBody.candidateName}</p>
         </div>
-        <div>
+        <div className={wizardStep < 3 ? "hidden" : undefined}>
           <p>Company:</p>
-          <p className="wizard-selected-item">Variable goes here</p>
+          <p className="wizard-selected-item">{reportBody.companyName}</p>
         </div>
       </div>
     </>
