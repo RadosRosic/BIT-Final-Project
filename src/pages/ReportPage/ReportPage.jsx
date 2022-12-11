@@ -27,31 +27,35 @@ const ReportPage = (token) => {
 
   return (
     <>
-      <Header signOut={signOut} />
-      <Search onChange={setSearch} />
-      <main id="admin-page-wrapper">
-        <Routes>
-          <Route
-            path="/"
-            element={<ReportsList token={token} search={search} />}
-          />
-          <Route
-            path="/create-report"
-            element={
-              <Wizard
-                wizardStep={wizardStep}
-                setWizardStep={setWizardStep}
-                reportBody={reportBody}
-                setReportBody={setReportBody}
-              />
-            }
-          ></Route>
-          <Route
-            path="create-candidate"
-            element={<CreateCandidate candidates={candidates} token={token} />}
-          />
-        </Routes>
-      </main>
+      <div id="admin-panel">
+        <Header signOut={signOut} />
+        {/* <Search onChange={setSearch} /> */}
+        <main id="admin-page-wrapper">
+          <Routes>
+            <Route
+              path="/"
+              element={<ReportsList token={token} search={search} />}
+            />
+            <Route
+              path="/create-report"
+              element={
+                <Wizard
+                  wizardStep={wizardStep}
+                  setWizardStep={setWizardStep}
+                  reportBody={reportBody}
+                  setReportBody={setReportBody}
+                />
+              }
+            ></Route>
+            <Route
+              path="create-candidate"
+              element={
+                <CreateCandidate candidates={candidates} token={token} />
+              }
+            />
+          </Routes>
+        </main>
+      </div>
     </>
   );
 };
