@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import WizardProgress from "../../components/WizardProgress/WizardProgress";
 import CandidateProgress from "../../components/CandidateProgress/CandidateProgress";
-import { applicationContext } from "../../context";
+import { applicationContext, WizardProvider } from "../../context";
 import WizardSelectSection from "../../components/WizardSelectSection/WizardSelectSection";
 import WizardButtons from "../../components/WizardButtons/WizardButtons";
 import "./Wizard.scss";
@@ -62,6 +62,7 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
       .then(() => {
         setValidData(false);
         setWizardStep(1);
+        setReportBody({});
       });
   };
 
@@ -71,50 +72,69 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
 
   return (
     <>
-      <div
-        id="wizard"
-        onClick={() => {
-          setSelectedCandidate(0);
-          setSelectedCompany(0);
+      <WizardProvider
+        value={{
+          selectedCandidate,
+          setSelectedCandidate,
+          selectedCompany,
+          setSelectedCompany,
+          startDate,
+          setStartDate,
+          interviewPhase,
+          setInterviewPhase,
+          interviewStatus,
+          setInterviewStatus,
+          notes,
+          setNotes,
         }}
       >
-        <div id="wizard-info-section">
-          <WizardProgress wizardStep={wizardStep} />
-          <CandidateProgress wizardStep={wizardStep} reportBody={reportBody} />
+        <div
+          id="wizard"
+          onClick={() => {
+            setSelectedCandidate(0);
+            setSelectedCompany(0);
+          }}
+        >
+          <div id="wizard-info-section">
+            <WizardProgress wizardStep={wizardStep} />
+            <CandidateProgress
+              wizardStep={wizardStep}
+              reportBody={reportBody}
+            />
+          </div>
+          <div className="wizard-main-section">
+            <WizardSelectSection
+              wizardStep={wizardStep}
+              selectCandidate={selectCandidate}
+              selectedCandidate={selectedCandidate}
+              selectCompany={selectCompany}
+              selectedCompany={selectedCompany}
+              setSelectedCompany={setSelectedCompany}
+              startDate={startDate}
+              setStartDate={setStartDate}
+              interviewPhase={interviewPhase}
+              setInterviewPhase={setInterviewPhase}
+              interviewStatus={interviewStatus}
+              setInterviewStatus={setInterviewStatus}
+              notes={notes}
+              setNotes={setNotes}
+            />
+            <WizardButtons
+              wizardStep={wizardStep}
+              wizardNextStep={wizardNextStep}
+              selectedCandidate={selectedCandidate}
+              wizardPreviousStep={wizardPreviousStep}
+              doNothing={doNothing}
+              selectedCompany={selectedCompany}
+              submitReport={submitReport}
+              startDate={startDate}
+              interviewPhase={interviewPhase}
+              interviewStatus={interviewStatus}
+              notes={notes}
+            />
+          </div>
         </div>
-        <div className="wizard-main-section">
-          <WizardSelectSection
-            wizardStep={wizardStep}
-            selectCandidate={selectCandidate}
-            selectedCandidate={selectedCandidate}
-            selectCompany={selectCompany}
-            selectedCompany={selectedCompany}
-            setSelectedCompany={setSelectedCompany}
-            startDate={startDate}
-            setStartDate={setStartDate}
-            interviewPhase={interviewPhase}
-            setInterviewPhase={setInterviewPhase}
-            interviewStatus={interviewStatus}
-            setInterviewStatus={setInterviewStatus}
-            notes={notes}
-            setNotes={setNotes}
-          />
-
-          <WizardButtons
-            wizardStep={wizardStep}
-            wizardNextStep={wizardNextStep}
-            selectedCandidate={selectedCandidate}
-            wizardPreviousStep={wizardPreviousStep}
-            doNothing={doNothing}
-            selectedCompany={selectedCompany}
-            submitReport={submitReport}
-            startDate={startDate}
-            interviewPhase={interviewPhase}
-            interviewStatus={interviewStatus}
-            notes={notes}
-          />
-        </div>
-      </div>
+      </WizardProvider>
     </>
   );
 };
