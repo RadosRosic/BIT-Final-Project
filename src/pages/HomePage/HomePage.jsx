@@ -9,17 +9,15 @@ import Header from "../../components/Header/Header";
 // import ReportNotes from "../../components/ReportNotes/ReportNotes";
 
 const HomePage = () => {
-
   // Ovo je deo koda koji ide na reports page kada on bude gotov. Ovde smo samo testirali.
-  
+
   // const phases = ["CV", "HR", "Technical", "Final"];
   // const status =  ["passed", "declined"];
   // let text = "Phase";
-  // let text2 = "Status"; 
+  // let text2 = "Status";
   // const [selectedItem, setSelectedItem] = useState("")
-  // const [notes, setNotes] = useState("") 
+  // const [notes, setNotes] = useState("")
   // const [startDate, setStartDate] = useState(new Date());
-
 
   const { candidates } = useContext(applicationContext);
   const [search, setSearch] = useState("");
@@ -58,7 +56,6 @@ const HomePage = () => {
           // }
         )}
       </div>
-
     </div>
   );
 };

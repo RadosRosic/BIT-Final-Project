@@ -1,0 +1,19 @@
+header {
+  background-color: hsla(181, 100%, 16%, 0.99);
+  opacity: 0.9;
+}
+
+#header-btns {
+  display: flex;
+  justify-content: space-between;
+  button {
+    border: none;
+    margin: 5px 10px;
+    padding: 5px;
+    border-radius: 8px;
+    &:hover {
+      cursor: pointer;
+      background-color: orange;
+    }
+  }
+}

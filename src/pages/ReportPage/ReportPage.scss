@@ -1,0 +1,19 @@
+@import "../../styles.scss";
+
+#admin-panel {
+  height: 100vh;
+  background: url("https://static.vecteezy.com/system/resources/previews/002/071/822/original/template-for-science-and-technology-concept-background-free-vector.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+// #admin-page-wrapper {
+// }
+
+#reports-list {
+  padding: 40px;
+  li {
+    padding: 5px 10px;
+    color: #131313;
+  }
+}

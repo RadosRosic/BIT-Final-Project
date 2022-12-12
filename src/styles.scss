@@ -8,6 +8,9 @@ $select-color: #b87658;
   backdrop-filter: blur(4.9px);
   -webkit-backdrop-filter: blur(4.9px);
   border: 1px solid rgba(50, 75, 74, 0.53);
+  -webkit-box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.75);
 }
 
 .highlighted {
