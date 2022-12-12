@@ -5,11 +5,9 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
 import ReportPage from "./pages/ReportPage/ReportPage";
 import DetailsPage from "./pages/DetailsPage/DetailsPage";
-import ErrorPage from "./ErrorPage";
 import ProtectedRoute from "./ProtectedRoute.jsx";
 
 import "./App.scss";
-import Wizard from "./pages/Wizard/Wizard.jsx";
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token"));
