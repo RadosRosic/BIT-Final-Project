@@ -13,9 +13,9 @@
   .modal {
     min-height: calc(100vh - 300px);
     width: calc(100vw - 600px);
-    background-color: $base-color-modal;
+    background-color: $base-text-color;
     position: fixed;
-    border-radius: 5px 100px 5px 100px;
+    border-radius: 5px 100px 5px 5px;
     border-bottom: 2px solid  $bright-color;
     border-left: 2px solid  $bright-color;
     color: $very-bright-color;

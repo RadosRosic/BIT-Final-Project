@@ -16,7 +16,6 @@ $very-bright-color-opa: rgb(238, 244, 249, 0.5);
 .glass-effect-grey {
   background: $select-color;
   border-bottom: 2px solid $base-text-color;
-  
   backdrop-filter: blur(4.9px);
   -webkit-backdrop-filter: blur(4.9px);
 }

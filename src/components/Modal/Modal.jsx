@@ -3,6 +3,7 @@ import './Modal.scss';
 import { applicationContext } from '../../context';
 import Button from '../Button/Button';
 import Moment from 'react-moment';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Modal = ({ data, setDataModal }) => {
   // funkcija handleEsc nam radi gasenje modala na dugme escape, to smo skinuli sa neta (zajedno sa use Effectom)
