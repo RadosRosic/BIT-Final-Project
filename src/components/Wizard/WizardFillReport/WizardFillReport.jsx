@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { wizardContext } from "../../../context";
 import DatePicker from "../../DatePicker/DatePicker";
-import ReportNotes from "../../ReportNotes/ReportNotes";
+import ReportNotes from "../WizardReportNotes/WizardReportNotes";
 import SelectComponent from "../../SelectComponent/SelectComponent";
 import "./WizardFillReport.scss";
 

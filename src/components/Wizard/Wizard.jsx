@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { applicationContext, WizardProvider } from "../../context";
 import CandidateProgress from "./WizardCandidateProgress/CandidateProgress";
 import WizardButtons from "./WizardButtons/WizardButtons";
@@ -15,6 +16,7 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
   const [interviewStatus, setInterviewStatus] = useState("");
   const [notes, setNotes] = useState("");
 
+  const navigate = useNavigate();
   const wizardNextStep = () => {
     setReportBody({
       ...reportBody,
@@ -51,6 +53,7 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
         setValidData(false);
         setWizardStep(1);
         setReportBody({});
+        navigate("/reports");
       });
   };
 
