@@ -84,8 +84,8 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
         <div
           id="wizard"
           onClick={() => {
-            setSelectedCandidate(0);
-            setSelectedCompany(0);
+            setSelectedCandidate("");
+            setSelectedCompany("");
           }}
         >
           <div id="wizard-info-section">
