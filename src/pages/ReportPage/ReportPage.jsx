@@ -7,9 +7,12 @@ import Header from "../../components/Header/Header";
 import Wizard from "../Wizard/Wizard";
 import "./ReportPage.scss";
 import CreateCandidate from "../CreateCandidate/CreateCandidate";
+import CreateCompanyPage from "../CreateCompanyPage/CreateCompanyPage";
+
 
 const ReportPage = (token) => {
-  const { candidates } = useContext(applicationContext);
+  const {candidates} = useContext(applicationContext);
+  
   const [search, setSearch] = useState("");
   const [wizardStep, setWizardStep] = useState(1);
   const signOut = () => {
@@ -53,6 +56,14 @@ const ReportPage = (token) => {
               element={
                 <CreateCandidate candidates={candidates} token={token} />
               }
+            />
+            <Route
+            path="create-company"
+            element={
+              <CreateCompanyPage
+              token = {token}
+             />
+            }
             />
           </Routes>
         </main>
