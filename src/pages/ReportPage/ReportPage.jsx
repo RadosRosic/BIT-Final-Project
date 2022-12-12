@@ -47,7 +47,7 @@ const ReportPage = (token) => {
                   setReportBody={setReportBody}
                 />
               }
-            ></Route>
+            />
             <Route
               path="create-candidate"
               element={
