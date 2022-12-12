@@ -8,13 +8,15 @@ import Wizard from "../Wizard/Wizard";
 import "./ReportPage.scss";
 import CreateCandidate from "../CreateCandidate/CreateCandidate";
 
-const ReportPage = (token) => {
-  const { candidates } = useContext(applicationContext);
+const ReportPage = () => {
+  const { candidates, token, setToken } = useContext(applicationContext);
   const [search, setSearch] = useState("");
   const [wizardStep, setWizardStep] = useState(1);
   const signOut = () => {
     localStorage.removeItem("token");
+    setToken("");
   };
+
   const [reportBody, setReportBody] = useState({
     candidateId: 0,
     candidateName: "",

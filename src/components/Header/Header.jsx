@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Button from "../Button/Button";
 import { applicationContext } from "../../context";
 import "./Header.scss";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = ({ signOut }) => {
   const { token } = useContext(applicationContext);
