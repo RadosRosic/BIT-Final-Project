@@ -1,7 +1,7 @@
 @import "../../styles.scss";
 .all-about-candidate {
-    height: 100vh;
-    background: url(../../assets/images/iStock-901001432opacity.jpg) rgb(255, 255, 255, 0.5);
+    height:calc(100vh - 78px);
+    background: url(../../assets/images/iStock-901001432opacity.jpg);
     background-size: cover;
     position: relative;
     .table-area {
@@ -19,7 +19,7 @@
         display: flex;
         justify-content: end;
         align-items: flex-end;
-        z-index: 2;
+        z-index: 1;
         @media screen and (max-width: 768px) {
             margin-right: 0;
             border-radius: 5px;
@@ -36,7 +36,7 @@
     justify-content:space-between;
     height: 50vh;
     border-radius: 5px 5px 5px 100px;
-    z-index: 0;
+    z-index: 2;
     .text-info-candidate {
         display: flex;
         flex-direction: column;

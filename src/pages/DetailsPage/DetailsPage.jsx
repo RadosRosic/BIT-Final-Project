@@ -5,6 +5,8 @@ import Moment from 'react-moment';
 import Table from '../../components/Table/Table';
 import { applicationContext } from '../../context';
 import Header from '../../components/Header/Header';
+import Modal from '../../components/Modal/Modal';
+
 
 const DetailsPage = () => {
   const [candidate, setCandidate] = useState({});
@@ -30,6 +32,7 @@ const DetailsPage = () => {
     <div>
       <Header />
       <div className="all-about-candidate">
+      
         <div className="img-info-candidate glass-effect-bright">
           <div>
             <img
@@ -64,6 +67,7 @@ const DetailsPage = () => {
             candidateReports={candidateReports}
           />
         </div>
+        {dataModal && <Modal data={dataModal} setDataModal={setDataModal} />}
       </div>
     </div>
   );

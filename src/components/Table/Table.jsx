@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import Moment from 'react-moment';
 import './Table.scss';
 import Button from '../Button/Button';
-import Modal from '../Modal/Modal';
+
 import { Link } from 'react-router-dom';
 
-const Table = ({ candidateReports }) => {
-  const [dataModal, setDataModal] = useState(null);
+const Table = ({ candidateReports, dataModal, setDataModal }) => {
 
   const handleDataModal = (data) => {
     setDataModal(data);
@@ -46,7 +45,7 @@ const Table = ({ candidateReports }) => {
         </thead>
         <tbody>{renderTableData()}</tbody>
       </table>
-      {dataModal && <Modal data={dataModal} setDataModal={setDataModal} />}
+      
     </>
   );
 };
