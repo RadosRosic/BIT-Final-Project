@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { wizardContext } from "../../context";
+import { wizardContext } from "../../../context";
 import WizardCandidates from "../WizardCandidates/WizardCandidates";
 import WizardCompanies from "../WizardCompanies/WizardCompanies";
 import WizardFillReport from "../WizardFillReport/WizardFillReport";

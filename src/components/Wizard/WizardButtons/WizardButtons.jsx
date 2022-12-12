@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { wizardContext } from "../../context";
-import Button from "../Button/Button";
+import { wizardContext } from "../../../context";
+import Button from "../../Button/Button";
 
 const WizardButtons = () => {
   const {

@@ -4,7 +4,7 @@ import { applicationContext } from "../../context";
 import Search from "../../components/Search/Search";
 import ReportsList from "../../components/ReportsList/ReportsList";
 import Header from "../../components/Header/Header";
-import Wizard from "../Wizard/Wizard";
+import Wizard from "../../components/Wizard/Wizard";
 import "./ReportPage.scss";
 import CreateCandidate from "../CreateCandidate/CreateCandidate";
 

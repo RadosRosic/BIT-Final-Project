@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { wizardContext } from "../../context";
+import { wizardContext } from "../../../context";
 import "./CandidateProgress.scss";
 
 const CandidateProgress = () => {

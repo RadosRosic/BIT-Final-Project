@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import { applicationContext, WizardProvider } from "../../context";
-import CandidateProgress from "../../components/CandidateProgress/CandidateProgress";
-import WizardButtons from "../../components/WizardButtons/WizardButtons";
-import WizardSelectSection from "../../components/WizardSelectSection/WizardSelectSection";
-import WizardProgress from "../../components/WizardProgress/WizardProgress";
+import CandidateProgress from "./WizardCandidateProgress/CandidateProgress";
+import WizardButtons from "./WizardButtons/WizardButtons";
+import WizardSelectSection from "./WizardSelectSection/WizardSelectSection";
+import WizardProgress from "./WizardProgress/WizardProgress";
 import "./Wizard.scss";
 
 const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {

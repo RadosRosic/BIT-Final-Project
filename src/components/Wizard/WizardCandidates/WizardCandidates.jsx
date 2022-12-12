@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { applicationContext, wizardContext } from "../../context";
+import { applicationContext, wizardContext } from "../../../context";
 import "./WizardCandidates.scss";
 
 const WizardCandidates = ({ highlighted }) => {
