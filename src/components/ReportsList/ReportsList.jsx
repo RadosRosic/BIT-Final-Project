@@ -1,8 +1,10 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { applicationContext } from "../../context";
-import Button from "../Button/Button";
 import ListDetail from "../ListDetail/ListDetail";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import "./ReportsList.scss";
+import Modal from "../Modal/Modal";
 
 const ReportsList = ({ token, search }) => {
   const { reports, setValidData } = useContext(applicationContext);
@@ -14,6 +16,12 @@ const ReportsList = ({ token, search }) => {
       dateOptions
     );
     return interviewDateFormatted;
+  };
+
+  const [dataModal, setDataModal] = useState(null);
+
+  const handleDataModal = (id) => {
+    setDataModal(reports.find((e) => e.id == id));
   };
 
   const filterAll = reports.filter((e) =>
@@ -39,25 +47,33 @@ const ReportsList = ({ token, search }) => {
 
   return (
     <>
-      ReportsList
       <ul id="reports-list">
         {filterAll.map((e) => (
-          <li key={e.id} id={e.id}>
+          <li key={e.id} id={e.id} className="glass-effect">
             <ListDetail title="Company" value={e.companyName} />
             <ListDetail title="Candidate" value={e.candidateName} />
             <ListDetail title="Date" value={formatDate(e.interviewDate)} />
             <ListDetail title="Status" value={e.status} />
-            <div className="reports-list_button-group">
-              <Button name="open modal" />
-              <Button
-                name="delete report"
-                method={deleteReport}
-                methodArgument={e.id}
-              />
-            </div>
+            <span className="reports-list_button-group">
+              <span
+                onClick={() => {
+                  handleDataModal(e.id);
+                }}
+              >
+                <VisibilityIcon />
+              </span>
+              <span
+                onClick={() => {
+                  deleteReport(e.id);
+                }}
+              >
+                <DeleteForeverIcon />
+              </span>
+            </span>
           </li>
         ))}
       </ul>
+      {dataModal && <Modal data={dataModal} setDataModal={setDataModal} />}
     </>
   );
 };

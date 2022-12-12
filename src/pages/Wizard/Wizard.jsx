@@ -1,94 +1,100 @@
 import React, { useState, useContext } from "react";
-import WizardProgress from "../../components/WizardProgress/WizardProgress";
+import { applicationContext, WizardProvider } from "../../context";
 import CandidateProgress from "../../components/CandidateProgress/CandidateProgress";
-import { applicationContext } from "../../context";
-import WizardSelectSection from "../../components/WizardSelectSection/WizardSelectSection";
 import WizardButtons from "../../components/WizardButtons/WizardButtons";
+import WizardSelectSection from "../../components/WizardSelectSection/WizardSelectSection";
+import WizardProgress from "../../components/WizardProgress/WizardProgress";
 import "./Wizard.scss";
 
 const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
-  const { candidates, companies } = useContext(applicationContext);
+  const { token, setValidData } = useContext(applicationContext);
   const [selectedCandidate, setSelectedCandidate] = useState("");
   const [selectedCompany, setSelectedCompany] = useState("");
-
-  const selectCandidate = (id) => {
-    setSelectedCandidate(candidates.find((e) => e.id == id));
-  };
-
-  const selectCompany = (id) => {
-    setSelectedCompany(companies.find((e) => e.id == id));
-  };
+  const [startDate, setStartDate] = useState("");
+  const [interviewPhase, setInterviewPhase] = useState("");
+  const [interviewStatus, setInterviewStatus] = useState("");
+  const [notes, setNotes] = useState("");
 
   const wizardNextStep = () => {
     setReportBody({
       ...reportBody,
-      ["candidateId"]: reportBody["candidateId"] || selectedCandidate.id,
-      ["candidateName"]: reportBody["candidateName"] || selectedCandidate.name,
-      ["companyId"]: reportBody["companyId"] || selectedCompany.id,
-      ["companyName"]: reportBody["companyName"] || selectedCompany.name,
+      candidateId: selectedCandidate.id || reportBody["candidateId"],
+      candidateName: selectedCandidate.name || reportBody["candidateName"],
+      companyId: selectedCompany.id || reportBody["companyId"],
+      companyName: selectedCompany.name || reportBody["companyName"],
     });
-    setWizardStep(wizardStep + 1);
+    setWizardStep(wizardStep < 3 && wizardStep + 1);
     setSelectedCandidate(0);
+    setSelectedCompany(0);
   };
 
-  const wizardPreviousStep = () => {
-    setWizardStep(wizardStep - 1);
-  };
-
-  // const makeReport = () => {
-  //   fetch(`http://localhost:3333/api/reports/`, {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       Authorization: `Bearer ${token.token}`,
-  //     },
-  //     body: {
-  //       ...reportBody,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then(() => {
-  //       setValidData(false);
-  //     });
-  // };
-
-  const doNothing = () => {
-    return; // empty function used in next button method, see Wizard Buttons
+  const submitReport = () => {
+    console.log(token, reportBody);
+    fetch(`http://localhost:3333/api/reports`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        ...reportBody,
+        interviewDate: startDate,
+        note: notes,
+        phase: interviewPhase,
+        status: interviewStatus,
+      }),
+    })
+      .then((res) => {
+        res.json();
+      })
+      .then(() => {
+        setValidData(false);
+        setWizardStep(1);
+        setReportBody({});
+      });
   };
 
   return (
     <>
-      <div
-        id="wizard"
-        onClick={() => {
-          setSelectedCandidate(0);
-          setSelectedCompany(0);
+      <WizardProvider
+        value={{
+          reportBody,
+          setReportBody,
+          wizardStep,
+          setWizardStep,
+          selectedCandidate,
+          setSelectedCandidate,
+          selectedCompany,
+          setSelectedCompany,
+          startDate,
+          setStartDate,
+          interviewPhase,
+          setInterviewPhase,
+          interviewStatus,
+          setInterviewStatus,
+          notes,
+          setNotes,
+          wizardNextStep,
+          submitReport,
         }}
       >
-        <div id="wizard-info-section">
-          <WizardProgress wizardStep={wizardStep} />
-          <CandidateProgress />
+        <div
+          id="wizard"
+          onClick={() => {
+            setSelectedCandidate(0);
+            setSelectedCompany(0);
+          }}
+        >
+          <div id="wizard-info-section">
+            <WizardProgress />
+            <CandidateProgress />
+          </div>
+          <div className="wizard-main-section">
+            <WizardSelectSection />
+            <WizardButtons />
+          </div>
         </div>
-        <div className="wizard-main-section">
-          <WizardSelectSection
-            wizardStep={wizardStep}
-            selectCandidate={selectCandidate}
-            selectedCandidate={selectedCandidate}
-            selectCompany={selectCompany}
-            selectedCompany={selectedCompany}
-            setSelectedCompany={setSelectedCompany}
-          />
-
-          <WizardButtons
-            wizardStep={wizardStep}
-            wizardNextStep={wizardNextStep}
-            wizardPreviousStep={wizardPreviousStep}
-            selectedCandidate={selectedCandidate}
-            doNothing={doNothing}
-            selectedCompany={selectedCompany}
-          />
-        </div>
-      </div>
+      </WizardProvider>
     </>
   );
 };

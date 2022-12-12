@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const DatePickerl = () => {
-  const [startDate, setStartDate] = useState(new Date());
+const DatePickerl = ({startDate, setStartDate}) => {
   const now = new Date();
 
   return (
@@ -13,7 +12,7 @@ const DatePickerl = () => {
       includeDateIntervals={[
         {
           start: new Date(
-            now.getFullYear() - 10,
+            now.getFullYear() - 100,
             now.getMonth(),
             now.getDate()
           ),

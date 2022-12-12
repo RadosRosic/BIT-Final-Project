@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
-import { applicationContext } from "../../context";
+import { applicationContext, wizardContext } from "../../context";
 import "./WizardCandidates.scss";
 
-const WizardCandidates = ({
-  selectCandidate,
-  selectedCandidate,
-  highlighted,
-}) => {
+const WizardCandidates = ({ highlighted }) => {
   const { candidates } = useContext(applicationContext);
+  const { selectedCandidate, setSelectedCandidate } = useContext(wizardContext);
+
+  const selectCandidate = (id) => {
+    setSelectedCandidate(candidates.find((e) => e.id == id));
+  };
 
   return (
     <>
