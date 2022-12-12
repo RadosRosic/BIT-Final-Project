@@ -18,10 +18,10 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
   const wizardNextStep = () => {
     setReportBody({
       ...reportBody,
-      candidateId: selectedCandidate.id || reportBody["candidateId"],
-      candidateName: selectedCandidate.name || reportBody["candidateName"],
-      companyId: selectedCompany.id || reportBody["companyId"],
-      companyName: selectedCompany.name || reportBody["companyName"],
+      candidateId: selectedCandidate.id || reportBody.candidateId,
+      candidateName: selectedCandidate.name || reportBody.candidateName,
+      companyId: selectedCompany.id || reportBody.companyId,
+      companyName: selectedCompany.name || reportBody.companyName,
     });
     setWizardStep(wizardStep < 3 && wizardStep + 1);
     setSelectedCandidate(0);
@@ -60,8 +60,6 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
         value={{
           reportBody,
           setReportBody,
-          wizardStep,
-          setWizardStep,
           selectedCandidate,
           setSelectedCandidate,
           selectedCompany,
@@ -74,6 +72,8 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
           setInterviewStatus,
           notes,
           setNotes,
+          wizardStep,
+          setWizardStep,
           wizardNextStep,
           submitReport,
         }}

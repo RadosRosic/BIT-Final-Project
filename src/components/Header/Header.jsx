@@ -2,17 +2,18 @@ import React, { useContext } from "react";
 import Button from "../Button/Button";
 import { applicationContext } from "../../context";
 import "./Header.scss";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = ({ signOut }) => {
   const { token } = useContext(applicationContext);
+  let navigate = useNavigate();
 
   return (
     <header className="main-header">
       <h1>M N N R</h1>
       {token && (
         <div id="header-btns">
-          <Button name="Sign Out" method={signOut} />
+          <button onClick={signOut }>Sign Out</button>
           <nav className="navigation-wrapper">
             <Link to="/reports">
               <button>Reports</button>

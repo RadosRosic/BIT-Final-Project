@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { ApplicationProvider } from "./context.js";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import HomePage from "./pages/HomePage/HomePage";
@@ -45,6 +45,7 @@ const App = () => {
     }
   }, [validData]);
 
+
   return (
     <>
       <ApplicationProvider
@@ -54,6 +55,7 @@ const App = () => {
           setValidData,
           token,
           companies,
+          setToken
         }}
       >
         <Routes>
