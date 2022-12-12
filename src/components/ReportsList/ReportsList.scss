@@ -1,9 +1,27 @@
+@import "../../styles.scss";
+
+
 #reports-list {
+  li:first-child{
+    background-color: $bright-color-opa;
+    border: none;
+  }
+  
+  .hidden {
+    visibility: hidden;
+
+}
+  
   li {
     display: flex;
     margin: 5px;
     justify-content: space-between;
-    border: 1px solid black;
+    border-radius: 5px;
+    border-left: 1px solid $bright-color; 
+    border-bottom: 2px solid $bright-color; 
+
+    
+
     div {
       width: 200px;
       margin: 5px;
