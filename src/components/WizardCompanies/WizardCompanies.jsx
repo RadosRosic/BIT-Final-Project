@@ -1,9 +1,13 @@
 import React, { useContext } from "react";
-import { applicationContext } from "../../context";
+import { applicationContext, wizardContext } from "../../context";
 import "./WizardCompanies.scss";
 
-const WizardCompanies = ({ selectCompany, selectedCompany, highlighted }) => {
+const WizardCompanies = ({ highlighted }) => {
   const { companies } = useContext(applicationContext);
+  const { selectedCompany, setSelectedCompany } = useContext(wizardContext);
+  const selectCompany = (id) => {
+    setSelectedCompany(companies.find((e) => e.id == id));
+  };
   return (
     <ul id="wizard-companies-list">
       {companies.map((e) => (

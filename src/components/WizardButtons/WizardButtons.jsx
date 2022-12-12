@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
+import { wizardContext } from "../../context";
 import Button from "../Button/Button";
 
-const WizardButtons = ({
-  selectedCandidate,
-  selectedCompany,
-  wizardNextStep,
-  wizardPreviousStep,
-  wizardStep,
-  doNothing,
-}) => {
+const WizardButtons = () => {
+  const {
+    notes,
+    interviewPhase,
+    interviewStatus,
+    startDate,
+    selectedCandidate,
+    selectedCompany,
+    setWizardStep,
+    wizardNextStep,
+    wizardStep,
+    submitReport,
+  } = useContext(wizardContext);
+
+  const allSelected = interviewPhase && interviewStatus && startDate && notes;
+  const candidateOrCompanySelected = selectedCandidate || selectedCompany;
   const hidden = "hidden";
+  const doNothing = () => {
+    return; // empty function used in next button method, see below
+  };
+  const wizardPreviousStep = () => {
+    setWizardStep(wizardStep - 1);
+  };
 
   return (
     <div className="wizard-buttons-wrapper">
@@ -21,15 +36,20 @@ const WizardButtons = ({
         className="next-btn-wrapper"
         onClick={(event) => event.stopPropagation()}
       >
-        <Button
-          name="Next"
-          method={
-            selectedCandidate || selectedCompany ? wizardNextStep : doNothing
-          }
-          classes={`next-btn ${
-            selectedCandidate || selectedCompany ? "" : "disabled"
-          }`}
-        />
+        {wizardStep < 3 && (
+          <Button
+            name="Next"
+            method={candidateOrCompanySelected ? wizardNextStep : doNothing}
+            classes={`next-btn ${candidateOrCompanySelected ? "" : "disabled"}`}
+          />
+        )}
+        {wizardStep === 3 && (
+          <Button
+            name="Submit"
+            method={allSelected ? submitReport : doNothing}
+            classes={`next-btn ${allSelected ? "" : "disabled"}`}
+          />
+        )}
       </div>
     </div>
   );

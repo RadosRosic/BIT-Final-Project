@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { wizardContext } from "../../context";
 import "./WizardProgress.scss";
 
-const WizardProgress = ({ wizardStep }) => {
+const WizardProgress = () => {
+  const { wizardStep } = useContext(wizardContext);
+
   return (
     <div id="wizard-progress" className="glass-effect">
       <div

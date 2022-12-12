@@ -23,6 +23,14 @@ const LoginPage = ({ setToken }) => {
       });
   };
 
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      if (email && password) {
+        attemptLogIn();
+      }
+    }
+  });
+
   return (
     <>
       <div id="log-in-wrapper">
