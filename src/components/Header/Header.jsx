@@ -4,16 +4,21 @@ import { applicationContext } from "../../context";
 import "./Header.scss";
 import { Link, useNavigate } from "react-router-dom";
 
-const Header = ({ signOut }) => {
-  const { token } = useContext(applicationContext);
-  let navigate = useNavigate();
+const Header = () => {
+  const { token, setToken } = useContext(applicationContext);
+  const navigate = useNavigate();
+  const signOut = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/login");
+  };
 
   return (
     <header className="main-header">
       <h1>M N N R</h1>
       {token && (
         <div id="header-btns">
-          <button onClick={signOut }>Sign Out</button>
+          <button onClick={signOut}>Sign Out</button>
           <nav className="navigation-wrapper">
             <Link to="/reports">
               <button>Reports</button>

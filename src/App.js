@@ -56,6 +56,7 @@ const App = () => {
           companies,
           // setActiveCandidate,
           // activeCandidate,
+          setToken,
           setValidData,
         }}
       >

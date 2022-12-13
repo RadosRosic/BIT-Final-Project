@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import { applicationContext } from "../../context";
 import Search from "../../components/Search/Search";
 import ReportsList from "../../components/ReportsList/ReportsList";
@@ -12,13 +12,6 @@ const ReportPage = () => {
   const { candidates, token, setToken } = useContext(applicationContext);
   const [search, setSearch] = useState("");
   const [wizardStep, setWizardStep] = useState(1);
-
-  const navigate = useNavigate();
-  const signOut = () => {
-    localStorage.removeItem("token");
-    setToken("");
-    navigate("/login");
-  };
 
   const [reportBody, setReportBody] = useState({
     candidateId: 0,
@@ -34,7 +27,7 @@ const ReportPage = () => {
   return (
     <>
       <div id="admin-panel">
-        <Header signOut={signOut} />
+        <Header />
         {/* <Search onChange={setSearch} /> */}
         <main id="admin-page-wrapper">
           <Routes>
