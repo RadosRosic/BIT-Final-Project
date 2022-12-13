@@ -26,7 +26,7 @@ const ReportsList = ({ search }) => {
 
   const filterAll = reports.filter((e) =>
     e.candidateName
-      .toLowerCase()
+      ?.toLowerCase()
       .concat(" ", e.companyName.toLowerCase())
       .includes(search)
   );

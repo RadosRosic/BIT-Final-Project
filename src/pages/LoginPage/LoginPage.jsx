@@ -31,7 +31,7 @@ const LoginPage = ({ setToken }) => {
       })
       .catch((err) => {
         console.log(err);
-        setWrongPassError("Wrong Password!");
+        setWrongPassError("Bad input. Try again.");
       });
   };
 

@@ -17,19 +17,6 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
   const [notes, setNotes] = useState("");
 
   const navigate = useNavigate();
-  const wizardNextStep = () => {
-    setReportBody({
-      ...reportBody,
-      candidateId: selectedCandidate.id || reportBody.candidateId,
-      candidateName: selectedCandidate.name || reportBody.candidateName,
-      companyId: selectedCompany.id || reportBody.companyId,
-      companyName: selectedCompany.name || reportBody.companyName,
-    });
-    setWizardStep(wizardStep < 3 && wizardStep + 1);
-    setSelectedCandidate("");
-    setSelectedCompany("");
-  };
-
   const submitReport = () => {
     console.log(token, reportBody);
     fetch(`http://localhost:3333/api/reports`, {
@@ -77,7 +64,6 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
           setNotes,
           wizardStep,
           setWizardStep,
-          wizardNextStep,
           submitReport,
         }}
       >

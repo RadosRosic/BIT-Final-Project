@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+
 import { wizardContext } from "../../../context";
 import Button from "../../Button/Button";
 
@@ -11,9 +12,12 @@ const WizardButtons = () => {
     selectedCandidate,
     selectedCompany,
     setWizardStep,
-    wizardNextStep,
     wizardStep,
     submitReport,
+    setReportBody,
+    reportBody,
+    setSelectedCandidate,
+    setSelectedCompany,
   } = useContext(wizardContext);
 
   const allSelected = interviewPhase && interviewStatus && startDate && notes;
@@ -21,6 +25,19 @@ const WizardButtons = () => {
   const hidden = "hidden";
   const wizardPreviousStep = () => {
     setWizardStep(wizardStep - 1);
+  };
+
+  const wizardNextStep = () => {
+    setReportBody({
+      ...reportBody,
+      candidateId: selectedCandidate.id,
+      candidateName: selectedCandidate.name,
+      companyId: selectedCompany.id,
+      companyName: selectedCompany.name,
+    });
+    setWizardStep(wizardStep < 3 && wizardStep + 1);
+    setSelectedCandidate("");
+    setSelectedCompany("");
   };
 
   return (
