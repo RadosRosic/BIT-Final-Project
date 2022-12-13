@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ReportPage from "./pages/ReportPage/ReportPage";
 import DetailsPage from "./pages/DetailsPage/DetailsPage";
 import ProtectedRoute from "./ProtectedRoute.jsx";
+import Footer from "./components/Footer/Footer"
 
 import "./App.scss";
 
@@ -92,6 +93,7 @@ const App = () => {
           <Route path="/details/:personId" element={<DetailsPage />} />
         </Routes>
       </ApplicationProvider>
+      <Footer/>
     </>
   );
 };

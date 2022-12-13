@@ -3,9 +3,14 @@ import "./Footer.scss"
 
 const Footer = () => {
     return (
-        <div>
-            
-        </div>
+        <footer className='glass-effect-gray'>
+           <p>
+             CopyRight: Marija Mitrović, Nevena Petrović, Nemanja Nikolić, Radoš Rosić 
+            </p> 
+            <p>
+             December 2022.
+           </p>
+        </footer>
     )
 }
 

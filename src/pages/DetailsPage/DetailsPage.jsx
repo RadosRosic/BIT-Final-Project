@@ -20,8 +20,8 @@ const DetailsPage = () => {
   return (
     <div>
       <Header />
-      <div className="all-about-candidate">
-        <div className="table-area glass-effect-grey">
+      <div >
+        <div >
         <Button
               name="Back"
               method={navigate}

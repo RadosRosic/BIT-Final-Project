@@ -1,0 +1,29 @@
+@import "../../styles.scss";
+footer {
+    
+        background-color: $select-color;
+        color: $base-text-color;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-top: 2px solid $base-text-color;
+        border-right: 2px solid $base-text-color;
+        border-radius: 0 60px 0 0;
+        padding: 0 60px;
+        // transition:  2s ease-out;
+       
+        *{
+            height: 20px;
+            
+        }
+        
+        
+        &:hover {
+            height: 60px;
+        } 
+
+}
