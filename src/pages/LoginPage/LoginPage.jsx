@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import "./LoginPage.scss";
@@ -6,6 +6,7 @@ import "./LoginPage.scss";
 const LoginPage = ({ setToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [wrongPassError, setWrongPassError] = useState("");
 
   const attemptLogIn = () => {
     fetch("http://localhost:3333/login", {
@@ -30,13 +31,22 @@ const LoginPage = ({ setToken }) => {
       })
       .catch((err) => {
         console.log(err);
-      }); // .then((res) => {
-    //   setToken(res.accessToken);
-    //   console.log(res.status);
-    //   localStorage.setItem("token", res.accessToken);
-    // })
-    // .catch((err) => console.log(err));
+        setWrongPassError("Wrong Password!");
+      });
   };
+
+  useEffect(() => {
+    const keyDownHandler = (event) => {
+      if (event.key === "Enter") {
+        attemptLogIn();
+      }
+    };
+    document.addEventListener("keydown", keyDownHandler);
+
+    return () => {
+      document.removeEventListener("keydown", keyDownHandler);
+    };
+  }, []);
 
   return (
     <>
@@ -55,6 +65,7 @@ const LoginPage = ({ setToken }) => {
           <Link to="/home">
             <Button name="Continue" classes="login-button" />
           </Link>
+          <p className="wrong-password-field">{wrongPassError}</p>
         </div>
       </div>
     </>
