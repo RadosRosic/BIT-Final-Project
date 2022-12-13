@@ -30,10 +30,10 @@ const WizardButtons = () => {
   const wizardNextStep = () => {
     setReportBody({
       ...reportBody,
-      candidateId: selectedCandidate.id,
-      candidateName: selectedCandidate.name,
-      companyId: selectedCompany.id,
-      companyName: selectedCompany.name,
+      candidateId: selectedCandidate.id || reportBody.candidateId,
+      candidateName: selectedCandidate.name || reportBody.candidateName,
+      companyId: selectedCompany.id || reportBody.companyId,
+      companyName: selectedCompany.name || reportBody.companyName,
     });
     setWizardStep(wizardStep < 3 && wizardStep + 1);
     setSelectedCandidate("");

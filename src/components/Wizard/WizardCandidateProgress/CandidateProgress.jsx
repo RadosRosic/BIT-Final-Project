@@ -7,11 +7,11 @@ const CandidateProgress = () => {
   return (
     <>
       <div id="candidate-progress">
-        <div className={wizardStep < 2 ? "hidden" : ""}>
+        <div className={wizardStep < 2 ? "hidden" : undefined}>
           <p>Candidate:</p>
           <p className="wizard-selected-item">{reportBody.candidateName}</p>
         </div>
-        <div className={wizardStep < 3 ? "hidden" : ""}>
+        <div className={wizardStep < 3 ? "hidden" : undefined}>
           <p>Company:</p>
           <p className="wizard-selected-item">{reportBody.companyName}</p>
         </div>
