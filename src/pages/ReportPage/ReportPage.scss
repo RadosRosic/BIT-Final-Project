@@ -2,9 +2,13 @@
 
 #admin-panel {
   height: 100vh;
-  background: url("https://static.vecteezy.com/system/resources/previews/002/071/822/original/template-for-science-and-technology-concept-background-free-vector.jpg");
+  background: url(../../assets/images/iStock-901001432opacity.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  @media screen and (max-width: 768px) {
+    // background: url(../../assets/images/iStock-901001432opacity.jpg);
+    // background-size: cover;
+  }
 }
 
 // #admin-page-wrapper {
@@ -15,5 +19,13 @@
   li {
     padding: 5px 10px;
     color: #131313;
+    &:hover {
+      background-color: $bright-color-opa;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    width: 97%;
+    margin: 0 auto;
+    padding: 15px;
   }
 }

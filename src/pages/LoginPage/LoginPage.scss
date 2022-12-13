@@ -1,60 +1,61 @@
+@import "../../styles.scss";
+
 #log-in-wrapper {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1511467687858-23d96c32e4ae%3Fcrop%3Dfaces%252Cedges%26cs%3Dtinysrgb%26fit%3Dcrop%26fm%3Djpg%26ixid%3DMnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjcwMzYyMDA4%26ixlib%3Drb-4.0.3%26q%3D60%26w%3D1200%26auto%3Dformat%26h%3D630%26mark-w%3D64%26mark-align%3Dtop%252Cleft%26mark-pad%3D50%26blend-mode%3Dnormal%26blend-alpha%3D10%26blend-w%3D1%26mark%3Dhttps%253A%252F%252Fimages.unsplash.com%252Fopengraph%252Flogo.png%26blend%3D000000");
+  background-image: url(../../assets/images/iStock-901001432.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 #log-in-form {
-  /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.16);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(1.8px);
-  -webkit-backdrop-filter: blur(1.8px);
-  border: 5px solid rgba(255, 255, 255, 0.06);
+  width: 40%;
+  height: 50%;
   padding: 70px;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  a {
+    width: 70%;
+    height: 15%;
+  }
+  a > button{
+    width: 100%;
+  height: 100%;
+  }
   h1 {
-    color: rgb(157 137 63);
+    color: $base-text-color;
     text-align: center;
     letter-spacing: 2px;
   }
-  > * {
-    display: block;
-    margin: 10px;
-  }
+
   > input {
     border: none;
-    color: black;
-    background: rgba(192, 174, 108, 0.35);
-    padding: 10px;
-    margin: 10px auto;
-    border-radius: 8px;
+    border-bottom: 1px solid grey;
+    background: transparent;
+    width: 70%;
+    height: 15%;
+    font-size: 16px;
+    padding-left: 10px;
+
+    &:active {
+      background-color: transparent;
+    }
+    &:focus {
+      background-color: transparent;
+    }
   }
 }
 
 #log-in-buttons {
   display: flex;
-  justify-content: space-around;
-  button {
-    border: none;
-    color: rgb(157 137 63);
-    font-weight: bold;
-    padding: 5px;
-    background: rgba(255, 255, 255, 0.35);
-    border-radius: 8px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(1.8px);
-    -webkit-backdrop-filter: blur(1.8px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    transition: 0.2s;
-    &:hover {
-      cursor: pointer;
-      color: white;
-      background-color: rgba(192, 174, 108, 0.35);
-    }
-  }
+  flex-direction: column;
+  width: 70%;
+  height: 15%;
 }
+
+

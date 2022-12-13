@@ -48,8 +48,25 @@ const ReportsList = ({ token, search }) => {
   return (
     <>
       <ul id="reports-list">
+        <li>
+          <h4>Company</h4>
+          <h4>Candidate</h4>
+          <h4>Date</h4>
+          <h4>Status</h4>
+          <h4 className="hidden-th">
+            <span className="reports-list_button-group">
+              {/* znamo da ovo ne treba tako ali je bilo trenutno resenje */}
+              <span>
+                <VisibilityIcon />
+              </span>
+              <span>
+                <DeleteForeverIcon />
+              </span>
+            </span>
+          </h4>
+        </li>
         {filterAll.map((e) => (
-          <li key={e.id} id={e.id} className="glass-effect">
+          <li key={e.id} id={e.id} className="glass-effect-grey">
             <ListDetail title="Company" value={e.companyName} />
             <ListDetail title="Candidate" value={e.candidateName} />
             <ListDetail title="Date" value={formatDate(e.interviewDate)} />

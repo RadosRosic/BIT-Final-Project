@@ -1,12 +1,13 @@
 import React,{useState, useContext} from 'react'
 import { applicationContext } from '../../context';
 import { useParams } from 'react-router-dom';
-
+import Modal from '../Modal/Modal';
 import Moment from 'react-moment';
 import Table from '../../components/Table/Table';
 
 
-const DetailsInfo = ({candidate}) => {
+
+const DetailsInfo = () => {
 
     const [dataModal, setDataModal] = useState(null);
     const { reports, candidates } = useContext(applicationContext);
@@ -18,9 +19,7 @@ const DetailsInfo = ({candidate}) => {
 
 
   return (
-    <div className="all-about-candidate">
-     
-        <div className='table-area glass-effect-grey'>
+    <>
  <div className="img-info-candidate glass-effect-bright">
        
        <div>
@@ -50,12 +49,13 @@ const DetailsInfo = ({candidate}) => {
          </div>
        </div>
      </div>
+     <div className='table-area glass-effect-grey'>
    <Table
    setDataModal={setDataModal}
    candidateReports={candidateReports}
-   />
-    </div>
-    </div>
+   /></div>
+    {dataModal && <Modal data={dataModal} setDataModal={setDataModal} />}
+    </>
   )
 }
 

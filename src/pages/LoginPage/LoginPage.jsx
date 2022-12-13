@@ -26,7 +26,7 @@ const LoginPage = ({ setToken }) => {
   return (
     <>
       <div id="log-in-wrapper">
-        <div id="log-in-form">
+        <div id="log-in-form" className="glass-effect-bright">
           <h1>Welcome</h1>
           <input
             type="text"
@@ -36,12 +36,12 @@ const LoginPage = ({ setToken }) => {
             type="password"
             onChange={(event) => setPassword(event.target.value)}
           />
-          <div id="log-in-buttons">
-            <Button name="Sign In" method={attemptLogIn} />
-            <Link to="/home">
-              <Button name="Continue" />
-            </Link>
-          </div>
+          {/* <div id="log-in-buttons"> */}
+          <Button name="Sign In" method={attemptLogIn} classes="login-button" />
+          <Link to="/home">
+            <Button name="Continue" classes="login-button" />
+          </Link>
+          {/* </div> */}
         </div>
       </div>
     </>

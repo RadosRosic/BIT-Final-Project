@@ -25,7 +25,7 @@ $very-bright-color-opa: rgb(238, 244, 249, 0.5);
 }
 
 .disabled {
-  background-color: gray !important;
+  background-color: $select-color !important;
   cursor: unset !important;
 }
 

@@ -85,7 +85,7 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
             setSelectedCompany(0);
           }}
         >
-          <div id="wizard-info-section">
+          <div id="wizard-info-section" className="glass-effect-bright">
             <WizardProgress />
             <CandidateProgress />
           </div>

@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import Moment from 'react-moment';
 import './Table.scss';
 import Button from '../Button/Button';
-import Modal from '../Modal/Modal';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Link } from 'react-router-dom';
 
-const Table = ({ candidateReports }) => {
-  const [dataModal, setDataModal] = useState(null);
+const Table = ({ candidateReports, dataModal, setDataModal }) => {
 
   const handleDataModal = (data) => {
     setDataModal(data);
@@ -23,7 +22,7 @@ const Table = ({ candidateReports }) => {
           <td>{e.status}</td>
           <td>
             <Button
-              name='&#128065;'
+              name={<VisibilityIcon/>}
               method={handleDataModal}
               methodArgument={e}
               classes='little-button-more'
@@ -46,7 +45,7 @@ const Table = ({ candidateReports }) => {
         </thead>
         <tbody>{renderTableData()}</tbody>
       </table>
-      {dataModal && <Modal data={dataModal} setDataModal={setDataModal} />}
+      
     </>
   );
 };

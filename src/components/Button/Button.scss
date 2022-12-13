@@ -1,16 +1,59 @@
 @import "../../styles.scss";
+
 .little-button-more {
-width: 35px;
-height: 35px;
-border-radius: 20px;
-border: none;
-background-color: $base-text-color;
-color: $bright-color;
-font-size:x-large;
-padding: 0px 0 5px 0;
-@media screen and (max-width: 480px){
+  width: 35px;
+  height: 35px;
+  border: none;
+  background-color: transparent;
+  color: $base-text-color;
+  font-size: x-large;
+  padding: 0px 0 5px 0;
+  @media screen and (max-width: 480px) {
     width: 25px;
     height: 25px;
-    font-size:medium;
+    font-size: medium;
+  }
 }
+.login-button {
+    display: block;
+  border: none;
+  color:$base-text-color;
+  background-color:transparent;
+  border:1.5px solid $base-text-color;
+  font-size: 16px;
+  width: 70%;
+  height: 15%;
+  
+  border-radius: 8px;
+  
+ 
+  transition: 0.2s;
+  &:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgba(192, 174, 108, 0.35);
+  }
+
+  
+}
+.medium-button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: transparent;
+  color: $base-text-color;
+  position: absolute;
+  right: 0;
+  top: 300px;
+  z-index: 3;
+  margin-right: 25%;
+  @media screen and (max-width: 430px) {
+    width: 25px;
+    height: 25px;
+    font-size: medium;
+  }
+}
+.medium-button:nth-child(2) {
+  margin-right: 20%;
+
 }

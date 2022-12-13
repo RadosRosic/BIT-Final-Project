@@ -1,9 +1,10 @@
 @import "../../styles.scss";
 .all-about-candidate {
-    height: 100vh;
-    background: url(../../assets/images/iStock-901001432opacity.jpg) rgb(255, 255, 255, 0.5);
+    height:calc(100vh - 78px);
+    background: url(../../assets/images/iStock-901001432opacity.jpg);
     background-size: cover;
     position: relative;
+    
     .table-area {
         background-color: $select-color;
         border-radius: 5px 5px 100px 5px;
@@ -19,7 +20,7 @@
         display: flex;
         justify-content: end;
         align-items: flex-end;
-        z-index: 2;
+        z-index: 1;
         @media screen and (max-width: 768px) {
             margin-right: 0;
             border-radius: 5px;
@@ -36,14 +37,14 @@
     justify-content:space-between;
     height: 50vh;
     border-radius: 5px 5px 5px 100px;
-    z-index: 0;
+    z-index: 2;
     .text-info-candidate {
         display: flex;
         flex-direction: column;
         justify-content:space-around;
         align-items: flex-end;
         margin-right: 20%;
-        padding: 30px 0;
+        padding: 30px 0 90px 0;
         div {
             display: flex;
             align-items: center;
@@ -56,7 +57,7 @@
     img {
         height: 100%;
         border-radius: 5px 5px 5px 100px;
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width: 425px) {
             height: 200px;
             width: 200px;
             border-radius: 50%;
@@ -78,7 +79,7 @@
             }
         }
     }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 425px) {
         height: 100vh;
         display: flex;
         justify-content: flex-start;

@@ -6,7 +6,7 @@ const WizardProgress = () => {
   const { wizardStep } = useContext(wizardContext);
 
   return (
-    <div id="wizard-progress" className="glass-effect">
+    <div id="wizard-progress" >
       <div
         className={`wizard-progress-wrapper  ${
           wizardStep === 1 && `wizard-current-step`

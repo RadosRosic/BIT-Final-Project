@@ -1,6 +1,6 @@
 @import "../../styles.scss";
 .header-page{
-  background: url(../../assets/images/iStock-901001432opacity.jpg) rgb(255, 255, 255, 0.5);
+  background: url(../../assets/images/iStock-901001432opacity.jpg) ;
   background-size: cover;
 }
 .sub-header {
@@ -21,6 +21,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: flex-start;
   padding: 0 30px;
   a {
     text-decoration: none;
