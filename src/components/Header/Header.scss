@@ -1,4 +1,5 @@
 @import "../../styles.scss";
+
 .main-header {
   background-color: $base-text-color;
   color: $very-bright-color;
@@ -45,13 +46,13 @@
     display: block;
   }
 
-  .hamburger.active .bar:nth-child(2) {
+  .hamburger.bigMac .bar:nth-child(2) {
     opacity: 0;
   }
-  .hamburger.active .bar:nth-child(1) {
+  .hamburger.bigMac .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
-  .hamburger.active .bar:nth-child(3) {
+  .hamburger.bigMac .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
 
@@ -63,11 +64,11 @@
     width: 100%;
     text-align: center;
     transition: 0.3s;
-    background-color: black;
+    background-color: $base-text-color;
     z-index: 1;
   }
 
-  .navigation-wrapper.active {
+  .navigation-wrapper.bigMac {
     left: 0;
   }
 }

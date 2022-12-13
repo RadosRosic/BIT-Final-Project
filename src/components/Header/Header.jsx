@@ -17,7 +17,7 @@ const Header = () => {
   };
 
   const [active, setActive] = useState(false);
-  const bigMac = "active";
+  const bigMac = "bigMac";
 
   return (
     <header className="main-header">
