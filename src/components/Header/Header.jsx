@@ -38,6 +38,9 @@ const Header = () => {
             <Link to="/reports/create-candidate">
               <button>Create Candidate</button>
             </Link>
+            <Link to="/reports/create-company">
+              <button>Create Company</button>
+            </Link>
           </nav>
         )}
       </div>

@@ -1,62 +1,58 @@
-import React, {useState} from 'react'
-import "./CreateCompanyPage.scss"
+import React, { useState } from "react";
+import "./CreateCompanyPage.scss";
 
+const CreateCompanyPage = ({ token }) => {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [isAdding, setIsAdding] = useState(false);
 
-const CreateCompanyPage = ({token}) => {
+  function submitCompanyForm(e) {
+    e.preventDefault();
 
-    const [email, setEmail] = useState("");
-    const [name, setName] = useState("");
-    const [isAdding, setIsAdding] = useState(false)
+    const company = { name, email };
 
-    function submitCompanyForm(e) {
+    setIsAdding(true);
 
-        e.preventDefault();
-    
-        const company = {name,  email};
-    
-        setIsAdding(true);
-    
-        fetch("http://localhost:3333/api/companies", {
-            method: "POST",
-            headers: {"Content-Type": "application/json",
-            "Authorization": `Bearer ${token.token}`},
-            body: JSON.stringify(company)
-        })
-        .then(() => {console.log(token)})
-    
-    
-    }
-
-
-
+    fetch("http://localhost:3333/api/companies", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token.token}`,
+      },
+      body: JSON.stringify(company),
+    }).then(() => {
+      console.log(token);
+    });
+  }
 
   return (
-    <form className='create-company' onSubmit={submitCompanyForm}>
-              <p>Create candidate:</p>
-        <label>Company e-mail:</label>
-        <input type="email" 
-        placeholder='E-mail'
+    <form className="create-company" onSubmit={submitCompanyForm}>
+      <p>Create company:</p>
+      <label>Company e-mail:</label>
+      <input
+        type="email"
+        placeholder="E-mail"
         required
         value={email}
         onChange={(event) => {
-            setEmail(event.target.value)
+          setEmail(event.target.value);
         }}
-         ></input>
-        <label>Company </label>
-        <input type="text" 
-        placeholder="name" 
+      ></input>
+      <label>Company </label>
+      <input
+        type="text"
+        placeholder="Name"
         required
         value={name}
-        onChange= {event => {
-            setName(event.target.value)
+        onChange={(event) => {
+          setName(event.target.value);
         }}
-        ></input>
+      ></input>
 
-      {!isAdding && <button >Submit</button>}
-      {isAdding && <button disabled >Submit</button>}
-
+      {!isAdding && <button>Submit</button>}
+      {isAdding && <button disabled>Submit</button>}
     </form>
-  )
-}
+  );
+};
 
-export default CreateCompanyPage
+export default CreateCompanyPage;
