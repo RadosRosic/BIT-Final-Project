@@ -1,74 +1,40 @@
-import React, { useState, useEffect, useContext } from 'react';
-import './DetailsPage.scss';
-import { useParams } from 'react-router-dom';
-import Moment from 'react-moment';
-import Table from '../../components/Table/Table';
-import { applicationContext } from '../../context';
-import Header from '../../components/Header/Header';
-import Modal from '../../components/Modal/Modal';
-
+import React, { useState, useEffect, useContext } from "react";
+import "./DetailsPage.scss";
+import { applicationContext } from "../../context";
+import Header from "../../components/Header/Header";
+import Button from "../../components/Button/Button";
+import EditCandidatePage from "../EditCandidatePage/EditCandidatePage";
+import DetailsInfo from "../../components/DetailsInfo/DetailsInfo";
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 const DetailsPage = () => {
-  const [candidate, setCandidate] = useState({});
-  const { reports } = useContext(applicationContext);
-  let { personId } = useParams();
-  const [dataModal, setDataModal] = useState(null);
-
-  const candidateReports = reports.filter((e) => personId == e.candidateId);
-
-  // Fechovali smo ponovo zato sto nam je Marina objasnila da se u Api-u za konkretnog usera mogu nalaziti opsirnije informacije u odnosu na onaj pocetni fetch koji ima sve usere.
-  // console.log(candidate);
-  function fetchCandidate() {
-    fetch(`http://localhost:3333/api/candidates/${personId}`)
-      .then((res) => res.json())
-      .then((data) => setCandidate(data));
-  }
- 
-  useEffect(() => {
-    fetchCandidate();
-  }, []);
-
+  const { token } = useContext(applicationContext);
+  const {activeCandidate} = useContext(applicationContext);
+  const [isEditing, setIsEditing] = useState(false);
   return (
     <div>
       <Header />
-      <div className="all-about-candidate">
-      
-        <div className="img-info-candidate glass-effect-bright">
-          <div>
-            <img
-              src={candidate.avatar}
-              alt="candidate"
+        <div className="all-about-candidate">
+       
+          {token && (
+            <Button
+              name={isEditing ? <KeyboardBackspaceIcon fontSize="large"/> : <DriveFileRenameOutlineIcon fontSize="large"/>}
+              method={setIsEditing}
+              methodArgument={!isEditing}
+              classes="medium-button"
             />
-          </div>
-          <div className="text-info-candidate">
-            <div>
-              <p>Name | </p>
-              <h3>{candidate.name}</h3>
-            </div>
-            <div>
-              <p>Email | </p>
-              <h3>{candidate.email}</h3>
-            </div>
-            <div>
-              <p>Date of birth | </p>
-              <h3>
-                <Moment format="DD/MM/YYYY">{candidate.birthday}</Moment>
-              </h3>
-            </div>
-            <div>
-              <p>Education | </p>
-              <h3>{candidate.education}</h3>
-            </div>
-          </div>
+          )}
+          {isEditing ? (
+            <EditCandidatePage
+              candidate={activeCandidate}
+              token = {token}
+            />
+          ) : (
+            <DetailsInfo candidate={activeCandidate} />
+          )}
         </div>
-        <div className='table-area glass-effect-grey'>
-          <Table
-            setDataModal={setDataModal}
-            candidateReports={candidateReports}
-          />
-        </div>
-        {dataModal && <Modal data={dataModal} setDataModal={setDataModal} />}
-      </div>
+        
     </div>
   );
 };

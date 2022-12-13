@@ -3,10 +3,9 @@
 .little-button-more {
   width: 35px;
   height: 35px;
-  border-radius: 20px;
   border: none;
-  background-color: $base-text-color;
-  color: $bright-color;
+  background-color: transparent;
+  color: $base-text-color;
   font-size: x-large;
   padding: 0px 0 5px 0;
   @media screen and (max-width: 480px) {
@@ -36,4 +35,25 @@
   }
 
   
+}
+.medium-button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: transparent;
+  color: $base-text-color;
+  position: absolute;
+  right: 0;
+  top: 300px;
+  z-index: 3;
+  margin-right: 25%;
+  @media screen and (max-width: 430px) {
+    width: 25px;
+    height: 25px;
+    font-size: medium;
+  }
+}
+.medium-button:nth-child(2) {
+  margin-right: 20%;
+
 }

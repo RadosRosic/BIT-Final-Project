@@ -3,7 +3,6 @@ import "./CreateCandidate.scss";
 import DatePicker from "../../components/DatePicker/DatePicker.jsx";
 
 const CreateCandidate = ({ token }) => {
-  //   const [id, setId] = useState(0)
   const [name, setName] = useState("");
   const [birthday, setBirthday] = useState(new Date());
   const [email, setEmail] = useState("");
@@ -11,12 +10,6 @@ const CreateCandidate = ({ token }) => {
   const [avatar, setAvatar] = useState("");
   const [isAdding, setIsAdding] = useState(false);
 
-  //   const allCandidatesId = [];
-  //   candidates.map ((e, i) => {
-  //     allCandidatesId.push(e.id)
-  //   })
-
-  //   let potentialID = Math.floor(Math.random() * 100000000);
 
   function submitForm(e) {
     e.preventDefault();

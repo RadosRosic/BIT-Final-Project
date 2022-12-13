@@ -5,9 +5,13 @@ import Card from "../../components/Card/Card";
 import Search from "../../components/Search/Search";
 import Header from "../../components/Header/Header";
 
+
 const HomePage = () => {
+  
+  const {token} = useContext(applicationContext);
   const { candidates } = useContext(applicationContext);
   const [search, setSearch] = useState("");
+
 
   const filterCandidates = candidates.filter((e) =>
     e.name.toLowerCase().startsWith(search)
@@ -23,8 +27,8 @@ const HomePage = () => {
         </div>
         <div className="cards">
           {filterCandidates.map(
-            (e, i) => {
-              return <Card el={e} key={i} />;
+            (candidate, i) => {
+              return <Card candidate={candidate} key={i} token={token}/>;
             }
             //   filterCandidates.map((candidate, i) => {
             //   return <Card {...candidate} key={i} />;

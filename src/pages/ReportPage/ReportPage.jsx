@@ -7,6 +7,9 @@ import Header from "../../components/Header/Header";
 import Wizard from "../../components/Wizard/Wizard";
 import "./ReportPage.scss";
 import CreateCandidate from "../CreateCandidate/CreateCandidate";
+import CreateCompanyPage from "../CreateCompanyPage/CreateCompanyPage";
+import EditCandidatePage from "../EditCandidatePage/EditCandidatePage";
+
 
 const ReportPage = () => {
   const { candidates, token, setToken } = useContext(applicationContext);
@@ -47,10 +50,26 @@ const ReportPage = () => {
               }
             />
             <Route
-              path="create-candidate"
+              path="/create-candidate"
               element={
                 <CreateCandidate candidates={candidates} token={token} />
               }
+            />
+            <Route
+            path="create-company"
+            element={
+              <CreateCompanyPage
+              token = {token}
+             />
+            }
+            />
+            <Route
+            path="/edit-candidate/:id"
+            element={
+              <EditCandidatePage
+              token = {token}
+             />
+            }
             />
           </Routes>
         </main>

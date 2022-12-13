@@ -4,6 +4,7 @@
     background: url(../../assets/images/iStock-901001432opacity.jpg);
     background-size: cover;
     position: relative;
+    
     .table-area {
         background-color: $select-color;
         border-radius: 5px 5px 100px 5px;
@@ -43,7 +44,7 @@
         justify-content:space-around;
         align-items: flex-end;
         margin-right: 20%;
-        padding: 30px 0;
+        padding: 30px 0 90px 0;
         div {
             display: flex;
             align-items: center;

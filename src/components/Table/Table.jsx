@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Moment from 'react-moment';
 import './Table.scss';
 import Button from '../Button/Button';
-
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Link } from 'react-router-dom';
 
 const Table = ({ candidateReports, dataModal, setDataModal }) => {
@@ -22,7 +22,7 @@ const Table = ({ candidateReports, dataModal, setDataModal }) => {
           <td>{e.status}</td>
           <td>
             <Button
-              name='&#128065;'
+              name={<VisibilityIcon/>}
               method={handleDataModal}
               methodArgument={e}
               classes='little-button-more'
