@@ -14,7 +14,6 @@ const ReportPage = () => {
   const [wizardStep, setWizardStep] = useState(1);
 
   const navigate = useNavigate();
-
   const signOut = () => {
     localStorage.removeItem("token");
     setToken("");
