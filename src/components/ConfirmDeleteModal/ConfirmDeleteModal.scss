@@ -1,0 +1,36 @@
+@import "../../styles.scss";
+
+.delete-modal-bg {
+  position: fixed;
+  min-height: 100vh;
+  background-color: $base-color-modal;
+  width: 100%;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.delete-modal-content {
+  background-color: $base-text-color;
+  color: $very-bright-color;
+  width: 25%;
+  height: 200px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  p {
+    font-size: 20px;
+  }
+  button {
+    display: inline-block;
+    font-size: 18px;
+    border: none;
+    margin: 0 5px;
+    padding: 10px;
+  }
+}

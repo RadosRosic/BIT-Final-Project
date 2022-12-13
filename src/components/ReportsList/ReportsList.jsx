@@ -5,6 +5,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import "./ReportsList.scss";
 import Modal from "../Modal/Modal";
+import ConfirmDeleteModal from "../../components/ConfirmDeleteModal/ConfirmDeleteModal";
 
 const ReportsList = ({ search }) => {
   const { token, reports, setValidData } = useContext(applicationContext);
@@ -19,6 +20,8 @@ const ReportsList = ({ search }) => {
   };
 
   const [dataModal, setDataModal] = useState(null);
+  const [deleteModalVisible, setDeleteModalVisible] = useState(false);
+  const [reportForDelition, setReportForDelition] = useState(0);
 
   const handleDataModal = (id) => {
     setDataModal(reports.find((e) => e.id == id));
@@ -81,7 +84,8 @@ const ReportsList = ({ search }) => {
               </span>
               <span
                 onClick={() => {
-                  deleteReport(e.id);
+                  setDeleteModalVisible(true);
+                  setReportForDelition(e.id);
                 }}
               >
                 <DeleteForeverIcon />
@@ -91,6 +95,13 @@ const ReportsList = ({ search }) => {
         ))}
       </ul>
       {dataModal && <Modal data={dataModal} setDataModal={setDataModal} />}
+      {deleteModalVisible && (
+        <ConfirmDeleteModal
+          setDeleteModalVisible={setDeleteModalVisible}
+          reportForDelition={reportForDelition}
+          setReportForDelition={setReportForDelition}
+        />
+      )}
     </>
   );
 };
