@@ -1,27 +1,20 @@
-.search{
+.search {
+    margin-right: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+
     input{
+
         background-color: white;
-        border: 1px solid gray;
-        border-radius: 5px 0 0 5px;
+        border-radius: 15px;
         border-right: none;
-        padding: 3.5px;
-        
-
-
+        padding: 10px;
+        height: 30px;
+        border: none;
+        width: 250px;
     }
-    button {
-        background-color: rgb(181, 83, 83);
-        border: 1px solid gray;
-        border-radius: 0 5px 5px 0;
-        border-left: none;
-        padding: 3px;
-        padding-top: 2.4px;
-        padding-bottom: 3.5px;
-        width: 20.5px;
 
-    }
-margin-right: 10px;
-    box-shadow: 2px 2px 9px -1px rgba(181,83,83,0.56);
-    border-radius: 5px;
+
 
 }

@@ -56,7 +56,7 @@
     img {
         height: 100%;
         border-radius: 5px 5px 5px 100px;
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width: 425px) {
             height: 200px;
             width: 200px;
             border-radius: 50%;
@@ -78,7 +78,7 @@
             }
         }
     }
-    @media screen and (max-width: 480px) {
+    @media screen and (max-width: 425px) {
         height: 100vh;
         display: flex;
         justify-content: flex-start;

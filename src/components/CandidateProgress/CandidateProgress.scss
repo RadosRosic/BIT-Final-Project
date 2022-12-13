@@ -1,9 +1,28 @@
 #candidate-progress {
+  
+  padding: 20px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 0;
+  }
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .wizard-selected-item {
     font-weight: bold;
+    font-size: 20px;
+    text-align: center;
   }
-
-  @media screen and (max-width: 475px) {
+  
+  @media screen and (max-width: 425px) {
     p {
       display: inline-block;
     }
