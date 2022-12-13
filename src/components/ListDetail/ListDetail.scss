@@ -1,9 +1,13 @@
+@import "../../styles.scss";
 .list-detail {
   p:first-of-type {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 10px 0;
+    color: $base-text-color;
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
   }
-  p:last-of-type {
-    font-style: italic;
-  }
+  
 }

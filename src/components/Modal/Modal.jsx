@@ -37,7 +37,7 @@ const Modal = ({ data, setDataModal }) => {
           }}
         >
           <Button
-            name="✖"
+            name="🞭"
             classes="modal-close"
             method={setDataModal}
             methodArgument={null}

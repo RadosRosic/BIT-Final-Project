@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { applicationContext } from "../../context";
+import Button from "../Button/Button";
 import "./Header.scss";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -11,14 +12,23 @@ const Header = () => {
     setToken("");
     navigate("/login");
   };
+  const signIn = () => {
+    navigate("/login");
+  };
 
   return (
     <header className="main-header">
       <h1>M N N R</h1>
-      {token && (
-        <div id="header-btns">
-          <button onClick={signOut}>Sign Out</button>
+      <div id="header-btns">
+        <Button
+          method={token ? signOut : signIn}
+          name={token ? "Sign Out" : "Sign In"}
+        />
+        {token && (
           <nav className="navigation-wrapper">
+            <Link to="/candidates">
+              <button>Candidates</button>
+            </Link>
             <Link to="/reports">
               <button>Reports</button>
             </Link>
@@ -29,8 +39,8 @@ const Header = () => {
               <button>Create Candidate</button>
             </Link>
           </nav>
-        </div>
-      )}
+        )}
+      </div>
     </header>
   );
 };

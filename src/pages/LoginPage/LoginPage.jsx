@@ -18,11 +18,11 @@ const LoginPage = ({ setToken }) => {
       }),
     })
       .then((res) => {
-        const a = res.json();
+        const badResponse = res.json();
         if (!res.ok) {
           throw new Error("Wrong Password");
         } else {
-          return a;
+          return badResponse;
         }
       })
       .then((res) => {
@@ -43,7 +43,7 @@ const LoginPage = ({ setToken }) => {
 
   const navigate = useNavigate();
   const proceedAsGuest = () => {
-    navigate("/home");
+    navigate("/candidates");
   };
 
   return (
@@ -61,7 +61,12 @@ const LoginPage = ({ setToken }) => {
             onChange={(event) => setPassword(event.target.value)}
             onKeyDown={attemptLogInOnEnter}
           />
-          <Button name="Sign In" method={attemptLogIn} classes="login-button" />
+          <Button
+            name="Sign In"
+            method={attemptLogIn}
+            classes="login-button"
+            disabled={!(email && password)}
+          />
           <Button
             name="Continue"
             method={proceedAsGuest}

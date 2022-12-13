@@ -53,7 +53,7 @@ const ReportsList = ({ search }) => {
           <h4>Candidate</h4>
           <h4>Date</h4>
           <h4>Status</h4>
-          <h4 className="hidden">
+          <h4 className="hidden-th">
             <span className="reports-list_button-group">
               {/* znamo da ovo ne treba tako ali je bilo trenutno resenje */}
               <span>

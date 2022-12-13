@@ -1,26 +1,30 @@
 @import "../../styles.scss";
 
-
 #reports-list {
-  li:first-child{
+  li:first-child {
     background-color: $bright-color-opa;
     border: none;
+    font-size: 20px;
+    text-align: left;
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
   }
-  
-  .hidden {
-    visibility: hidden;
 
-}
-  
+  .hidden-th {
+    visibility: hidden;
+    @media screen and (max-width: 768px) {
+      font-size: 16px;
+    }
+  }
+
   li {
     display: flex;
     margin: 5px;
     justify-content: space-between;
     border-radius: 5px;
-    border-left: 1px solid $bright-color; 
-    border-bottom: 2px solid $bright-color; 
-
-    
+    border-left: 1px solid $bright-color;
+    border-bottom: 2px solid $bright-color;
 
     div {
       width: 200px;
@@ -29,6 +33,7 @@
       flex-direction: column;
     }
   }
+  
 }
 
 .reports-list_button-group {

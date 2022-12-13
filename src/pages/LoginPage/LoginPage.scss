@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(../../assets/images/iStock-901001432opacity.jpg);
+  background-image: url(../../assets/images/iStock-901001432.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -13,7 +13,6 @@
 #log-in-form {
   width: 40%;
   height: 50%;
-
   padding: 70px;
   border-radius: 5%;
   display: flex;
@@ -38,9 +37,10 @@
     border: none;
     border-bottom: 1px solid grey;
     background: transparent;
-
     width: 70%;
     height: 15%;
+    font-size: 16px;
+    padding-left: 10px;
 
     &:active {
       background-color: transparent;
