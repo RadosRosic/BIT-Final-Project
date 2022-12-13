@@ -26,8 +26,8 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
       companyName: selectedCompany.name || reportBody.companyName,
     });
     setWizardStep(wizardStep < 3 && wizardStep + 1);
-    setSelectedCandidate(0);
-    setSelectedCompany(0);
+    setSelectedCandidate("");
+    setSelectedCompany("");
   };
 
   const submitReport = () => {
@@ -84,8 +84,8 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
         <div
           id="wizard"
           onClick={() => {
-            setSelectedCandidate(0);
-            setSelectedCompany(0);
+            setSelectedCandidate("");
+            setSelectedCompany("");
           }}
         >
           <div id="wizard-info-section" className="glass-effect-bright">
