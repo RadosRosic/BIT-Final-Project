@@ -13,7 +13,7 @@ const ReportsList = ({ search }) => {
     const interviewDateUnformatted = new Date(interviewDate);
     const dateOptions = { year: "numeric", month: "numeric", day: "numeric" };
     const interviewDateFormatted = interviewDateUnformatted.toLocaleDateString(
-      "sr-RS",
+      "en-US",
       dateOptions
     );
     return interviewDateFormatted;
@@ -33,20 +33,6 @@ const ReportsList = ({ search }) => {
       .concat(" ", e.companyName.toLowerCase())
       .includes(search)
   );
-
-  const deleteReport = (id) => {
-    fetch(`http://localhost:3333/api/reports/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then(() => {
-        setValidData(false);
-      });
-  };
 
   return (
     <>
