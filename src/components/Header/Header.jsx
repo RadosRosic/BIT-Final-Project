@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { applicationContext } from "../../context";
 import Button from "../Button/Button";
 import "./Header.scss";
@@ -16,6 +16,9 @@ const Header = () => {
     navigate("/login");
   };
 
+  const [active, setActive] = useState(false);
+  const bigMac = "active";
+
   return (
     <header className="main-header">
       <h1>M N N R</h1>
@@ -25,23 +28,35 @@ const Header = () => {
           name={token ? "Sign Out" : "Sign In"}
         />
         {token && (
-          <nav className="navigation-wrapper">
-            <Link to="/candidates">
-              <button>Candidates</button>
-            </Link>
-            <Link to="/reports">
-              <button>Reports</button>
-            </Link>
-            <Link to="/reports/create-report">
-              <button>Create Report</button>
-            </Link>
-            <Link to="/reports/create-candidate">
-              <button>Create Candidate</button>
-            </Link>
-            <Link to="/reports/create-company">
-              <button>Create Company</button>
-            </Link>
-          </nav>
+          <>
+            <nav className={`navigation-wrapper ${active ? bigMac : ""}`}>
+              <Link to="/candidates">
+                <button>Candidates</button>
+              </Link>
+              <Link to="/reports">
+                <button>Reports</button>
+              </Link>
+              <Link to="/reports/create-report">
+                <button>Create Report</button>
+              </Link>
+              <Link to="/reports/create-candidate">
+                <button>Create Candidate</button>
+              </Link>
+              <Link to="/reports/create-company">
+                <button>Create Company</button>
+              </Link>
+            </nav>
+            <div
+              className={`hamburger ${active ? bigMac : ""}`}
+              onClick={() => {
+                setActive(!active);
+              }}
+            >
+              <span className="bar"></span>
+              <span className="bar"></span>
+              <span className="bar"></span>
+            </div>
+          </>
         )}
       </div>
     </header>
