@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import "./LoginPage.scss";
 
@@ -35,18 +35,16 @@ const LoginPage = ({ setToken }) => {
       });
   };
 
-  useEffect(() => {
-    const keyDownHandler = (event) => {
-      if (event.key === "Enter") {
-        attemptLogIn();
-      }
-    };
-    document.addEventListener("keydown", keyDownHandler);
+  const attemptLogInOnEnter = (event) => {
+    if (event.key === "Enter") {
+      attemptLogIn();
+    }
+  };
 
-    return () => {
-      document.removeEventListener("keydown", keyDownHandler);
-    };
-  }, []);
+  const navigate = useNavigate();
+  const proceedAsGuest = () => {
+    navigate("/home");
+  };
 
   return (
     <>
@@ -56,15 +54,19 @@ const LoginPage = ({ setToken }) => {
           <input
             type="text"
             onChange={(event) => setEmail(event.target.value)}
+            onKeyDown={attemptLogInOnEnter}
           />
           <input
             type="password"
             onChange={(event) => setPassword(event.target.value)}
+            onKeyDown={attemptLogInOnEnter}
           />
           <Button name="Sign In" method={attemptLogIn} classes="login-button" />
-          <Link to="/home">
-            <Button name="Continue" classes="login-button" />
-          </Link>
+          <Button
+            name="Continue"
+            method={proceedAsGuest}
+            classes="login-button"
+          />
           <p className="wrong-password-field">{wrongPassError}</p>
         </div>
       </div>
