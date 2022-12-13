@@ -22,7 +22,7 @@ const WizardCompanies = ({ highlighted }) => {
             selectCompany(event.currentTarget.id);
           }}
         >
-          <h2>{e.name}</h2>
+          <p>{e.name}</p>
         </li>
       ))}
     </ul>

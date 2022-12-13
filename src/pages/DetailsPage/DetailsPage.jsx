@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./DetailsPage.scss";
-import { useNavigate } from "react-router-dom";
 import { applicationContext } from "../../context";
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
@@ -13,8 +12,6 @@ const DetailsPage = () => {
   const { token } = useContext(applicationContext);
   const {activeCandidate} = useContext(applicationContext);
   const [isEditing, setIsEditing] = useState(false);
-  const navigate = useNavigate();
-  const [isButtonEdit, setIsButtonEdit] = useState(false);
   return (
     <div>
       <Header />

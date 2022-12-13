@@ -2,7 +2,7 @@
 
 #wizard {
   display: flex;
-  height: calc(100vh - 114px);
+  min-height: calc(100vh - 114px);
   // background: url("../../assets/images/iStock-901001432opacity.jpg") no-repeat;
   // background-size: cover;
   color: $base-text-color;
@@ -15,6 +15,7 @@
   }
   @media screen and (max-width: 425px) {
     align-items: center;
+    min-height: 100vh;
   }
 
 
@@ -37,22 +38,28 @@
     }
   }
   #wizard-info-section {
-    height: calc(100vh - 114px);
+    min-height: calc(100vh - 114px);
     width: 300px;
     border-right: 2px solid $bright-color;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     @media screen and (max-width: 768px) {
       width: 100%;
-      
+      min-height: calc(30vh - 114px);
     }
+    @media screen and (max-width: 425px) {
+      min-height: calc(30vh - 114px);
+    }
+
   }
 }
 
 .wizard-main-section {
+
   width: 100%;
-  margin-top: 150px;
+  margin-top: 90px;
   display: flex;
   flex-direction: column;
   align-items: center;
