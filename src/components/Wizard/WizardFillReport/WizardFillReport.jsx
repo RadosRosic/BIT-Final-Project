@@ -25,6 +25,7 @@ const WizardFillReport = () => {
         </div>
         <div className="wizard-select-inner-wrapper">
           <SelectComponent
+            text="Phase: "
             selectedItem={interviewPhase}
             setSelectedItem={setInterviewPhase}
             array={["CV", "HR", "Tech", "Final"]}
@@ -32,6 +33,7 @@ const WizardFillReport = () => {
         </div>
         <div className="wizard-select-inner-wrapper">
           <SelectComponent
+            text="Status: "
             selectedItem={interviewStatus}
             setSelectedItem={setInterviewStatus}
             array={["passed", "declined"]}
