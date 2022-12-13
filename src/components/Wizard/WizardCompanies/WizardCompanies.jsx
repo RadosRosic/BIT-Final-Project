@@ -6,23 +6,23 @@ const WizardCompanies = ({ highlighted }) => {
   const { companies } = useContext(applicationContext);
   const { selectedCompany, setSelectedCompany } = useContext(wizardContext);
   const selectCompany = (id) => {
-    setSelectedCompany(companies.find((e) => e.id == id));
+    setSelectedCompany(companies.find((company) => company.id == id));
   };
   return (
     <ul id="wizard-companies-list">
-      {companies.map((e) => (
+      {companies.map((company) => (
         <li
           className={`glass-effect ${
-            selectedCompany.id == e.id ? highlighted : ""
+            selectedCompany.id == company.id ? highlighted : ""
           }`}
-          id={e.id}
-          key={e.id}
+          id={company.id}
+          key={company.id}
           onClick={(event) => {
             event.stopPropagation();
             selectCompany(event.currentTarget.id);
           }}
         >
-          <h2>{e.name}</h2>
+          <h2>{company.name}</h2>
         </li>
       ))}
     </ul>
