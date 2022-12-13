@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { wizardContext } from "../../context";
-import DatePicker from "../DatePicker/DatePicker";
-import ReportNotes from "../ReportNotes/ReportNotes";
-import SelectComponent from "../SelectComponent/SelectComponent";
+import { wizardContext } from "../../../context";
+import DatePicker from "../../DatePicker/DatePicker";
+import ReportNotes from "../WizardReportNotes/WizardReportNotes";
+import SelectComponent from "../../SelectComponent/SelectComponent";
 import "./WizardFillReport.scss";
 
 const WizardFillReport = () => {
@@ -25,6 +25,7 @@ const WizardFillReport = () => {
         </div>
         <div className="wizard-select-inner-wrapper">
           <SelectComponent
+            text="Phase: "
             selectedItem={interviewPhase}
             setSelectedItem={setInterviewPhase}
             array={["CV", "HR", "Tech", "Final"]}
@@ -32,6 +33,7 @@ const WizardFillReport = () => {
         </div>
         <div className="wizard-select-inner-wrapper">
           <SelectComponent
+            text="Status: "
             selectedItem={interviewStatus}
             setSelectedItem={setInterviewStatus}
             array={["passed", "declined"]}

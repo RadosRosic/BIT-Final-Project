@@ -6,8 +6,8 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import "./ReportsList.scss";
 import Modal from "../Modal/Modal";
 
-const ReportsList = ({ token, search }) => {
-  const { reports, setValidData } = useContext(applicationContext);
+const ReportsList = ({ search }) => {
+  const { token, reports, setValidData } = useContext(applicationContext);
   const formatDate = (interviewDate) => {
     const interviewDateUnformatted = new Date(interviewDate);
     const dateOptions = { year: "numeric", month: "numeric", day: "numeric" };
@@ -26,7 +26,7 @@ const ReportsList = ({ token, search }) => {
 
   const filterAll = reports.filter((e) =>
     e.candidateName
-      .toLowerCase()
+      ?.toLowerCase()
       .concat(" ", e.companyName.toLowerCase())
       .includes(search)
   );
@@ -36,7 +36,7 @@ const ReportsList = ({ token, search }) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token.token}`,
+        Authorization: `Bearer ${token}`,
       },
     })
       .then((res) => res.json())

@@ -61,7 +61,8 @@ const App = () => {
           companies,
           setActiveCandidate,
           activeCandidate,
-          setValidData
+          setToken,
+          setValidData,
         }}
       >
         <Routes>
@@ -70,17 +71,12 @@ const App = () => {
             path="/login"
             element={
               <ProtectedRoute token={!token} route="/reports">
-                <LoginPage
-                  token={token}
-                  setToken={setToken}
-                  setCandidates={setCandidates}
-                  fetchCandidates={fetchCandidates}
-                />
+                <LoginPage setToken={setToken} />
               </ProtectedRoute>
             }
           />
 
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/candidates" element={<HomePage />} />
           <Route
             path="/reports/*"
             element={

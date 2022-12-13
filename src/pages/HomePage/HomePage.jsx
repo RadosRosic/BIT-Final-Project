@@ -20,9 +20,7 @@ const HomePage = () => {
   return (
     <div>
       <Header />
-
-     
-      <div className='header-page'>
+      <div className="header-page">
         <div className="sub-header">
           <h2>Candidates</h2>
           <Search onChange={setSearch} />

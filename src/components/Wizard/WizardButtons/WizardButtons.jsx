@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { wizardContext } from "../../context";
-import Button from "../Button/Button";
+
+import { wizardContext } from "../../../context";
+import Button from "../../Button/Button";
 
 const WizardButtons = () => {
   const {
@@ -11,19 +12,32 @@ const WizardButtons = () => {
     selectedCandidate,
     selectedCompany,
     setWizardStep,
-    wizardNextStep,
     wizardStep,
     submitReport,
+    setReportBody,
+    reportBody,
+    setSelectedCandidate,
+    setSelectedCompany,
   } = useContext(wizardContext);
 
   const allSelected = interviewPhase && interviewStatus && startDate && notes;
   const candidateOrCompanySelected = selectedCandidate || selectedCompany;
   const hidden = "hidden";
-  const doNothing = () => {
-    return; // empty function used in next button method, see below
-  };
   const wizardPreviousStep = () => {
     setWizardStep(wizardStep - 1);
+  };
+
+  const wizardNextStep = () => {
+    setReportBody({
+      ...reportBody,
+      candidateId: selectedCandidate.id || reportBody.candidateId,
+      candidateName: selectedCandidate.name || reportBody.candidateName,
+      companyId: selectedCompany.id || reportBody.companyId,
+      companyName: selectedCompany.name || reportBody.companyName,
+    });
+    setWizardStep(wizardStep < 3 && wizardStep + 1);
+    setSelectedCandidate("");
+    setSelectedCompany("");
   };
 
   return (
@@ -32,21 +46,20 @@ const WizardButtons = () => {
         <Button name="Back" method={wizardPreviousStep} classes={`back-btn`} />
       </div>
 
-      <div
-        className="next-btn-wrapper"
-        onClick={(event) => event.stopPropagation()}
-      >
+      <div className="next-btn-wrapper">
         {wizardStep < 3 && (
           <Button
             name="Next"
-            method={candidateOrCompanySelected ? wizardNextStep : doNothing}
+            disabled={candidateOrCompanySelected ? false : true}
+            method={wizardNextStep}
             classes={`next-btn ${candidateOrCompanySelected ? "" : "disabled"}`}
           />
         )}
         {wizardStep === 3 && (
           <Button
             name="Submit"
-            method={allSelected ? submitReport : doNothing}
+            disabled={allSelected ? false : true}
+            method={submitReport}
             classes={`next-btn ${allSelected ? "" : "disabled"}`}
           />
         )}

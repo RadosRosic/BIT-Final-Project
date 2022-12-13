@@ -1,5 +1,5 @@
 import React from "react";
-import "./ReportNotes.scss";
+import "./WizardReportNotes.scss";
 
 const ReportNotes = ({ notes, setNotes }) => {
   return (

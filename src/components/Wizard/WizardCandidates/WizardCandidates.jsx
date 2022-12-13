@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { applicationContext, wizardContext } from "../../context";
+import { applicationContext, wizardContext } from "../../../context";
 import "./WizardCandidates.scss";
 
 const WizardCandidates = ({ highlighted }) => {
@@ -13,24 +13,24 @@ const WizardCandidates = ({ highlighted }) => {
   return (
     <>
       <div id="wizard-select-section">
-        {candidates.map((e) => (
+        {candidates.map((candidate) => (
           <div
             className={`wizard-candidate glass-effect-grey ${
-              selectedCandidate.id == e.id ? highlighted : ""
+              selectedCandidate.id == candidate.id ? highlighted : ""
             }`}
-            id={e.id}
-            key={e.id}
+            id={candidate.id}
+            key={candidate.id}
             onClick={(event) => {
               event.stopPropagation();
               selectCandidate(event.currentTarget.id);
             }}
           >
             <div className="wizard-candidate-img-container">
-              <img src={e.avatar} />
+              <img src={candidate.avatar} />
             </div>
             <div className="wizard-candidate-info-section">
-              <h3>{e.name}</h3>
-              <p>{e.email}</p>
+              <h3>{candidate.name}</h3>
+              <p>{candidate.email}</p>
             </div>
           </div>
         ))}

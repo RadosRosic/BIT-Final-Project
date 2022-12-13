@@ -1,24 +1,21 @@
 import React, { useState, useContext } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import { applicationContext } from "../../context";
 import Search from "../../components/Search/Search";
 import ReportsList from "../../components/ReportsList/ReportsList";
 import Header from "../../components/Header/Header";
-import Wizard from "../Wizard/Wizard";
+import Wizard from "../../components/Wizard/Wizard";
 import "./ReportPage.scss";
 import CreateCandidate from "../CreateCandidate/CreateCandidate";
 import CreateCompanyPage from "../CreateCompanyPage/CreateCompanyPage";
 import EditCandidatePage from "../EditCandidatePage/EditCandidatePage";
 
 
-const ReportPage = (token) => {
-  const {candidates} = useContext(applicationContext);
-  
+const ReportPage = () => {
+  const { candidates, token, setToken } = useContext(applicationContext);
   const [search, setSearch] = useState("");
   const [wizardStep, setWizardStep] = useState(1);
-  const signOut = () => {
-    localStorage.removeItem("token");
-  };
+
   const [reportBody, setReportBody] = useState({
     candidateId: 0,
     candidateName: "",
@@ -33,7 +30,7 @@ const ReportPage = (token) => {
   return (
     <>
       <div id="admin-panel">
-        <Header signOut={signOut} />
+        <Header />
         {/* <Search onChange={setSearch} /> */}
         <main id="admin-page-wrapper">
           <Routes>

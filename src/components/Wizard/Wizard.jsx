@@ -1,9 +1,10 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { applicationContext, WizardProvider } from "../../context";
-import CandidateProgress from "../../components/CandidateProgress/CandidateProgress";
-import WizardButtons from "../../components/WizardButtons/WizardButtons";
-import WizardSelectSection from "../../components/WizardSelectSection/WizardSelectSection";
-import WizardProgress from "../../components/WizardProgress/WizardProgress";
+import CandidateProgress from "./WizardCandidateProgress/CandidateProgress";
+import WizardButtons from "./WizardButtons/WizardButtons";
+import WizardSelectSection from "./WizardSelectSection/WizardSelectSection";
+import WizardProgress from "./WizardProgress/WizardProgress";
 import "./Wizard.scss";
 
 const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
@@ -15,19 +16,7 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
   const [interviewStatus, setInterviewStatus] = useState("");
   const [notes, setNotes] = useState("");
 
-  const wizardNextStep = () => {
-    setReportBody({
-      ...reportBody,
-      candidateId: selectedCandidate.id || reportBody["candidateId"],
-      candidateName: selectedCandidate.name || reportBody["candidateName"],
-      companyId: selectedCompany.id || reportBody["companyId"],
-      companyName: selectedCompany.name || reportBody["companyName"],
-    });
-    setWizardStep(wizardStep < 3 && wizardStep + 1);
-    setSelectedCandidate(0);
-    setSelectedCompany(0);
-  };
-
+  const navigate = useNavigate();
   const submitReport = () => {
     console.log(token, reportBody);
     fetch(`http://localhost:3333/api/reports`, {
@@ -51,6 +40,7 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
         setValidData(false);
         setWizardStep(1);
         setReportBody({});
+        navigate("/reports");
       });
   };
 
@@ -60,8 +50,6 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
         value={{
           reportBody,
           setReportBody,
-          wizardStep,
-          setWizardStep,
           selectedCandidate,
           setSelectedCandidate,
           selectedCompany,
@@ -74,15 +62,16 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
           setInterviewStatus,
           notes,
           setNotes,
-          wizardNextStep,
+          wizardStep,
+          setWizardStep,
           submitReport,
         }}
       >
         <div
           id="wizard"
           onClick={() => {
-            setSelectedCandidate(0);
-            setSelectedCompany(0);
+            setSelectedCandidate("");
+            setSelectedCompany("");
           }}
         >
           <div id="wizard-info-section" className="glass-effect-bright">

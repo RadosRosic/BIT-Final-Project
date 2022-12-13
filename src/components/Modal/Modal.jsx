@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from 'react';
-import './Modal.scss';
-import { applicationContext } from '../../context';
-import Button from '../Button/Button';
-import Moment from 'react-moment';
-import CloseIcon from '@mui/icons-material/Close';
+import React, { useContext, useEffect } from "react";
+import "./Modal.scss";
+import { applicationContext } from "../../context";
+import Button from "../Button/Button";
+import Moment from "react-moment";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Modal = ({ data, setDataModal }) => {
   // funkcija handleEsc nam radi gasenje modala na dugme escape, to smo skinuli sa neta (zajedno sa use Effectom)
@@ -13,9 +13,9 @@ const Modal = ({ data, setDataModal }) => {
     }
   }
   useEffect(() => {
-    window.addEventListener('keydown', handleEsc);
+    window.addEventListener("keydown", handleEsc);
     return () => {
-      window.removeEventListener('keydown', handleEsc);
+      window.removeEventListener("keydown", handleEsc);
     };
   }, []);
 
@@ -37,7 +37,7 @@ const Modal = ({ data, setDataModal }) => {
           }}
         >
           <Button
-            name="X"
+            name="🞭"
             classes="modal-close"
             method={setDataModal}
             methodArgument={null}
@@ -64,9 +64,9 @@ const Modal = ({ data, setDataModal }) => {
             </div>
             <div></div>
           </div>
-          <div className='report-notes'>
+          <div className="report-notes">
             <p>Notes | </p>
-            <p className='report-notes-content'>
+            <p className="report-notes-content">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
               reprehenderit obcaecati harum placeat ut, facilis, provident aut
               ipsam, officiis impedit incidunt dolor distinctio assumenda.
