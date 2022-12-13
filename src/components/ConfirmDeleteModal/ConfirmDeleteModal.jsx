@@ -41,7 +41,12 @@ const SmallModal = ({
       className="delete-modal-bg"
       onClick={() => setDeleteModalVisible(false)}
     >
-      <div className="delete-modal-content">
+      <div
+        className="delete-modal-content"
+        onClick={(event) => {
+          event.stopPropagation();
+        }}
+      >
         <p>Delete forever?</p>
         <p>THIS CANNOT BE UNDONE!</p>
         <div>
