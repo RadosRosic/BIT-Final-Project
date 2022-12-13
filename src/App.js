@@ -15,29 +15,32 @@ const App = () => {
   const [reports, setReports] = useState([]);
   const [companies, setCompanies] = useState([]);
   const [validData, setValidData] = useState(false);
-
+  const [activeCandidate, setActiveCandidate] = useState(null)
+  
+  
   const fetchCandidates = () => {
     fetch("http://localhost:3333/api/candidates")
-      .then((res) => res.json())
-      .then((data) => {
-        setCandidates(data);
-        setValidData(true);
-      });
+    .then((res) => res.json())
+    .then((data) => {
+      setCandidates(data);
+      setValidData(true);
+    });
   };
-
+  
   const fetchReports = () => {
     fetch("http://localhost:3333/api/reports")
-      .then((res) => res.json())
-      .then((data) => setReports(data));
+    .then((res) => res.json())
+    .then((data) => setReports(data));
   };
-
+  
   const fetchCompanies = () => {
     fetch("http://localhost:3333/api/companies")
-      .then((res) => res.json())
-      .then((data) => setCompanies(data));
+    .then((res) => res.json())
+    .then((data) => setCompanies(data));
   };
-
-
+  
+  
+  //flag u dependency Array-u [validData] 
   useEffect(() => {
     if (!validData) {
       fetchReports();
@@ -55,6 +58,9 @@ const App = () => {
           setValidData,
           token,
           companies,
+          setActiveCandidate,
+          activeCandidate,
+          setValidData
         }}
       >
         <Routes>

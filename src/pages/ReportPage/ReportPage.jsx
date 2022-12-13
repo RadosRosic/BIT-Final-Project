@@ -8,6 +8,7 @@ import Wizard from "../Wizard/Wizard";
 import "./ReportPage.scss";
 import CreateCandidate from "../CreateCandidate/CreateCandidate";
 import CreateCompanyPage from "../CreateCompanyPage/CreateCompanyPage";
+import EditCandidatePage from "../EditCandidatePage/EditCandidatePage";
 
 
 const ReportPage = (token) => {
@@ -52,7 +53,7 @@ const ReportPage = (token) => {
               }
             />
             <Route
-              path="create-candidate"
+              path="/create-candidate"
               element={
                 <CreateCandidate candidates={candidates} token={token} />
               }
@@ -61,6 +62,14 @@ const ReportPage = (token) => {
             path="create-company"
             element={
               <CreateCompanyPage
+              token = {token}
+             />
+            }
+            />
+            <Route
+            path="/edit-candidate/:id"
+            element={
+              <EditCandidatePage
               token = {token}
              />
             }

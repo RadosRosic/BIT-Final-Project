@@ -1,16 +1,23 @@
-import React from "react";
+import React, {useContext} from "react";
+import { applicationContext } from "../../context";
 import { Link } from "react-router-dom";
 import "./Card.scss";
 
-const Card = ({ el }) => {
+
+const Card = ({ candidate }) => {
+
+  const {setActiveCandidate} = useContext(applicationContext);
+
+
   return (
-    <Link to={`/details/${el.id}`} className="card glass-effect-bright">
-      <>
-        <img src={el.avatar} alt='can'/>
-        <h3>{el.name}</h3>
-        <p>{el.email}</p>
-      </>
+      <div onClick={() => setActiveCandidate(candidate) }>
+    <Link to={`/details/${candidate.id}`} className="card glass-effect-bright">
+        <img src={candidate.avatar} alt='can'/>
+        <h3>{candidate.name}</h3>
+        <p>{candidate.email}</p>
     </Link>
+   
+      </div>
   );
 };
 
