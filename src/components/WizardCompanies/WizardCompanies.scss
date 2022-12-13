@@ -1,10 +1,17 @@
 @import "../../styles.scss";
 #wizard-companies-list {
   list-style-type: none;
+  width: 80%;
   li {
     border: 1px solid black;
     padding: 10px;
     margin: 5px 0;
+    color: $base-text-color;
+    background-color: $very-bright-color-opa;
+    border-radius: 5px;
+    
+
+
     &:hover {
       background-color: $select-color;
     }
