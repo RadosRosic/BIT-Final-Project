@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import Button from "../Button/Button";
 import { applicationContext } from "../../context";
 import "./Header.scss";
 import { Link, useNavigate } from "react-router-dom";
