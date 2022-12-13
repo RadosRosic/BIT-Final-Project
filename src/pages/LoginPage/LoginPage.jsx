@@ -16,13 +16,27 @@ const LoginPage = ({ setToken }) => {
         password: password,
       }),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        const a = res.json();
+        if (!res.ok) {
+          throw new Error("Wrong Password");
+        } else {
+          return a;
+        }
+      })
       .then((res) => {
         setToken(res.accessToken);
         localStorage.setItem("token", res.accessToken);
-      });
+      })
+      .catch((err) => {
+        console.log(err);
+      }); // .then((res) => {
+    //   setToken(res.accessToken);
+    //   console.log(res.status);
+    //   localStorage.setItem("token", res.accessToken);
+    // })
+    // .catch((err) => console.log(err));
   };
-
 
   return (
     <>
@@ -37,12 +51,10 @@ const LoginPage = ({ setToken }) => {
             type="password"
             onChange={(event) => setPassword(event.target.value)}
           />
-          {/* <div id="log-in-buttons"> */}
           <Button name="Sign In" method={attemptLogIn} classes="login-button" />
           <Link to="/home">
             <Button name="Continue" classes="login-button" />
           </Link>
-          {/* </div> */}
         </div>
       </div>
     </>
