@@ -5,7 +5,7 @@ const ReportNotes = ({ notes, setNotes }) => {
   return (
     <>
       <textarea
-        rows="10"
+        rows="14"
         cols="80"
         placeholder="Notes..."
         value={notes}
