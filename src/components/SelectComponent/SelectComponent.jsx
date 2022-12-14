@@ -5,7 +5,7 @@ const SelectComponent = ({ text, array, selectedItem, setSelectedItem }) => {
   return (
     <>
       <label>
-        {text}
+        {text}</label><br />
         <select
           name={text}
           required
@@ -20,7 +20,7 @@ const SelectComponent = ({ text, array, selectedItem, setSelectedItem }) => {
             );
           })}
         </select>
-      </label>
+      
     </>
   );
 };

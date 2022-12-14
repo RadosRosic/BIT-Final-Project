@@ -8,6 +8,7 @@
   background-image: url(../../assets/images/iStock-901001432.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+
 }
 
 #log-in-form {
@@ -33,6 +34,15 @@
     letter-spacing: 2px;
   }
 
+  @media screen and (max-width: 768px) {
+    width: 70%;
+    height: 50%;
+  } 
+   @media screen and (max-width: 425px) {
+    width: 80%;
+    height: 50%;
+  }
+
   > input {
     border: none;
     border-bottom: 1px solid grey;
@@ -56,8 +66,10 @@
   flex-direction: column;
   width: 70%;
   height: 15%;
+
 }
 
 .wrong-password-field {
+  display: hidden;
   color: red;
 }

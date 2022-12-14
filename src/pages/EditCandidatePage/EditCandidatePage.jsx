@@ -1,9 +1,10 @@
-import React, {useState, useContext} from 'react'
-import { useParams } from 'react-router-dom';
-import DatePicker from '../../components/DatePicker/DatePicker';
-import { applicationContext } from '../../context';
+import React, { useState, useContext } from "react";
+import { useParams } from "react-router-dom";
+import DatePicker from "../../components/DatePicker/DatePicker";
+import { applicationContext } from "../../context";
 
-const EditCandidatePage = ({ candidate, token}) => {
+
+const EditCandidatePage = ({ token }) => {
 
   const {personId} = useParams();
   const {setValidData, candidates} = useContext(applicationContext)    
@@ -15,7 +16,7 @@ const EditCandidatePage = ({ candidate, token}) => {
   const [avatar, setAvatar] = useState(currentCandidate.avatar);
   const [isAdding, setIsAdding] = useState(false);
 
-
+//isAdding
 
 
   function submitForm(e) {
@@ -34,7 +35,7 @@ const EditCandidatePage = ({ candidate, token}) => {
       body: JSON.stringify(candidateEdit),
     })
       .then((res) => res.json())
-      .then(() => setValidData(true));
+      .then(() => setValidData(false));
   }
 
 
@@ -42,8 +43,8 @@ const EditCandidatePage = ({ candidate, token}) => {
        console.log(token);
       
         return (
-          <form className="create-candidate" onSubmit={submitForm}>
-            <p>Create candidate:</p>
+          <form className="create-candidate glass-effect-bright" onSubmit={submitForm}>
+            <p>Edit candidate:</p>
             <label> Name:</label>
             <input
               type="text"
@@ -91,10 +92,9 @@ const EditCandidatePage = ({ candidate, token}) => {
               }}
             ></input>
           <button onClick={()=>{
-            console.log('dsdds')
           }} >Submit</button>
           </form>
         );
       };
 
-export default EditCandidatePage
+export default EditCandidatePage;

@@ -1,10 +1,10 @@
 @import "../../styles.scss";
+
+
 .all-about-candidate {
-    height:calc(100vh - 78px);
-    background: url(../../assets/images/iStock-901001432opacity.jpg);
-    background-size: cover;
+    min-height:calc(100vh - 78px);
     position: relative;
-    
+
     .table-area {
         background-color: $select-color;
         border-radius: 5px 5px 100px 5px;
@@ -14,7 +14,7 @@
         top: -50vh;
         right: 0;
         margin-right: 5%;
-        min-height: 75vh;
+        height: 75vh;
         padding-bottom: 30px;
         padding-top: 55vh;
         display: flex;
@@ -80,11 +80,11 @@
         }
     }
     @media screen and (max-width: 425px) {
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
         justify-content: flex-start;
         flex-direction:column-reverse;
-        height: 65vh;
+        min-height: 65vh;
         .text-info-candidate {
             font-size: 12px;
             padding: 0;

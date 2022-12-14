@@ -72,7 +72,12 @@ const LoginPage = ({ setToken }) => {
             method={proceedAsGuest}
             classes="login-button"
           />
-          <p className="wrong-password-field">{wrongPassError}</p>
+          <p
+            className={`wrong-password-field ${wrongPassError ? "" : "hidden"}`}
+          >
+            ‎‎ {/*Empty char here, do not remove it!*/}
+            {wrongPassError}
+          </p>
         </div>
       </div>
     </>

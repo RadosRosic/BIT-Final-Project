@@ -8,6 +8,16 @@
   align-items: center;
   @media screen and (max-width: 768px) {
     margin-bottom: 0;
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    *{
+      padding: 5px;
+      margin:0 10px;
+    }
   }
   > div {
     display: flex;
