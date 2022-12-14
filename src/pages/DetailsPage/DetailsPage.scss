@@ -2,7 +2,7 @@
 
 
 .all-about-candidate {
-    min-height:calc(100vh - 78px);
+    min-height: calc(100vh - 78px);
     position: relative;
 
     .table-area {
@@ -14,7 +14,7 @@
         top: -50vh;
         right: 0;
         margin-right: 5%;
-        height: 75vh;
+        min-height: 75vh;
         padding-bottom: 30px;
         padding-top: 55vh;
         display: flex;

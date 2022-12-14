@@ -22,7 +22,7 @@
     font-weight: 400;
     padding: 5%;
     width: 60%;
-    height: 60%;
+    min-height: 60%;
   }
   .modal-close {
     background-color: $bright-color;
@@ -53,7 +53,7 @@
   }
   .report-notes {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     p {
       text-align: justify;
       min-width: 51px;

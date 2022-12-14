@@ -1,23 +1,21 @@
+@import '../../styles.scss';
 .search {
+  margin-right: 60px;
+  padding-right: 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 
-    margin-right: 100px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center; 
-    margin:20px;
-
-    input{
-
-        background-color: white;
-        border-radius: 15px;
-        border-right: none;
-        padding: 10px;
-        height: 30px;
-        border: none;
-        width: 250px;
-
+  input {
+    ::placeholder {
+      color: $base-text-color;
     }
-
-
-
+    background-color: $select-color;
+    border-radius: 15px;
+    border-right: none;
+    padding: 10px;
+    height: 30px;
+    border: none;
+    width: 200px;
+  }
 }
