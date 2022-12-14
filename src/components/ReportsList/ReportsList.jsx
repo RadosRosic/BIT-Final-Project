@@ -5,20 +5,24 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import "./ReportsList.scss";
 import Modal from "../Modal/Modal";
+import ConfirmDeleteModal from "../../components/ConfirmDeleteModal/ConfirmDeleteModal";
+import Search from "../Search/Search";
 
-const ReportsList = ({ search }) => {
-  const { token, reports, setValidData } = useContext(applicationContext);
+const ReportsList = ({ search, setSearch }) => {
+  const { reports } = useContext(applicationContext);
   const formatDate = (interviewDate) => {
     const interviewDateUnformatted = new Date(interviewDate);
     const dateOptions = { year: "numeric", month: "numeric", day: "numeric" };
     const interviewDateFormatted = interviewDateUnformatted.toLocaleDateString(
-      "sr-RS",
+      "en-US",
       dateOptions
     );
     return interviewDateFormatted;
   };
 
   const [dataModal, setDataModal] = useState(null);
+  const [deleteModalVisible, setDeleteModalVisible] = useState(false);
+  const [reportForDelition, setReportForDelition] = useState(0);
 
   const handleDataModal = (id) => {
     setDataModal(reports.find((e) => e.id == id));
@@ -31,22 +35,9 @@ const ReportsList = ({ search }) => {
       .includes(search)
   );
 
-  const deleteReport = (id) => {
-    fetch(`http://localhost:3333/api/reports/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then(() => {
-        setValidData(false);
-      });
-  };
-
   return (
     <>
+      <Search onChange={setSearch} />
       <ul id="reports-list">
         <li>
           <h4>Company</h4>
@@ -81,7 +72,8 @@ const ReportsList = ({ search }) => {
               </span>
               <span
                 onClick={() => {
-                  deleteReport(e.id);
+                  setDeleteModalVisible(true);
+                  setReportForDelition(e.id);
                 }}
               >
                 <DeleteForeverIcon />
@@ -91,6 +83,13 @@ const ReportsList = ({ search }) => {
         ))}
       </ul>
       {dataModal && <Modal data={dataModal} setDataModal={setDataModal} />}
+      {deleteModalVisible && (
+        <ConfirmDeleteModal
+          setDeleteModalVisible={setDeleteModalVisible}
+          reportForDelition={reportForDelition}
+          setReportForDelition={setReportForDelition}
+        />
+      )}
     </>
   );
 };

@@ -1,27 +1,46 @@
+@import "../../styles.scss";
+
+
 .create-candidate, .create-company {
   max-width: 400px;
   text-align: center;
   margin: 0 auto;
+  padding: 50px;
+  margin: 100px auto;
+  border-radius: 10px;
+
   p {
-    font-size: 20px;
-    color: #f1356d;
+    font-size: 28px;
+    color: $base-text-color;
     margin-bottom: 30px;
   }
+
+  
   input {
     width: 100%;
     padding: 6px 10px;
     margin: 10px 0;
-    border: 1px solid #ddd;
+    border: none;
+    background-color: $very-bright-color-opa;
+    // border-bottom: 1px solid #ddd;
     box-sizing: border-box;
     display: block;
+    border-radius: 5px;
   }
 
   button {
-    background: #f1356d;
+    background: $very-bright-color;
     color: white;
     border: 0;
-    padding: 8px;
+    padding:10px 22px;
     border-radius: 8px;
     cursor: pointer;
+    color: $base-text-color;
+    
+
+    &:hover {
+      background-color: $bright-color;
+    }
+  
   }
 }

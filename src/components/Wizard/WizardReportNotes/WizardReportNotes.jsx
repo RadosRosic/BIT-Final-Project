@@ -4,15 +4,16 @@ import "./WizardReportNotes.scss";
 const ReportNotes = ({ notes, setNotes }) => {
   return (
     <>
+      <p>Write a report:</p>
+
       <textarea
-        rows="10"
-        cols="80"
         placeholder="Notes..."
         value={notes}
         onChange={(event) => {
           setNotes(event.target.value);
         }}
       ></textarea>
+     
     </>
   );
 };

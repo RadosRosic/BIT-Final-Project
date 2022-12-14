@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { applicationContext } from "../../context";
 import Search from "../../components/Search/Search";
 import ReportsList from "../../components/ReportsList/ReportsList";
@@ -10,9 +10,8 @@ import CreateCandidate from "../CreateCandidate/CreateCandidate";
 import CreateCompanyPage from "../CreateCompanyPage/CreateCompanyPage";
 import EditCandidatePage from "../EditCandidatePage/EditCandidatePage";
 
-
 const ReportPage = () => {
-  const { candidates, token, setToken } = useContext(applicationContext);
+  const { candidates, token } = useContext(applicationContext);
   const [search, setSearch] = useState("");
   const [wizardStep, setWizardStep] = useState(1);
 
@@ -31,12 +30,11 @@ const ReportPage = () => {
     <>
       <div id="admin-panel">
         <Header />
-        {/* <Search onChange={setSearch} /> */}
         <main id="admin-page-wrapper">
           <Routes>
             <Route
               path="/"
-              element={<ReportsList token={token} search={search} />}
+              element={<ReportsList search={search} setSearch={setSearch} />}
             />
             <Route
               path="/create-report"
@@ -46,6 +44,8 @@ const ReportPage = () => {
                   setWizardStep={setWizardStep}
                   reportBody={reportBody}
                   setReportBody={setReportBody}
+                  search={search}
+                  setSearch={setSearch}
                 />
               }
             />
@@ -56,20 +56,12 @@ const ReportPage = () => {
               }
             />
             <Route
-            path="create-company"
-            element={
-              <CreateCompanyPage
-              token = {token}
-             />
-            }
+              path="create-company"
+              element={<CreateCompanyPage token={token} />}
             />
             <Route
-            path="/edit-candidate/:id"
-            element={
-              <EditCandidatePage
-              token = {token}
-             />
-            }
+              path="/edit-candidate/:id"
+              element={<EditCandidatePage token={token} />}
             />
           </Routes>
         </main>

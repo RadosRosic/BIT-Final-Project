@@ -21,7 +21,7 @@ $very-bright-color-opa: rgb(238, 244, 249, 0.5);
 }
 
 .highlighted {
-  background-color: $select-color;
+  background-color: $bright-color !important;
 }
 
 .disabled {
@@ -32,3 +32,4 @@ $very-bright-color-opa: rgb(238, 244, 249, 0.5);
 .hidden {
   visibility: hidden !important;
 }
+
