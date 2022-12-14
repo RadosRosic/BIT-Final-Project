@@ -63,6 +63,8 @@ const App = () => {
           activeCandidate,
           setToken,
           setValidData,
+          validData,
+          fetchCandidates
         }}
       >
         <Routes>

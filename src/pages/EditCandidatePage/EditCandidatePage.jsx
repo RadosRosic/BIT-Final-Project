@@ -1,12 +1,13 @@
 import React, {useState, useContext} from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import DatePicker from '../../components/DatePicker/DatePicker';
 import { applicationContext } from '../../context';
 
-const EditCandidatePage = ({ candidate, token}) => {
+const EditCandidatePage = ({ token}) => {
 
   const {personId} = useParams();
-  const {setValidData, candidates} = useContext(applicationContext)    
+  const navigate = useNavigate()
+  const {setValidData, validData, candidates} = useContext(applicationContext)    
   const currentCandidate = candidates.find(can => can.id == personId)
   const [name, setName] = useState(currentCandidate.name);
   const [birthday, setBirthday] = useState(new Date(currentCandidate.birthday));
@@ -15,7 +16,7 @@ const EditCandidatePage = ({ candidate, token}) => {
   const [avatar, setAvatar] = useState(currentCandidate.avatar);
   const [isAdding, setIsAdding] = useState(false);
 
-
+console.log(validData);
 
 
   function submitForm(e) {
@@ -24,7 +25,7 @@ const EditCandidatePage = ({ candidate, token}) => {
     const candidateEdit = { name, birthday, email, education, avatar };
 
     setIsAdding(true);
-    console.log(token);
+   
     fetch(`http://localhost:3333/api/candidates/${currentCandidate.id}`, {
       method: "PUT",
       headers: {
@@ -34,12 +35,9 @@ const EditCandidatePage = ({ candidate, token}) => {
       body: JSON.stringify(candidateEdit),
     })
       .then((res) => res.json())
-      .then(() => setValidData(true));
+      .then(() => {setValidData(false)})
   }
 
-
-      
-       console.log(token);
       
         return (
           <form className="create-candidate" onSubmit={submitForm}>
@@ -91,7 +89,6 @@ const EditCandidatePage = ({ candidate, token}) => {
               }}
             ></input>
           <button onClick={()=>{
-            console.log('dsdds')
           }} >Submit</button>
           </form>
         );
