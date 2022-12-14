@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import "./DetailsPage.scss";
 import { applicationContext } from "../../context";
 import Header from "../../components/Header/Header";

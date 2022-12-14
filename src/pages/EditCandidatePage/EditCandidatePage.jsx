@@ -4,11 +4,11 @@ import DatePicker from '../../components/DatePicker/DatePicker';
 import { applicationContext } from '../../context';
 
 
-const EditCandidatePage = ({ candidate, token}) => {
+const EditCandidatePage = ({ token }) => {
 
   const {personId} = useParams();
   const {setValidData, candidates} = useContext(applicationContext)    
-  const currentCandidate = candidates.find(can => can.id == personId)
+  const currentCandidate = candidates.find(can => can.id === personId)
   const [name, setName] = useState(currentCandidate.name);
   const [birthday, setBirthday] = useState(new Date(currentCandidate.birthday));
   const [email, setEmail] = useState(currentCandidate.email);
@@ -16,7 +16,7 @@ const EditCandidatePage = ({ candidate, token}) => {
   const [avatar, setAvatar] = useState(currentCandidate.avatar);
   const [isAdding, setIsAdding] = useState(false);
 
-
+//isAdding
 
 
   function submitForm(e) {
