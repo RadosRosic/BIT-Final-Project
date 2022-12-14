@@ -8,7 +8,7 @@ import Modal from "../Modal/Modal";
 import ConfirmDeleteModal from "../../components/ConfirmDeleteModal/ConfirmDeleteModal";
 
 const ReportsList = ({ search }) => {
-  const { token, reports, setValidData } = useContext(applicationContext);
+  const { reports } = useContext(applicationContext);
   const formatDate = (interviewDate) => {
     const interviewDateUnformatted = new Date(interviewDate);
     const dateOptions = { year: "numeric", month: "numeric", day: "numeric" };

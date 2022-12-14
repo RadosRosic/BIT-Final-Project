@@ -11,7 +11,7 @@ import CreateCompanyPage from "../CreateCompanyPage/CreateCompanyPage";
 import EditCandidatePage from "../EditCandidatePage/EditCandidatePage";
 
 const ReportPage = () => {
-  const { candidates, token, setToken } = useContext(applicationContext);
+  const { candidates, token } = useContext(applicationContext);
   const [search, setSearch] = useState("");
   const [wizardStep, setWizardStep] = useState(1);
 
