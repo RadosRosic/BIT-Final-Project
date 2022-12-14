@@ -14,7 +14,7 @@
         top: -50vh;
         right: 0;
         margin-right: 5%;
-        min-height: 75vh;
+        height: 75vh;
         padding-bottom: 30px;
         padding-top: 55vh;
         display: flex;
@@ -35,7 +35,7 @@
     margin-left: 5%;
     display: flex;
     justify-content:space-between;
-    min-height: 50vh;
+    height: 50vh;
     border-radius: 5px 5px 5px 100px;
     z-index: 2;
     .text-info-candidate {
