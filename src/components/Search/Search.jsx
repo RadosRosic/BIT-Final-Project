@@ -13,7 +13,7 @@ const handleChange = e => {
     <div className='search'>
       <input onChange={handleChange} type="text" placeholder="Search" >
       </input>
-      <SearchIcon /> 
+      <SearchIcon />
     </div>
   )
 }

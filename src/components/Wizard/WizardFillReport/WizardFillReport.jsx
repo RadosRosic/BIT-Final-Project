@@ -34,9 +34,11 @@ const WizardFillReport = () => {
   return (
     <div id="wizard-report-step-3" className="glass-effect">
       <div className="wizard-select-outer-wrapper">
+        <label>Calendar:
         <div className="wizard-select-inner-wrapper">
           <DatePicker startDate={startDate} setStartDate={setStartDate} />
         </div>
+        </label>
         <div className="wizard-select-inner-wrapper">
           <SelectComponent
             text="Phase: "

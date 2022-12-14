@@ -1,8 +1,10 @@
 .search {
+
     margin-right: 100px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center; 
+    margin:20px;
 
     input{
 
@@ -13,6 +15,7 @@
         height: 30px;
         border: none;
         width: 250px;
+
     }
 
 
