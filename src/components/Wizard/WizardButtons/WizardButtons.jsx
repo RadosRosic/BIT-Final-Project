@@ -20,8 +20,8 @@ const WizardButtons = () => {
     setSelectedCompany,
   } = useContext(wizardContext);
 
-  const dateAndNotesSelected = startDate && notes;
-  // date and notes only, becasue phase and status are always slected
+  const allSelected = interviewPhase && interviewStatus && startDate && notes;
+
   const candidateOrCompanySelected = selectedCandidate || selectedCompany;
   const hidden = "hidden";
   const wizardPreviousStep = () => {
@@ -59,9 +59,9 @@ const WizardButtons = () => {
         {wizardStep === 3 && (
           <Button
             name="Submit"
-            disabled={dateAndNotesSelected ? false : true}
+            disabled={allSelected ? false : true}
             method={submitReport}
-            classes={`next-btn ${dateAndNotesSelected ? "" : "disabled"}`}
+            classes={`next-btn ${allSelected ? "" : "disabled"}`}
           />
         )}
       </div>
