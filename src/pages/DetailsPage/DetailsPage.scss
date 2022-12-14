@@ -1,10 +1,10 @@
 @import "../../styles.scss";
+
+
 .all-about-candidate {
     min-height:calc(100vh - 78px);
-    background: url(../../assets/images/iStock-901001432opacity.jpg);
-    background-size: cover;
     position: relative;
-    
+
     .table-area {
         background-color: $select-color;
         border-radius: 5px 5px 100px 5px;

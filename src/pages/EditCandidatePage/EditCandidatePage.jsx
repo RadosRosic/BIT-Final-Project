@@ -43,7 +43,7 @@ const EditCandidatePage = ({ token }) => {
        console.log(token);
       
         return (
-          <form className="create-candidate" onSubmit={submitForm}>
+          <form className="create-candidate glass-effect-bright" onSubmit={submitForm}>
             <p>Edit candidate:</p>
             <label> Name:</label>
             <input

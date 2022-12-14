@@ -26,7 +26,7 @@ const CreateCompanyPage = ({ token }) => {
   }
 
   return (
-    <form className="create-company" onSubmit={submitCompanyForm}>
+    <form className="create-company glass-effect-bright" onSubmit={submitCompanyForm}>
       <p>Create company:</p>
       <label>Company e-mail:</label>
       <input

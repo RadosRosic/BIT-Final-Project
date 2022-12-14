@@ -31,7 +31,7 @@ const CreateCandidate = ({ token }) => {
   }
 
   return (
-    <form className="create-candidate" onSubmit={submitForm}>
+    <form className="create-candidate glass-effect-bright" onSubmit={submitForm}>
       <p>Create candidate:</p>
       <label> Name:</label>
       <input
