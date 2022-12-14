@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import DatePicker from '../../components/DatePicker/DatePicker';
 import { applicationContext } from '../../context';
 
+
 const EditCandidatePage = ({ candidate, token}) => {
 
   const {personId} = useParams();
@@ -34,7 +35,7 @@ const EditCandidatePage = ({ candidate, token}) => {
       body: JSON.stringify(candidateEdit),
     })
       .then((res) => res.json())
-      .then(() => setValidData(true));
+      .then(() => setValidData(false));
   }
 
 
@@ -43,7 +44,7 @@ const EditCandidatePage = ({ candidate, token}) => {
       
         return (
           <form className="create-candidate" onSubmit={submitForm}>
-            <p>Create candidate:</p>
+            <p>Edit candidate:</p>
             <label> Name:</label>
             <input
               type="text"
@@ -91,7 +92,6 @@ const EditCandidatePage = ({ candidate, token}) => {
               }}
             ></input>
           <button onClick={()=>{
-            console.log('dsdds')
           }} >Submit</button>
           </form>
         );

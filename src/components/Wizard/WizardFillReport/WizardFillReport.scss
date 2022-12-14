@@ -12,33 +12,42 @@
 }
 
 .wizard-select-outer-wrapper {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin: 40px 0 20px 0;
   display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+@media screen and (max-width: 768px) {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 15px 0 0 0;
+
+}
+
+
+
+
 }
 
 .wizard-select-inner-wrapper {
-  input {
+  select,  input {
     height: 30px;
     border-radius: 5px;
     background-color: $very-bright-color-opa;
     font-size: 16px;
     width: 150px;
+    @media screen and (max-width: 768px) {
+      width:270px;
+    }
+@media screen and (max-width: 425px) {
+     width: 200px;
+}
   }
-  select {
-    height: 30px;
-    border-radius: 5px;
-    background-color: $very-bright-color-opa;
-    font-size: 16px;
-    width: 150px;
-  }
+
+ 
 }
 
-.wizard-report-notes-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
+

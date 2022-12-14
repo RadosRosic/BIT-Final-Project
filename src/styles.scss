@@ -21,7 +21,7 @@ $very-bright-color-opa: rgb(238, 244, 249, 0.5);
 }
 
 .highlighted {
-  background-color: $bright-color;
+  background-color: $bright-color !important;
 }
 
 .disabled {
