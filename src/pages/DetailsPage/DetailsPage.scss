@@ -1,102 +1,99 @@
 @import "../../styles.scss";
 
-
 .all-about-candidate {
-    min-height:calc(100vh - 78px);
-    position: relative;
+  min-height: calc(100vh - 78px);
+  position: relative;
 
-    .table-area {
-        background-color: $select-color;
-        border-radius: 5px 5px 100px 5px;
-        border-bottom: 2px solid $base-text-color;
-        border-right: 2px solid $base-text-color;
-        position: relative;
-        top: -50vh;
-        right: 0;
-        margin-right: 5%;
-        height: 75vh;
-        padding-bottom: 30px;
-        padding-top: 55vh;
-        display: flex;
-        justify-content: end;
-        align-items: flex-end;
-        z-index: 1;
-        @media screen and (max-width: 768px) {
-            margin-right: 0;
-            border-radius: 5px;
-            border-right: none;
-        }
+  .table-area {
+    background-color: $select-color;
+    border-radius: 5px 5px 100px 5px;
+    border-bottom: 2px solid $base-text-color;
+    border-right: 2px solid $base-text-color;
+    position: relative;
+    top: -50vh;
+    right: 0;
+    margin-right: 5%;
+    height: 75vh;
+    padding-bottom: 30px;
+    padding-top: 55vh;
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    z-index: 1;
+    @media screen and (max-width: 768px) {
+      margin-right: 0;
+      border-radius: 5px;
+      border-right: none;
     }
+  }
 }
 .img-info-candidate {
-    position: relative;
-    top: 0;
-    left: 0;
-    margin-left: 5%;
+  position: relative;
+  top: 0;
+  left: 0;
+  margin-left: 5%;
+  display: flex;
+  justify-content: space-between;
+  height: 50vh;
+  border-radius: 5px 5px 5px 100px;
+  z-index: 2;
+  .text-info-candidate {
     display: flex;
-    justify-content:space-between;
-    height: 50vh;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    margin-right: 20%;
+    padding: 30px 0 90px 0;
+    div {
+      display: flex;
+      align-items: center;
+      height: 50%;
+      h3 {
+        padding-left: 10px;
+      }
+    }
+  }
+  img {
+    height: 100%;
     border-radius: 5px 5px 5px 100px;
-    z-index: 2;
+    @media screen and (max-width: 425px) {
+      height: 200px;
+      width: 200px;
+      border-radius: 50%;
+      padding: 20px;
+      object-fit: cover;
+      margin: 20px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
     .text-info-candidate {
+      margin-right: 5%;
+      font-size: 14px;
+      div {
         display: flex;
         flex-direction: column;
-        justify-content:space-around;
         align-items: flex-end;
-        margin-right: 20%;
-        padding: 30px 0 90px 0;
-        div {
-            display: flex;
-            align-items: center;
-            height: 50%;
-            h3 {
-                padding-left: 10px;
-            }
-        }
+        text-align: right;
+      }
     }
-    img {
-        height: 100%;
-        border-radius: 5px 5px 5px 100px;
-        @media screen and (max-width: 425px) {
-            height: 200px;
-            width: 200px;
-            border-radius: 50%;
-            padding: 20px;
-            object-fit: cover;
-            margin: 20px;
-        }
-    }
-    @media screen and (max-width: 768px) {
-        margin-left: 0;
-        .text-info-candidate {
-            margin-right: 5%;
-            font-size: 14px;
-            div {
-                display:flex;
-                flex-direction: column;
-                align-items: flex-end;
-                text-align: right;
-            }
-        }
-    }
-    @media screen and (max-width: 425px) {
-        min-height: 100vh;
+  }
+  @media screen and (max-width: 425px) {
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column-reverse;
+    min-height: 65vh;
+    .text-info-candidate {
+      font-size: 12px;
+      padding: 0;
+      padding-right: 10%;
+      margin-right: 0;
+      div {
         display: flex;
-        justify-content: flex-start;
-        flex-direction:column-reverse;
-        min-height: 65vh;
-        .text-info-candidate {
-            font-size: 12px;
-            padding: 0;
-            padding-right: 10%;
-            margin-right: 0;
-            div {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-            }
-           } 
-        
-        
+        flex-direction: row;
+        justify-content: space-between;
+      }
     }
+  }
 }

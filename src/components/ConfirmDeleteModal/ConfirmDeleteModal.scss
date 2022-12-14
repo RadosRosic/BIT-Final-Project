@@ -6,7 +6,6 @@
   background-color: $base-color-modal;
   width: 100%;
   top: 0;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,22 +14,52 @@
 
 .delete-modal-content {
   background-color: $base-text-color;
-  color: $very-bright-color;
-  width: 25%;
+  color: $very-bright-color-opa;
+  border-left: 1px solid $bright-color;
+  border-bottom: 1px solid $bright-color;
+  width: 400px;
   height: 200px;
+  border-radius: 5px;
   margin: auto;
   display: flex;
   flex-direction: column;
+  justify-content:space-around;
   align-items: center;
-  justify-content: center;
+  padding: 20px 20px;
   p {
     font-size: 20px;
   }
+  p:first-child{
+    font-size: 24px;
+    color: $very-bright-color;
+  }
   button {
     display: inline-block;
+    background-color: $very-bright-color;
     font-size: 18px;
     border: none;
-    margin: 0 5px;
-    padding: 10px;
+    border-radius: 8px;
+    margin: 0 20px;
+    padding: 10px 30px;
+    color: $base-text-color;
+    &:hover {
+      cursor: pointer;
+      background-color: $bright-color;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    width: 300px;
+    height: 150px;
+    p {
+      font-size: 16px;
+    }
+    p:first-child{
+      font-size: 18px;
+      color: $very-bright-color;
+    }
+    button {
+      padding: 5px 15px;
+      font-size: 16px;
+    }
   }
 }

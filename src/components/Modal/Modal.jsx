@@ -67,13 +67,7 @@ const Modal = ({ data, setDataModal }) => {
           <div className="report-notes">
             <p>Notes | </p>
             <p className="report-notes-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
-              reprehenderit obcaecati harum placeat ut, facilis, provident aut
-              ipsam, officiis impedit incidunt dolor distinctio assumenda.
-              Voluptas saepe ipsa tenetur corporis inventore nesciunt ipsam
-              ipsum architecto, perferendis delectus accusantium mollitia
-              aliquid eligendi earum cumque excepturi. Deleniti iste beatae
-              error, incidunt temporibus laborum!
+            {data.note}
             </p>
           </div>
         </div>

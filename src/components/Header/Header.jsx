@@ -1,23 +1,23 @@
-import React, { useContext, useState } from "react";
-import { applicationContext } from "../../context";
-import Button from "../Button/Button";
-import "./Header.scss";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext, useState } from 'react';
+import { applicationContext } from '../../context';
+import Button from '../Button/Button';
+import './Header.scss';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const { token, setToken } = useContext(applicationContext);
   const navigate = useNavigate();
   const signOut = () => {
-    localStorage.removeItem("token");
-    setToken("");
-    navigate("/login");
+    localStorage.removeItem('token');
+    setToken('');
+    navigate('/login');
   };
   const signIn = () => {
-    navigate("/login");
+    navigate('/login');
   };
 
   const [active, setActive] = useState(false);
-  const bigMac = "bigMac";
+  const bigMac = 'bigMac';
 
   return (
     <header className="main-header">
@@ -25,29 +25,34 @@ const Header = () => {
       <div id="header-btns">
         <Button
           method={token ? signOut : signIn}
-          name={token ? "Sign Out" : "Sign In"}
+          name={token ? 'Sign Out' : 'Sign In'}
         />
         {token && (
           <>
-            <nav className={`navigation-wrapper ${active ? bigMac : ""}`}>
+            <nav className={`navigation-wrapper ${active ? bigMac : ''}`}>
               <Link to="/candidates">
                 <button>Candidates</button>
               </Link>
               <Link to="/reports">
                 <button>Reports</button>
               </Link>
-              <Link to="/reports/create-report">
-                <button>Create Report</button>
-              </Link>
-              <Link to="/reports/create-candidate">
-                <button>Create Candidate</button>
-              </Link>
-              <Link to="/reports/create-company">
-                <button>Create Company</button>
-              </Link>
+              <button className="create">
+                Create
+                <div className="create-buttons-invisible">
+                  <Link to="/reports/create-report">
+                    <button>Create Report</button>
+                  </Link>
+                  <Link to="/reports/create-candidate">
+                    <button>Create Candidate</button>
+                  </Link>
+                  <Link to="/reports/create-company">
+                    <button>Create Company</button>
+                  </Link>
+                </div>
+              </button>
             </nav>
             <div
-              className={`hamburger ${active ? bigMac : ""}`}
+              className={`hamburger ${active ? bigMac : ''}`}
               onClick={() => {
                 setActive(!active);
               }}

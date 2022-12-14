@@ -48,7 +48,7 @@ const SmallModal = ({
         }}
       >
         <p>Delete forever?</p>
-        <p>THIS CANNOT BE UNDONE!</p>
+        <p>This cannot be undone!</p>
         <div>
           <button
             onClick={() => {
