@@ -7,7 +7,14 @@ import WizardSelectSection from "./WizardSelectSection/WizardSelectSection";
 import WizardProgress from "./WizardProgress/WizardProgress";
 import "./Wizard.scss";
 
-const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
+const Wizard = ({
+  wizardStep,
+  setWizardStep,
+  reportBody,
+  setReportBody,
+  search,
+  setSearch,
+}) => {
   const { token, setValidData } = useContext(applicationContext);
   const [selectedCandidate, setSelectedCandidate] = useState("");
   const [selectedCompany, setSelectedCompany] = useState("");
@@ -65,6 +72,8 @@ const Wizard = ({ wizardStep, setWizardStep, reportBody, setReportBody }) => {
           wizardStep,
           setWizardStep,
           submitReport,
+          search,
+          setSearch,
         }}
       >
         <div

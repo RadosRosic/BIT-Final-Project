@@ -30,12 +30,11 @@ const ReportPage = () => {
     <>
       <div id="admin-panel">
         <Header />
-        <Search onChange={setSearch} />
         <main id="admin-page-wrapper">
           <Routes>
             <Route
               path="/"
-              element={<ReportsList token={token} search={search} />}
+              element={<ReportsList search={search} setSearch={setSearch} />}
             />
             <Route
               path="/create-report"
@@ -45,6 +44,8 @@ const ReportPage = () => {
                   setWizardStep={setWizardStep}
                   reportBody={reportBody}
                   setReportBody={setReportBody}
+                  search={search}
+                  setSearch={setSearch}
                 />
               }
             />

@@ -6,8 +6,9 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import "./ReportsList.scss";
 import Modal from "../Modal/Modal";
 import ConfirmDeleteModal from "../../components/ConfirmDeleteModal/ConfirmDeleteModal";
+import Search from "../Search/Search";
 
-const ReportsList = ({ search }) => {
+const ReportsList = ({ search, setSearch }) => {
   const { reports } = useContext(applicationContext);
   const formatDate = (interviewDate) => {
     const interviewDateUnformatted = new Date(interviewDate);
@@ -36,6 +37,7 @@ const ReportsList = ({ search }) => {
 
   return (
     <>
+      <Search onChange={setSearch} />
       <ul id="reports-list">
         <li>
           <h4>Company</h4>
