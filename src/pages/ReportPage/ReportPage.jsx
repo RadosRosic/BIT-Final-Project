@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { applicationContext } from "../../context";
 import Search from "../../components/Search/Search";
 import ReportsList from "../../components/ReportsList/ReportsList";
@@ -9,7 +9,6 @@ import "./ReportPage.scss";
 import CreateCandidate from "../CreateCandidate/CreateCandidate";
 import CreateCompanyPage from "../CreateCompanyPage/CreateCompanyPage";
 import EditCandidatePage from "../EditCandidatePage/EditCandidatePage";
-
 
 const ReportPage = () => {
   const { candidates, token, setToken } = useContext(applicationContext);
@@ -31,7 +30,7 @@ const ReportPage = () => {
     <>
       <div id="admin-panel">
         <Header />
-        {/* <Search onChange={setSearch} /> */}
+        <Search onChange={setSearch} />
         <main id="admin-page-wrapper">
           <Routes>
             <Route
@@ -56,20 +55,12 @@ const ReportPage = () => {
               }
             />
             <Route
-            path="create-company"
-            element={
-              <CreateCompanyPage
-              token = {token}
-             />
-            }
+              path="create-company"
+              element={<CreateCompanyPage token={token} />}
             />
             <Route
-            path="/edit-candidate/:id"
-            element={
-              <EditCandidatePage
-              token = {token}
-             />
-            }
+              path="/edit-candidate/:id"
+              element={<EditCandidatePage token={token} />}
             />
           </Routes>
         </main>
