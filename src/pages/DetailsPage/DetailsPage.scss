@@ -1,6 +1,6 @@
 @import "../../styles.scss";
 .all-about-candidate {
-    height:calc(100vh - 78px);
+    min-height:calc(100vh - 78px);
     background: url(../../assets/images/iStock-901001432opacity.jpg);
     background-size: cover;
     position: relative;
@@ -35,7 +35,7 @@
     margin-left: 5%;
     display: flex;
     justify-content:space-between;
-    height: 50vh;
+    min-height: 50vh;
     border-radius: 5px 5px 5px 100px;
     z-index: 2;
     .text-info-candidate {
@@ -80,11 +80,11 @@
         }
     }
     @media screen and (max-width: 425px) {
-        height: 100vh;
+        min-height: 100vh;
         display: flex;
         justify-content: flex-start;
         flex-direction:column-reverse;
-        height: 65vh;
+        min-height: 65vh;
         .text-info-candidate {
             font-size: 12px;
             padding: 0;

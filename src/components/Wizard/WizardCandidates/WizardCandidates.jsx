@@ -1,19 +1,27 @@
 import React, { useContext } from "react";
 import { applicationContext, wizardContext } from "../../../context";
 import "./WizardCandidates.scss";
+import Search from "../../Search/Search";
 
 const WizardCandidates = ({ highlighted }) => {
   const { candidates } = useContext(applicationContext);
+  const { search, setSearch } = useContext(wizardContext);
   const { selectedCandidate, setSelectedCandidate } = useContext(wizardContext);
 
   const selectCandidate = (id) => {
     setSelectedCandidate(candidates.find((e) => e.id == id));
   };
+  
+  const filterAll = candidates.filter((e) =>
+    e.name?.toLowerCase().includes(search)
+  );
+  const searchThis = search ? filterAll : candidates;
 
   return (
     <>
+      <Search onChange={setSearch} />
       <div id="wizard-select-section">
-        {candidates.map((candidate) => (
+        {searchThis.map((candidate) => (
           <div
             className={`wizard-candidate glass-effect-grey ${
               selectedCandidate.id == candidate.id ? highlighted : ""

@@ -1,14 +1,14 @@
-import React, {useState, useContext} from 'react'
-import { useParams } from 'react-router-dom';
-import DatePicker from '../../components/DatePicker/DatePicker';
-import { applicationContext } from '../../context';
+import React, { useState, useContext } from "react";
+import { useParams } from "react-router-dom";
+import DatePicker from "../../components/DatePicker/DatePicker";
+import { applicationContext } from "../../context";
 
 
 const EditCandidatePage = ({ token }) => {
 
   const {personId} = useParams();
   const {setValidData, candidates} = useContext(applicationContext)    
-  const currentCandidate = candidates.find(can => can.id === personId)
+  const currentCandidate = candidates.find(can => can.id == personId)
   const [name, setName] = useState(currentCandidate.name);
   const [birthday, setBirthday] = useState(new Date(currentCandidate.birthday));
   const [email, setEmail] = useState(currentCandidate.email);
@@ -97,4 +97,4 @@ const EditCandidatePage = ({ token }) => {
         );
       };
 
-export default EditCandidatePage
+export default EditCandidatePage;

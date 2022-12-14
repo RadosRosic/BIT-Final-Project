@@ -20,12 +20,6 @@
   }
 }
 
-// .navigation-wrapper {
-//   a {
-//     display: block;
-//   }
-// }
-
 .hamburger {
   display: none;
   cursor: pointer;
@@ -57,15 +51,18 @@
   }
 
   .navigation-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: fixed;
     left: -100%;
     top: 150px;
-    flex-direction: column;
     width: 100%;
     text-align: center;
     transition: 0.3s;
     background-color: $base-text-color;
     z-index: 1;
+    height: 25vh;
   }
 
   .navigation-wrapper.bigMac {
