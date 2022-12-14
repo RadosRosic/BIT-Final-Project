@@ -23,6 +23,10 @@ const Wizard = ({
   const [interviewStatus, setInterviewStatus] = useState("");
   const [notes, setNotes] = useState("");
 
+ 
+
+
+
   const navigate = useNavigate();
   const submitReport = () => {
     console.log(token, reportBody);

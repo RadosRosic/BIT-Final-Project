@@ -26,6 +26,7 @@ const ReportPage = () => {
     note: "",
   });
 
+
   return (
     <>
       <div id="admin-panel">
