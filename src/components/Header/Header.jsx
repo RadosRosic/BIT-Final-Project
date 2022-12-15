@@ -37,7 +37,7 @@ const Header = () => {
               <Link to="/reports">
                 <button>Reports</button>
               </Link>
-              <span className="create span-btn">
+              <button className="create span-btn">
                 Create
                 <div className="create-buttons-invisible">
                   <Link to="/reports/create-report">
@@ -50,7 +50,7 @@ const Header = () => {
                     <button>Create Company</button>
                   </Link>
                 </div>
-              </span>
+              </button>
             </nav>
             <div
               className={`hamburger ${active ? bigMac : ""}`}
