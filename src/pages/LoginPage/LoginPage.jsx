@@ -74,8 +74,8 @@ const LoginPage = ({ setToken }) => {
           <p
             className={`wrong-password-field ${wrongPassError ? "" : "hidden"}`}
           >
-            ‎‎ {/*Empty char here, do not remove it!*/}
-            {wrongPassError}
+            ‎{/*Empty char here, do not remove it!*/}
+            "Bad input. Try again"
           </p>
         </div>
       </div>
