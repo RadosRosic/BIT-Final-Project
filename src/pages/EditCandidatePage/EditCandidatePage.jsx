@@ -37,8 +37,6 @@ const EditCandidatePage = ({ token }) => {
       .then((res) => res.json())
       .then(() => setValidData(false));
   }
-
-
       
        console.log(token);
       
