@@ -25,7 +25,6 @@ const Wizard = ({
 
   const navigate = useNavigate();
   const submitReport = () => {
-    console.log(token, reportBody);
     fetch(`http://localhost:3333/api/reports`, {
       method: "POST",
       headers: {

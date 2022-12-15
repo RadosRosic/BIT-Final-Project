@@ -41,7 +41,6 @@ const WizardFillReport = () => {
     .filter((el) => el[1] === 1) // filter through key-value pairs based on second element being 1, i.e. phase yet to be completed
     .map((el) => el[0]) // get only remaining keys, coresponding to said phases
     .slice(0, 1); // slice the first element in order to get a single item to pass to select component (must pass an array)
-  console.log(remainingPhases);
   // lord give me strength...
 
   return (

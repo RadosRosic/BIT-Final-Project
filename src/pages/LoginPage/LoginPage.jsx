@@ -30,7 +30,6 @@ const LoginPage = ({ setToken }) => {
         localStorage.setItem("token", res.accessToken);
       })
       .catch((err) => {
-        console.log(err);
         setWrongPassError("Bad input. Try again.");
       });
   };

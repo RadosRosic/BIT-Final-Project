@@ -22,6 +22,7 @@ const Header = () => {
   return (
     <header className="main-header">
       <h1>M N N R</h1>
+      
       <div id="header-btns">
         <Button
           method={token ? signOut : signIn}

@@ -20,9 +20,7 @@ const CreateCompanyPage = ({ token }) => {
         Authorization: `Bearer ${token.token}`,
       },
       body: JSON.stringify(company),
-    }).then(() => {
-      console.log(token);
-    });
+    })
   }
 
   return (

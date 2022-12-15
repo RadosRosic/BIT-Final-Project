@@ -1,6 +1,7 @@
 {
-    "editor.fontLigatures": null,
-    "editor.semanticTokenColorCustomizations": null,
-    "editor.tokenColorCustomizations": null,
-    "workbench.settings.editor": "json"
+  "editor.fontLigatures": null,
+  "editor.semanticTokenColorCustomizations": null,
+  "editor.tokenColorCustomizations": null,
+  "workbench.settings.editor": "json",
+  "cSpell.words": ["btns"]
 }

@@ -25,9 +25,7 @@ const CreateCandidate = ({ token }) => {
         Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(candidate),
-    }).then(() => {
-      console.log(token);
-    });
+    })
   }
 
   return (

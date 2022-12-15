@@ -11,8 +11,11 @@ const DetailsInfo = () => {
   let { personId } = useParams();
 
   const candidateReports = reports.filter(
+    // eslint-disable-next-line
     (report) => personId == report?.candidateId
   );
+  
+  // eslint-disable-next-line
   const currentCandidate = candidates.find((can) => can.id == personId);
 
   return (
