@@ -1,12 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./Modal.scss";
-import { applicationContext } from "../../context";
 import Button from "../Button/Button";
 import Moment from "react-moment";
-import CloseIcon from "@mui/icons-material/Close";
 
 const Modal = ({ data, setDataModal }) => {
-  // funkcija handleEsc nam radi gasenje modala na dugme escape, to smo skinuli sa neta (zajedno sa use Effectom)
   function handleEsc(event) {
     if (event.keyCode === 27) {
       setDataModal(null);
@@ -19,17 +16,14 @@ const Modal = ({ data, setDataModal }) => {
     };
   }, []);
 
-  const { reports } = useContext(applicationContext);
   return (
     <>
-      {/* Gasenje modala klikom na tamni deo */}
       <div
         className="modal-bg"
         onClick={() => {
           setDataModal(null);
         }}
       >
-        {/* mora stop propagation da se ne bi gasion modal na klik samog modala(prozorcica)  */}
         <div
           className="modal"
           onClick={(event) => {
@@ -66,9 +60,7 @@ const Modal = ({ data, setDataModal }) => {
           </div>
           <div className="report-notes">
             <p>Notes | </p>
-            <p className="report-notes-content">
-            {data.note}
-            </p>
+            <p className="report-notes-content">{data.note}</p>
           </div>
         </div>
       </div>

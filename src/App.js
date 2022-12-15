@@ -60,7 +60,6 @@ const App = () => {
           setActiveCandidate,
           activeCandidate,
           setToken,
-          setValidData,
         }}
       >
         <Routes>
