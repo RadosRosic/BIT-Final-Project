@@ -18,18 +18,18 @@ const LoginPage = ({ setToken }) => {
       }),
     })
       .then((res) => {
-        const badResponse = res.json();
+        const goodResponse = res.json();
         if (!res.ok) {
           throw new Error("Wrong Password");
         } else {
-          return badResponse;
+          return goodResponse;
         }
       })
       .then((res) => {
         setToken(res.accessToken);
         localStorage.setItem("token", res.accessToken);
       })
-      .catch((err) => {
+      .catch(() => {
         setWrongPassError("Bad input. Try again.");
       });
   };

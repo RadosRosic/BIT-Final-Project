@@ -51,7 +51,7 @@ const WizardButtons = () => {
         {wizardStep < 3 && (
           <Button
             name="Next"
-            disabled={candidateOrCompanySelected ? false : true}
+            disabled={!candidateOrCompanySelected}
             method={wizardNextStep}
             classes={`next-btn ${candidateOrCompanySelected ? "" : "disabled"}`}
           />
@@ -59,7 +59,7 @@ const WizardButtons = () => {
         {wizardStep === 3 && (
           <Button
             name="Submit"
-            disabled={allSelected ? false : true}
+            disabled={!allSelected}
             method={submitReport}
             classes={`next-btn ${allSelected ? "" : "disabled"}`}
           />
