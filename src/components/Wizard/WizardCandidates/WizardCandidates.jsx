@@ -5,15 +5,16 @@ import Search from "../../Search/Search";
 
 const WizardCandidates = ({ highlighted }) => {
   const { candidates } = useContext(applicationContext);
-  const { search, setSearch } = useContext(wizardContext);
-  const { selectedCandidate, setSelectedCandidate } = useContext(wizardContext);
+  const { search, setSearch, selectedCandidate, setSelectedCandidate } =
+    useContext(wizardContext);
 
   const selectCandidate = (id) => {
-    setSelectedCandidate(candidates.find((e) => e.id == id));
+    // es lint??
+    setSelectedCandidate(candidates.find((candidate) => candidate.id == id));
   };
-  
-  const filterAll = candidates.filter((e) =>
-    e.name?.toLowerCase().includes(search)
+
+  const filterAll = candidates.filter((candidate) =>
+    candidate.name?.toLowerCase().startsWith(search)
   );
   const searchThis = search ? filterAll : candidates;
 

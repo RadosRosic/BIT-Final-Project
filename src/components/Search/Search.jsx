@@ -1,6 +1,5 @@
 import React from "react";
 import "./Search.scss";
-import SearchIcon from "@mui/icons-material/Search";
 
 const Search = ({ onChange }) => {
   const handleChange = (e) => {
