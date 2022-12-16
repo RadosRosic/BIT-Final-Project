@@ -9,7 +9,7 @@ const WizardCandidates = ({ highlighted }) => {
     useContext(wizardContext);
 
   const selectCandidate = (id) => {
-    // es lint??
+    // eslint-disable-next-line
     setSelectedCandidate(candidates.find((candidate) => candidate.id == id));
   };
 
@@ -27,7 +27,6 @@ const WizardCandidates = ({ highlighted }) => {
             className={`wizard-candidate glass-effect-grey ${
               selectedCandidate.id == candidate.id ? highlighted : ""
             }`}
-            id={candidate.id}
             key={candidate.id}
             onClick={(event) => {
               event.stopPropagation();
