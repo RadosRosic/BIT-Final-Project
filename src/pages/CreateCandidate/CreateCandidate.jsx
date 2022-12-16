@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import { applicationContext } from "../../context";
-import "./CreateCandidate.scss";
+import { useNavigate } from "react-router-dom";
 import DatePicker from "../../components/DatePicker/DatePicker.jsx";
+import "./CreateCandidate.scss";
 
 const CreateCandidate = ({ token }) => {
   const { setValidData } = useContext(applicationContext);
@@ -11,6 +12,8 @@ const CreateCandidate = ({ token }) => {
   const [education, setEducation] = useState("");
   const [avatar, setAvatar] = useState("");
   const [isAdding, setIsAdding] = useState(false);
+
+  const navigate = useNavigate();
 
   function submitForm(e) {
     e.preventDefault();
@@ -29,6 +32,7 @@ const CreateCandidate = ({ token }) => {
     })
       .then((res) => res.json)
       .then(() => setValidData(false));
+    navigate("/candidates");
   }
 
   return (

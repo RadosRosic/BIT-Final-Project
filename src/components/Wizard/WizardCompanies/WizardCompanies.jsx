@@ -7,6 +7,7 @@ const WizardCompanies = ({ highlighted }) => {
   const { selectedCompany, setSelectedCompany, reportBody } =
     useContext(wizardContext);
   const selectCompany = (id) => {
+    // eslint-disable-next-line
     setSelectedCompany(companies.find((company) => company?.id == id));
   };
 
@@ -28,6 +29,7 @@ const WizardCompanies = ({ highlighted }) => {
       {filteredCompanies.map((company) => (
         <li
           className={`glass-effect ${
+            // eslint-disable-next-line
             selectedCompany.id == company.id ? highlighted : ""
           }`}
           id={company.id}
