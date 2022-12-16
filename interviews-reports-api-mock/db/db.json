@@ -1,0 +1,247 @@
+{
+  "companies": [
+    {
+      "id": 34149463,
+      "name": "Wintheiser - Padberg",
+      "email": "Carolina.Ryan@gmail.com"
+    },
+    {
+      "id": 11081915,
+      "name": "Krajcik Inc",
+      "email": "Miguel.Veum@yahoo.com"
+    },
+    {
+      "id": 41822931,
+      "name": "Leffler, Kulas and Schulist",
+      "email": "Genevieve.Flatley@yahoo.com"
+    },
+    {
+      "id": 35251209,
+      "name": "Konopelski - Romaguera",
+      "email": "Kian.Schimmel@gmail.com"
+    },
+    {
+      "id": 32220706,
+      "name": "Thompson, Grimes and Wolf",
+      "email": "Cayla.Kuphal54@yahoo.com"
+    },
+    {
+      "id": 92859858,
+      "name": "Volkman - Schimmel",
+      "email": "Kaci_Davis@yahoo.com"
+    },
+    {
+      "name": "Zastva",
+      "email": "test@test.com",
+      "id": 92859859
+    },
+    {
+      "name": "Acme",
+      "email": "email@example.com",
+      "id": 92859860
+    }
+  ],
+  "candidates": [
+    {
+      "id": 9451057,
+      "name": "Zula Feeney",
+      "birthday": "Tue Sep 12 2017 16:57:16 GMT+0200 (CEST)",
+      "email": "Mathew.Schultz6@yahoo.com",
+      "education": "Belgrade Institute of Technology",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    },
+    {
+      "name": "Mireya Beahan IV",
+      "birthday": "2017-02-27T04:26:30.000Z",
+      "email": "Armani_Goldner61@hotmail.com",
+      "education": "Belgrade Institute of Technology",
+      "avatar": "https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=686&q=80",
+      "id": 88648435
+    },
+    {
+      "id": 99087456,
+      "name": "Carolina Bahringer",
+      "birthday": "Fri Nov 17 2017 05:50:30 GMT+0100 (CET)",
+      "email": "Miller_Bauch@yahoo.com",
+      "education": "Belgrade Institute of Technology",
+      "avatar": "https://images.unsplash.com/photo-1614204424926-196a80bf0be8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    },
+    {
+      "id": 66318927,
+      "name": "Lourdes Kuhn",
+      "birthday": "Tue Aug 29 2017 04:35:15 GMT+0200 (CEST)",
+      "email": "Leonel33@gmail.com",
+      "education": "Faculty of Electrical Engineering",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    },
+    {
+      "id": 89091536,
+      "name": "Brennon Rolfson",
+      "birthday": "Mon Feb 06 2017 14:22:06 GMT+0100 (CET)",
+      "email": "Alexa_Veum@hotmail.com",
+      "education": "Belgrade Institute of Technology",
+      "avatar": "https://images.unsplash.com/photo-1596075780750-81249df16d19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+    },
+    {
+      "id": 6496882,
+      "name": "Jeanette Mohr",
+      "birthday": "Tue Dec 12 2017 11:33:07 GMT+0100 (CET)",
+      "email": "Joseph_Terry35@hotmail.com",
+      "education": "Belgrade Institute of Technology",
+      "avatar": "https://images.unsplash.com/photo-1542327897-d73f4005b533?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Njh8fHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+      "name": "Marina Boskovic",
+      "birthday": "1989-11-06T23:00:00.000Z",
+      "email": "marina@marina.com",
+      "education": "BIT",
+      "avatar": "https://avatars.githubusercontent.com/u/29120689?v=4",
+      "id": 99087462
+    },
+    {
+      "name": "Ivo Andric 2.0",
+      "birthday": "2022-12-01T11:28:51.000Z",
+      "email": "ivo@andric.com",
+      "education": "Gimnazija",
+      "avatar": "https://www.b92.net/news/pics/2016/10/10/92662107557fb90c80f91e557528171_700x525x00105.jpg",
+      "id": 99087463
+    },
+    {
+      "name": "Nikola Tesla",
+      "birthday": "2022-12-16T09:51:05.448Z",
+      "email": "dzonistruja@gmail.om",
+      "education": "Gimnazija",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/7/79/Tesla_circa_1890.jpeg",
+      "id": 99087464
+    },
+    {
+      "name": "Nikola Tesla",
+      "birthday": "2022-12-16T09:52:04.683Z",
+      "email": "dzonistruja@gmail.com",
+      "education": "BIT",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/7/79/Tesla_circa_1890.jpeg",
+      "id": 99087465
+    },
+    {
+      "name": "Keba Kraba",
+      "birthday": "2022-12-01T09:54:06.000Z",
+      "email": "crab@crab.com",
+      "education": "BIT",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMzvL6-OO0Z6oa4ZkEIGHncaQuXq4U8216AxDwKEFh6BNlwZhSzOEcpv74ObTTZbS2TT4&usqp=CAU",
+      "id": 99087466
+    },
+    {
+      "name": "Jovan Jovanovic Zmaj",
+      "birthday": "2022-12-01T10:59:20.000Z",
+      "email": "dragon@yahoo.com",
+      "education": "Gimnazija",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Uro%C5%A1_Predi%C4%87_-_Jovan_Jovanovi%C4%87_Zmaj%2C_GMS.png/200px-Uro%C5%A1_Predi%C4%87_-_Jovan_Jovanovi%C4%87_Zmaj%2C_GMS.png",
+      "id": 99087467
+    },
+    {
+      "name": "Nicolas Cage",
+      "birthday": "2022-09-27T10:05:25.000Z",
+      "email": "cage@gmail.com",
+      "education": "Harvard",
+      "avatar": "https://api.time.com/wp-content/uploads/2015/07/nicolas-cage1.jpg",
+      "id": 99087468
+    },
+    {
+      "name": "Marko Markovic",
+      "birthday": "2022-12-01T11:56:18.000Z",
+      "email": "marko@mark.com",
+      "education": "BIT",
+      "avatar": "https://ocdn.eu/pulscms-transforms/1/MPck9kpTURBXy84NzFlZTZkZDdhNGY1MjEwODU3MzhiMDQ0OTFmMTIwOC5qcGeSlQMAJM0HgM0EOJMFzQFjzQGV3gACoTABoTEA",
+      "id": 99087469
+    }
+  ],
+  "reports": [
+    {
+      "candidateId": 99087456,
+      "candidateName": "Carolina Bahringer",
+      "companyId": 92859858,
+      "companyName": "Volkman - Schimmel",
+      "interviewDate": "2022-11-30T23:00:00.000Z",
+      "phase": "CV",
+      "status": "passed",
+      "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet tristique metus. Praesent nulla ex, consectetur eu nunc tempor, sodales bibendum tellus. Cras dapibus magna at erat posuere, at ultrices quam interdum. Donec aliquet sollicitudin nulla, eu mollis lectus blandit ultrices. Phasellus massa diam, pharetra nec tortor eget, vulputate viverra massa. Curabitur in mi eu lorem fermentum efficitur. Duis vel ex id felis placerat.",
+      "id": 1
+    },
+    {
+      "candidateId": 99087456,
+      "candidateName": "Carolina Bahringer",
+      "companyId": 92859858,
+      "companyName": "Volkman - Schimmel",
+      "interviewDate": "2022-12-08T23:00:00.000Z",
+      "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet tristique metus. Praesent nulla ex, consectetur eu nunc tempor, sodales bibendum tellus. Cras dapibus magna at erat posuere, at ultrices quam interdum. Donec aliquet sollicitudin nulla, eu mollis lectus blandit ultrices. Phasellus massa diam, pharetra nec tortor eget, vulputate viverra massa. Curabitur in mi eu lorem fermentum efficitur. Duis vel ex id felis placerat.",
+      "phase": "HR",
+      "status": "passed",
+      "id": 2
+    },
+    {
+      "candidateId": 99087462,
+      "candidateName": "Marina Boskovic",
+      "companyId": 35251209,
+      "companyName": "Konopelski - Romaguera",
+      "interviewDate": "2022-11-30T23:00:00.000Z",
+      "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet tristique metus. Praesent nulla ex, consectetur eu nunc tempor, sodales bibendum tellus. Cras dapibus magna at erat posuere, at ultrices quam interdum. Donec aliquet sollicitudin nulla, eu mollis lectus blandit ultrices. Phasellus massa diam, pharetra nec tortor eget, vulputate viverra massa. Curabitur in mi eu lorem fermentum efficitur. Duis vel ex id felis placerat.",
+      "phase": "CV",
+      "status": "passed",
+      "id": 4
+    },
+    {
+      "candidateId": 89091536,
+      "candidateName": "Brennon Rolfson",
+      "companyId": 32220706,
+      "companyName": "Thompson, Grimes and Wolf",
+      "interviewDate": "2022-11-30T23:00:00.000Z",
+      "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet tristique metus. Praesent nulla ex, consectetur eu nunc tempor, sodales bibendum tellus. Cras dapibus magna at erat posuere, at ultrices quam interdum. Donec aliquet sollicitudin nulla, eu mollis lectus blandit ultrices. Phasellus massa diam, pharetra nec tortor eget, vulputate viverra massa. Curabitur in mi eu lorem fermentum efficitur. Duis vel ex id felis placerat.",
+      "phase": "CV",
+      "status": "declined",
+      "id": 5
+    },
+    {
+      "candidateId": 99087463,
+      "candidateName": "Ivo Andric 2.0",
+      "companyId": 32220706,
+      "companyName": "Thompson, Grimes and Wolf",
+      "interviewDate": "2022-12-06T23:00:00.000Z",
+      "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet tristique metus. Praesent nulla ex, consectetur eu nunc tempor, sodales bibendum tellus. Cras dapibus magna at erat posuere, at ultrices quam interdum. Donec aliquet sollicitudin nulla, eu mollis lectus blandit ultrices. Phasellus massa diam, pharetra nec tortor eget, vulputate viverra massa. Curabitur in mi eu lorem fermentum efficitur. Duis vel ex id felis placerat.",
+      "phase": "CV",
+      "status": "passed",
+      "id": 6
+    },
+    {
+      "candidateId": 99087463,
+      "candidateName": "Ivo Andric 2.0",
+      "companyId": 32220706,
+      "companyName": "Thompson, Grimes and Wolf",
+      "interviewDate": "2022-12-13T23:00:00.000Z",
+      "note": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet tristique metus. Praesent nulla ex, consectetur eu nunc tempor, sodales bibendum tellus. Cras dapibus magna at erat posuere, at ultrices quam interdum. Donec aliquet sollicitudin nulla, eu mollis lectus blandit ultrices. Phasellus massa diam, pharetra nec tortor eget, vulputate viverra massa. Curabitur in mi eu lorem fermentum efficitur. Duis vel ex id felis placerat.",
+      "phase": "HR",
+      "status": "declined",
+      "id": 7
+    },
+    {
+      "candidateId": 99087466,
+      "candidateName": "Keba Kraba",
+      "companyId": 11081915,
+      "companyName": "Krajcik Inc",
+      "interviewDate": "2022-11-27T23:00:00.000Z",
+      "phase": "CV",
+      "status": "passed",
+      "note": "a",
+      "id": 8
+    }
+  ],
+  "users": [
+    {
+      "email": "dev@dev.com",
+      "password": "$2a$10$Ht9ATCnB3LhyEpPg.c/GOuLzkMYD2WRPZ3ZtFVP.uVCrx.nW/rwVq",
+      "name": "Developer",
+      "surname": "Developeric",
+      "age": 404,
+      "id": 1
+    }
+  ]
+}
