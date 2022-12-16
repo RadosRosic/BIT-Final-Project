@@ -10,7 +10,7 @@ const WizardCandidates = ({ highlighted }) => {
 
   const selectCandidate = (id) => {
     // eslint-disable-next-line
-    setSelectedCandidate(candidates.find((candidate) => candidate.id == id));
+    setSelectedCandidate(candidates.find((candidate) => candidate?.id == id));
   };
 
   const filterAll = candidates.filter((candidate) =>
@@ -25,12 +25,13 @@ const WizardCandidates = ({ highlighted }) => {
         {searchThis.map((candidate) => (
           <div
             className={`wizard-candidate glass-effect-grey ${
-              selectedCandidate.id == candidate.id ? highlighted : ""
+              // eslint-disable-next-line
+              selectedCandidate?.id == candidate.id ? highlighted : ""
             }`}
             key={candidate.id}
             onClick={(event) => {
               event.stopPropagation();
-              selectCandidate(candidate.id);
+              selectCandidate(candidate?.id);
             }}
           >
             <div className="wizard-candidate-img-container">

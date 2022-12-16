@@ -7,7 +7,7 @@ const WizardCompanies = ({ highlighted }) => {
   const { selectedCompany, setSelectedCompany, reportBody } =
     useContext(wizardContext);
   const selectCompany = (id) => {
-    setSelectedCompany(companies.find((company) => company.id == id));
+    setSelectedCompany(companies.find((company) => company?.id == id));
   };
 
   const unwantedCompanies = reports
@@ -17,7 +17,7 @@ const WizardCompanies = ({ highlighted }) => {
         report.phase === "Final" &&
         report.status === "passed"
     )
-    .map((rep) => rep.companyId);
+    .map((report) => report.companyId);
 
   const filteredCompanies = companies.filter((company) => {
     return unwantedCompanies.indexOf(company.id) === -1;
@@ -34,7 +34,7 @@ const WizardCompanies = ({ highlighted }) => {
           key={company.id}
           onClick={(event) => {
             event.stopPropagation();
-            selectCompany(event.currentTarget.id);
+            selectCompany(company.id);
           }}
         >
           <p>{company.name}</p>

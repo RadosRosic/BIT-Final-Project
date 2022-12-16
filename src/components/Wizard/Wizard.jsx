@@ -16,8 +16,8 @@ const Wizard = ({
   setSearch,
 }) => {
   const { token, setValidData } = useContext(applicationContext);
-  const [selectedCandidate, setSelectedCandidate] = useState("");
-  const [selectedCompany, setSelectedCompany] = useState("");
+  const [selectedCandidate, setSelectedCandidate] = useState(null);
+  const [selectedCompany, setSelectedCompany] = useState(null);
   const [startDate, setStartDate] = useState("");
   const [interviewPhase, setInterviewPhase] = useState("");
   const [interviewStatus, setInterviewStatus] = useState("");
