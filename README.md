@@ -12,7 +12,7 @@ December 2022.
 
 If you are not using `npm` you can use `yarn` instead.
 
-> npm install
+> npm install\
 > npm start
 
 ### Connecting to DB
@@ -21,7 +21,7 @@ Go to `interviews-report-mock-api` folder.
 
 If you are not using `npm` you can use `yarn` instead.
 
-> npm install
+> npm install\
 > npm start
 
 For more info see `README.md` in `interviews-report-mock-api` folder.
@@ -32,8 +32,8 @@ Credits to Nenad Bugaric for the API.
 
 Login is not necessary, however without login parts of the application are offlimits, and only GET method is supported. Once logged in, POST, PUT, and DELETE can be used as well.
 
-> username: dev@dev.com
-> passwrod: developer
+> username: dev@dev.com\
+> passwrod: developer\
 
 To proceed without logging in simply click `Continue`.
 
