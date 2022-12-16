@@ -37,7 +37,7 @@ const Header = () => {
               <Link to="/reports">
                 <button>Reports</button>
               </Link>
-              <button className="create span-btn">
+              <button className="create">
                 Create
                 <div className="create-buttons-invisible">
                   <Link to="/reports/create-report">

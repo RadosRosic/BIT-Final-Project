@@ -13,9 +13,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
-  button,
-  .span-btn {
-    // to avoid button inside a button, since React throws an error
+  button {
     font-size: 16px;
     background-color: transparent;
     color: $very-bright-color;
