@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "./CreateCompanyPage.scss";
+import { applicationContext } from "../../context";
 
 const CreateCompanyPage = ({ token }) => {
+  const { setValidData } = useContext(applicationContext);
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [isAdding, setIsAdding] = useState(false);
@@ -17,14 +19,19 @@ const CreateCompanyPage = ({ token }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token.token}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(company),
     })
+      .then((res) => res.json())
+      .then(() => setValidData(false));
   }
 
   return (
-    <form className="create-company glass-effect-bright" onSubmit={submitCompanyForm}>
+    <form
+      className="create-company glass-effect-bright"
+      onSubmit={submitCompanyForm}
+    >
       <p>Create company:</p>
       <label>Company e-mail:</label>
       <input
