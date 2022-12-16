@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { applicationContext } from "../../context";
 import "./CreateCandidate.scss";
 import DatePicker from "../../components/DatePicker/DatePicker.jsx";
 
 const CreateCandidate = ({ token }) => {
+  const { setValidData } = useContext(applicationContext);
   const [name, setName] = useState("");
   const [birthday, setBirthday] = useState(new Date());
   const [email, setEmail] = useState("");
   const [education, setEducation] = useState("");
   const [avatar, setAvatar] = useState("");
   const [isAdding, setIsAdding] = useState(false);
-
 
   function submitForm(e) {
     e.preventDefault();
@@ -26,10 +27,15 @@ const CreateCandidate = ({ token }) => {
       },
       body: JSON.stringify(candidate),
     })
+      .then((res) => res.json)
+      .then(() => setValidData(false));
   }
 
   return (
-    <form className="create-candidate glass-effect-bright" onSubmit={submitForm}>
+    <form
+      className="create-candidate glass-effect-bright"
+      onSubmit={submitForm}
+    >
       <p>Create candidate:</p>
       <label> Name:</label>
       <input

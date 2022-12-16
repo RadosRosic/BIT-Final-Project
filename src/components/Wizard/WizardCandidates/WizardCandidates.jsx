@@ -31,7 +31,7 @@ const WizardCandidates = ({ highlighted }) => {
             key={candidate.id}
             onClick={(event) => {
               event.stopPropagation();
-              selectCandidate(event.currentTarget.id);
+              selectCandidate(candidate.id);
             }}
           >
             <div className="wizard-candidate-img-container">
