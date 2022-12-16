@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# M N N R
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+CRUD app for middleman between IT companies and IT experts. The application uses a localserver DB, but can be configured for a different backend.
 
-## Available Scripts
+## Created by
 
-In the project directory, you can run:
+Marija Mitrović, Nevena Petrović, Nemanja Nikolić, Radoš Rosić for final project at BIT.
 
-### `npm start`
+December 2022.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Getting started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+If you are not using `npm` you can use `yarn` instead.
 
-### `npm test`
+> npm install\
+> npm start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Connecting to DB
 
-### `npm run build`
+Go to `interviews-report-mock-api` folder.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you are not using `npm` you can use `yarn` instead.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+> npm install\
+> npm start
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+For more info see `README.md` in `interviews-report-mock-api` folder.
 
-### `npm run eject`
+Credits to Nenad Bugaric for the API.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Login
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Login is not necessary, however without login parts of the application are offlimits, and only GET method is supported. Once logged in, POST, PUT, and DELETE can be used as well.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+> username: dev@dev.com\
+> password: developer
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+To proceed without logging in simply click `Continue`.
 
-## Learn More
+### Viewing candidates
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+You do not need to be logged in to do this.
+Landing page with candidates cards will be displayed. Clicking on a signle candidate will show more info and available reports for selected candidate.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Creating report
 
-### Code Splitting
+You need to be logged in to do this.
+Click on `Create` -> `Create Report` or navigate to `/reports/create-report`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Select candidate
+2. Select company
+3. Select date, interview phase, interview status, write some notes
 
-### Analyzing the Bundle Size
+All fields are mandatory.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Next interview phase is dependent on previous one being marked as `passed`.
+Once the `final` phase has been marked as `passed`, the candidate cannot have any more interviews with said company.
 
-### Making a Progressive Web App
+### Deleting report
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+You need to be logged in to do this.
+Click on `Reports` or navigate to `/reports`.
 
-### Advanced Configuration
+On the right-hand side (⇨ ⇨ this way for Ana ⇨ ⇨) of reports list, you will see a trashcan icon. Once clicked you will be prompted to confirm deletion.
+Deleted report cannot be restored. Use with caution.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Due to interview phases dependancy on eachother, deleting a previous report will prevent you from creating next phase reports, until there is a valid report for the missing phase.
+For example, a candidate has passed `CV`, `HR`, and `Tech` phases at a company. Deleting `HR` report will prevent you from generating `Final` phase report until you post `HR` phase report again.
 
-### Deployment
+### Creating candidate
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+You need to be logged in to do this.
+Click on `Create` -> `Create Candidate` or navigate to `/reports/create-candidate`.
 
-### `npm run build` fails to minify
+All fields are mandatory.
+For best experince the image should be in portrait format.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Editing candidate
+
+You need to be logged in to do this.
+
+1. Click on `Candidates` or navigate to `/candidates`
+2. Click on a card of a candidate you wish to edit
+
+You will be redirected to edit candidate page. All field are mandatory. For best experince the image should be in portrait format.
+
+### Creating company
+
+You need to be logged in to do this.
+Click on `Create` -> `Create Company` or navigate to `reports/create-company`.
+
+All fields are mandatory.
