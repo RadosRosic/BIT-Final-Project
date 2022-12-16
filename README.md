@@ -33,7 +33,7 @@ Credits to Nenad Bugaric for the API.
 Login is not necessary, however without login parts of the application are offlimits, and only GET method is supported. Once logged in, POST, PUT, and DELETE can be used as well.
 
 > username: dev@dev.com\
-> passwrod: developer\
+> password: developer
 
 To proceed without logging in simply click `Continue`.
 
