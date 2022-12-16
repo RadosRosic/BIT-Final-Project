@@ -35,7 +35,7 @@ const WizardCandidates = ({ highlighted }) => {
             }}
           >
             <div className="wizard-candidate-img-container">
-              <img src={candidate.avatar} alt={`Image of ${candidate.name}`} />
+              <img src={candidate.avatar} alt={candidate.name} />
             </div>
             <div className="wizard-candidate-info-section">
               <h3>{candidate.name}</h3>
